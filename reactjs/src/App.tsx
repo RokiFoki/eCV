@@ -21,7 +21,7 @@ const App = () => (
         }}
       >
         <div className="logo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
           <Menu.Item key="1" icon={<UserOutlined />}>
             <Link to="/">About me</Link>
           </Menu.Item>
@@ -36,10 +36,10 @@ const App = () => (
           </Menu.Item>
         </Menu>
       </Sider>
-      <Content>
+      <Layout style={{marginLeft: 200, minHeight: '100vh'}}>
         <Switch>
           <Route exact path="/">
-            <Layout className="site-layout" style={{ marginLeft: 200 }}>
+            <Layout className="site-layout">
               <Header className="site-layout-background" style={{ padding: 0 }} />
               <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
                 <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
@@ -145,7 +145,7 @@ const App = () => (
         
           </Route>
           <Route path="/experience">
-            Experience
+            <Layout>Experience</Layout>
           </Route>
           <Route path="/skills">
             Skills
@@ -155,7 +155,7 @@ const App = () => (
           </Route>
           <Redirect to="/not-found"></Redirect>
         </Switch>
-      </Content>            
+      </Layout>     
     </Layout>
   </Router>
 );

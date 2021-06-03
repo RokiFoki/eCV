@@ -3,8 +3,8 @@ import styles from './SkillNode.module.scss';
 
 const SkillNode: React.FC = () => (
   <div className={styles.SkillNode}>
-    <button className="pushable">
-      <span className="front">
+    <button className={styles.pushable}>
+      <span className={styles.front}>
         Push me
       </span>
     </button>

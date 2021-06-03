@@ -99,6 +99,4 @@ const skills: ISkill[] = [{
     }]
 }]
 
-export default {
-    skills
-}
+export default skills

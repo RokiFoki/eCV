@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './Skills.module.scss';
 import skills, { ISkill } from '../Shared/skills-data';
 import SkillNode from './SkillNode/SkillNode';
-import { Select, Space } from 'antd';
+import { Space } from 'antd';
 
 function* levelGenerator(nodes: ISkillNode[]) {
   let nodes_iterator: ISkillNode[] | undefined = nodes;
@@ -44,6 +44,8 @@ const skillNodes = skills as ISkillNode[];
 
 const Skills: React.FC = () => {
   const [nodes, updateNodes] = useState([...levelGenerator(skillNodes)]);
+  const [svgCords, updateSvgCords] = useState<{[key: string]: {x: number, y: number, width: number, height: number}}>({});
+  const svgRef = useRef<SVGSVGElement>(null);
 
   function clearSelection(skill: ISkillNode) {
     for (const nodeRow of nodes) {
@@ -62,8 +64,44 @@ const Skills: React.FC = () => {
     updateNodes([...levelGenerator(skillNodes)]);
   }
 
+  function handleButton(name: string, el: HTMLButtonElement | null) {
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      const svgRect = svgRef.current?.getBoundingClientRect();
+      const oldCords = svgCords[name];
+      svgCords[name] = { 
+        x: rect.x - (svgRect?.x || 0), 
+        y: rect.y - (svgRect?.y || 0), 
+        width: rect.width, 
+        height: rect.height
+      };
+
+      if (JSON.stringify(oldCords) !== JSON.stringify(svgCords[name])) {
+        updateSvgCords({...svgCords});
+      }
+    } else {
+      console.log('trying to delete:', name);
+      if (svgCords[name]) {
+        console.log('its in the svgcords');
+        if (!nodes.some(nodesRow => !nodesRow.some(n => n.name === name))) {
+          console.log('its in the nodes');
+          delete svgCords[name];
+          updateSvgCords({...svgCords});
+        } else {
+          console.log(nodes);
+        }
+      }
+    }
+  }
+
   return (
     <div className={styles.Skills}>
+      <svg className={styles.svgContainer} ref={svgRef}>
+        {Object.keys(svgCords).map(name => { 
+          const cord = svgCords[name];
+          return (<rect x={cord.x} y={cord.y} width={cord.width} height={cord.height} key={name} style={{ stroke: "rgb(255,255,255)", strokeWidth: 2 }} />)
+        })}
+      </svg>
       {nodes.map(nodesRow => (
         <div key={nodesRow[0].level} style={{marginBottom: 50}}>
           <Space size="middle">
@@ -72,7 +110,9 @@ const Skills: React.FC = () => {
               onClick={() => selectNode(node)}
               name={node.name} 
               key={node.name}
-              class={node.selected ? 'selected' : node.children.length > 0 ? 'has-children' : ''}></SkillNode>))}
+              class={node.selected ? 'selected' : node.children.length > 0 ? 'has-children' : ''}
+              buttonRef={(el) => { handleButton(node.name, el) }}
+              ></SkillNode>))}
           </Space>
       </div>))}
     </div>

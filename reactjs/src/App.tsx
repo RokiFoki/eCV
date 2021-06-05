@@ -3,7 +3,7 @@ import { Layout, Menu, } from 'antd';
 import { UserOutlined, PhoneFilled } from '@ant-design/icons';
 import { BrowserRouter as Router, Link, Redirect, Route, Switch } from 'react-router-dom';
 
-import './App.css';
+import './App.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faChess } from '@fortawesome/free-solid-svg-icons'
 import AboutMe from './AboutMe/AboutMe.lazy';
@@ -40,7 +40,7 @@ const App = () => (
           </Menu.Item>
         </Menu>
       </Sider>
-      <Layout style={{marginLeft: 200, minHeight: '100vh'}}>
+      <Layout className="container">
         <Switch>
           <Route exact path="/">
             <AboutMe></AboutMe>

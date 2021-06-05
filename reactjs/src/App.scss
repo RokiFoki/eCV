@@ -1,4 +1,5 @@
 @import '~antd/dist/antd.css';
+@import './_variables.scss';
 
 
 #components-layout-demo-fixed-sider .logo {
@@ -8,4 +9,9 @@
 }
 .site-layout .site-layout-background {
   background: #fff;
+}
+
+.container {
+  margin-left: $sidenav-width;
+  min-height: 100vh;
 }

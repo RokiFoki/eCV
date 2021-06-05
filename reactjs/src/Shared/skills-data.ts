@@ -1,10 +1,15 @@
-export interface ISkill {
+export interface ISkillNoLevel {
     level?: number,
     name: string,
+    children: ISkillNoLevel[]
+}
+
+export interface ISkill extends ISkillNoLevel {
+    level: number,
     children: ISkill[]
 }
 
-const skills: ISkill[] = [{
+const skills: ISkillNoLevel[] = [{
     level: 0,
     name: 'Full Stack',
     children: [{
@@ -99,4 +104,16 @@ const skills: ISkill[] = [{
     }]
 }]
 
-export default skills
+const updateLevels = (data: ISkillNoLevel, level=1) => {
+    if (data.level === undefined) {
+        data.level = level;
+    };
+
+    for (const node of data.children) {
+        updateLevels(node, data.level+1);
+    }
+
+    return data as ISkill;
+}
+
+export default skills.map(skill => updateLevels(skill));

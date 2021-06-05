@@ -11,7 +11,7 @@ import Experience from './Experience/Experience.lazy';
 import Skills from './Skills/Skills.lazy';
 import Contact from './Contact/Contact.lazy';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Sider } = Layout;
 
 const App = () => (
   <Router>

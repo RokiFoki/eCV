@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import styles from './Skills.module.scss';
 import skills, { ISkill } from '../Shared/skills-data';
 import SkillNode from './SkillNode/SkillNode';
@@ -47,7 +47,7 @@ const Skills: React.FC = () => {
   const [svgCords, updateSvgCords] = useState<{[key: string]: {x: number, y: number, width: number, height: number}}>({});
   const svgRef = useRef<SVGSVGElement>(null);
 
-  function clearSelection(skill: ISkillNode) {
+  function updateSelection(skill: ISkillNode) {
     for (const nodeRow of nodes) {
       for (const node of nodeRow) {
         if (node === skill) {
@@ -60,12 +60,13 @@ const Skills: React.FC = () => {
   }
 
   function selectNode(skill: ISkillNode) {
-    clearSelection(skill);
+    updateSelection(skill);
     updateNodes([...levelGenerator(skillNodes)]);
   }
 
-  function handleButton(name: string, el: HTMLButtonElement | null) {
+  function handleNodeRef(name: string, el: HTMLButtonElement | null) {
     if (el) {
+      console.log('adding ', name);
       const rect = el.getBoundingClientRect();
       const svgRect = svgRef.current?.getBoundingClientRect();
       const oldCords = svgCords[name];
@@ -99,20 +100,21 @@ const Skills: React.FC = () => {
       <svg className={styles.svgContainer} ref={svgRef}>
         {Object.keys(svgCords).map(name => { 
           const cord = svgCords[name];
-          return (<rect x={cord.x} y={cord.y} width={cord.width} height={cord.height} key={name} style={{ stroke: "rgb(255,255,255)", strokeWidth: 2 }} />)
+          return (<rect x={cord.x} y={cord.y} width={cord.width} height={cord.height} key={name} 
+                        style={{ stroke: "rgb(255,255,255)", strokeWidth: 2 }} />)
         })}
       </svg>
       {nodes.map(nodesRow => (
         <div key={nodesRow[0].level} style={{marginBottom: 50}}>
           <Space size="middle">
             {nodesRow.map(node => (
-            <SkillNode
-              onClick={() => selectNode(node)}
-              name={node.name} 
-              key={node.name}
-              class={node.selected ? 'selected' : node.children.length > 0 ? 'has-children' : ''}
-              buttonRef={(el) => { handleButton(node.name, el) }}
-              ></SkillNode>))}
+              <SkillNode
+                onClick={() => selectNode(node)}
+                name={node.name} 
+                key={node.name}
+                class={node.selected ? 'selected' : node.children.length > 0 ? 'has-children' : ''}
+                nodeButtonRef={(el) => { handleNodeRef(node.name, el) }}
+                ></SkillNode>))}
           </Space>
       </div>))}
     </div>

@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './Skills.module.scss';
 import skills, { ISkill } from '../Shared/skills-data';
 import SkillNode from './SkillNode/SkillNode';

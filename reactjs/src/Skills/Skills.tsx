@@ -41,7 +41,8 @@ function nextLevel(nodes: ISkillNode[]) {
 }
 
 const skillNodes = skills as ISkillNode[];
-
+const nodesLevels = [...levelGenerator(skillNodes)];
+let shownNodes = nodesLevels.flat();
 const Skills: React.FC = () => {
   const [nodes, updateNodes] = useState([...levelGenerator(skillNodes)]);
   const [svgCords, updateSvgCords] = useState<{[key: string]: {x: number, y: number, width: number, height: number}}>({});
@@ -61,7 +62,9 @@ const Skills: React.FC = () => {
 
   function selectNode(skill: ISkillNode) {
     updateSelection(skill);
-    updateNodes([...levelGenerator(skillNodes)]);
+    const nodesLevels = [...levelGenerator(skillNodes)];
+    shownNodes = nodesLevels.flat();
+    updateNodes(nodesLevels);
   }
 
   function handleNodeRef(name: string, el: HTMLButtonElement | null) {
@@ -78,20 +81,21 @@ const Skills: React.FC = () => {
       };
 
       if (JSON.stringify(oldCords) !== JSON.stringify(svgCords[name])) {
-        console.log('svgCords', svgCords);
+        //console.log('svgCords', svgCords);
         updateSvgCords({...svgCords});
       }
     } else {
       //console.log('trying to delete:', name);
       if (svgCords[name]) {
         //console.log('its in the svgcords');
-        if (!nodes.some(nodesRow => !nodesRow.some(n => n.name === name))) {
-          //console.log('its in the nodes');
+        //if (!nodes.some(nodesRow => !nodesRow.some(n => n.name === name))) {
+        if (!shownNodes.some(node => node.name === name)) {
+          //console.log('its in the shownNodes - deleting', name);
           delete svgCords[name];
           updateSvgCords({...svgCords});
           //console.log('svgCords', svgCords);
         } else {
-          //console.log(nodes);
+          //console.log(shownNodes);
         }
       }
     }
@@ -113,6 +117,7 @@ const Skills: React.FC = () => {
                 const childBox = svgCords[child.name];
 
                 return parentBox && childBox && (<line style={{stroke:'gray', strokeWidth:2}}
+                  key={`${parent.name};${child.name}`}
                   x1={parentBox.x + parentBox.width/2} 
                   y1={parentBox.y + parentBox.height + 3}
                   x2={childBox.x + childBox.width/2}

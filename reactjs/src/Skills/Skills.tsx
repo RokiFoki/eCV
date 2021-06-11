@@ -66,7 +66,7 @@ const Skills: React.FC = () => {
 
   function handleNodeRef(name: string, el: HTMLButtonElement | null) {
     if (el) {
-      console.log('adding ', name);
+      //console.log('adding ', name);
       const rect = el.getBoundingClientRect();
       const svgRect = svgRef.current?.getBoundingClientRect();
       const oldCords = svgCords[name];
@@ -78,18 +78,20 @@ const Skills: React.FC = () => {
       };
 
       if (JSON.stringify(oldCords) !== JSON.stringify(svgCords[name])) {
+        console.log('svgCords', svgCords);
         updateSvgCords({...svgCords});
       }
     } else {
-      console.log('trying to delete:', name);
+      //console.log('trying to delete:', name);
       if (svgCords[name]) {
-        console.log('its in the svgcords');
+        //console.log('its in the svgcords');
         if (!nodes.some(nodesRow => !nodesRow.some(n => n.name === name))) {
-          console.log('its in the nodes');
+          //console.log('its in the nodes');
           delete svgCords[name];
           updateSvgCords({...svgCords});
+          //console.log('svgCords', svgCords);
         } else {
-          console.log(nodes);
+          //console.log(nodes);
         }
       }
     }
@@ -98,11 +100,26 @@ const Skills: React.FC = () => {
   return (
     <div className={styles.Skills}>
       <svg className={styles.svgContainer} ref={svgRef}>
-        {Object.keys(svgCords).map(name => { 
+        {/* {Object.keys(svgCords).map(name => { 
           const cord = svgCords[name];
           return (<rect x={cord.x} y={cord.y} width={cord.width} height={cord.height} key={name} 
                         style={{ stroke: "rgb(255,255,255)", strokeWidth: 2 }} />)
-        })}
+        })} */}
+        {
+          nodes.map(nodesRow => 
+            nodesRow.map(parent =>
+              parent.children.map(child => {
+                const parentBox = svgCords[parent.name];
+                const childBox = svgCords[child.name];
+
+                return parentBox && childBox && (<line style={{stroke:'gray', strokeWidth:2}}
+                  x1={parentBox.x + parentBox.width/2} 
+                  y1={parentBox.y + parentBox.height + 3}
+                  x2={childBox.x + childBox.width/2}
+                  y2={childBox.y} />)
+              })
+          ))
+        }
       </svg>
       {nodes.map(nodesRow => (
         <div key={nodesRow[0].level} style={{marginBottom: 50}}>

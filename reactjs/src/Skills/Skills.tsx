@@ -44,7 +44,7 @@ const skillNodes = skills as ISkillNode[];
 const nodesLevels = [...levelGenerator(skillNodes)];
 let shownNodes = nodesLevels.flat();
 const Skills: React.FC = () => {
-  const [nodes, updateNodes] = useState([...levelGenerator(skillNodes)]);
+  const [nodes, updateNodes] = useState(nodesLevels);
   const [svgCords, updateSvgCords] = useState<{[key: string]: {x: number, y: number, width: number, height: number}}>({});
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -135,6 +135,7 @@ const Skills: React.FC = () => {
                 name={node.name} 
                 key={node.name}
                 class={node.selected ? 'selected' : node.children.length > 0 ? 'has-children' : ''}
+                experience={node.experience}
                 nodeButtonRef={(el) => { handleNodeRef(node.name, el) }}
                 ></SkillNode>))}
           </Space>

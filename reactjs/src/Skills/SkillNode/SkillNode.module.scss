@@ -3,6 +3,15 @@
     $hover-animation: cubic-bezier(.3, .7, .4, 1.5);
     $click-time: 35ms;
     $button-radius: 12px;
+
+    $front-hover-y-offset: -9px;
+    $front-y-offset: -7px;
+    $front-active-y-offset: -3px;
+    
+    $shadow-hover-y-offset: 5px;
+    $shadow-y-offset: 4px;
+    $shadow-active-y-offset: 2px;
+
     .pushable {
         position: relative;
         background: transparent;
@@ -17,22 +26,22 @@
         }
 
         &:hover .front {
-            transform: translateY(-8px);
+            transform: translateY($front-hover-y-offset);
             transition: transform $hover-time $hover-animation;
         }
 
         &:hover .shadow {
-            transform: translateY(4px);
+            transform: translateY($shadow-hover-y-offset);
             transition: transform $hover-time $hover-animation;
         }
 
         &:active .shadow {
-            transform: translateY(2px);
+            transform: translateY(shadow-active-y-offset);
             transition: transform $click-time;
         }
 
         &:active .front {
-            transform: translateY(-2px);
+            transform: translateY($front-active-y-offset);
             transition: transform $click-time;
         }
     }
@@ -45,7 +54,7 @@
        height: 100%;
        border-radius: $button-radius;
        background: rgba(0, 0, 0, 0.25);
-       transform: translateY(3px);
+       transform: translateY($shadow-y-offset);
        filter: blur(4px);
     }
 
@@ -75,7 +84,7 @@
         font-size: 1rem;
         color: white;
         background: hsl(32deg, 100%, 30%);
-        transform: translateY(-6px);
+        transform: translateY($front-y-offset);
         transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
 
         &.selected {

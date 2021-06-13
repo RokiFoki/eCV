@@ -133,7 +133,8 @@ const AboutMe: React.FC = () => {
         <Option value="Hourly">Hourly</Option>
       </Select>
       <section className={styles.salarySection}>
-        <Slider min={convertAmount(annualSalaryMin, currency, paymentType)} max={convertAmount(annualSalaryMax, currency, paymentType)} style={{flexGrow: 1}}
+        <Slider min={convertAmount(annualSalaryMin, currency, paymentType)} max={convertAmount(annualSalaryMax, currency, paymentType)} 
+          style={{flexGrow: 1, marginRight: 10}}
           onChange={(value) => updateSalary(value)}
           value={salary} />
         <Select value={currency} onChange={selectCurrency}>

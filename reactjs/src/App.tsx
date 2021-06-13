@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Menu, } from 'antd';
 import { UserOutlined, PhoneFilled } from '@ant-design/icons';
-import { BrowserRouter as Router, Link, Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Redirect, Route, Switch, useLocation, withRouter } from 'react-router-dom';
 
 import './App.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,8 +13,8 @@ import Contact from './Contact/Contact.lazy';
 
 const { Sider } = Layout;
 
-const SideNavbarContent = () => {
-  const path = useLocation().pathname;
+const SideNavbarContent = withRouter((props) => {
+  const path = props.location.pathname;
   let selectionKey = '1';
   if (path.startsWith('/experience'))  {
     selectionKey = '2';
@@ -26,7 +26,7 @@ const SideNavbarContent = () => {
   return (
     <React.Fragment>
       <div className="logo" />
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={[selectionKey]}>
+      <Menu theme="dark" mode="inline" selectedKeys={[selectionKey]}>
         <Menu.Item key="1" icon={<UserOutlined />}>
           <Link to="/">About me</Link>
         </Menu.Item>
@@ -42,7 +42,7 @@ const SideNavbarContent = () => {
       </Menu>
     </React.Fragment>
   )
-}
+})
 
 
 const App = () => {

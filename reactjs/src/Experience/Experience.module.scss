@@ -1,1 +1,11 @@
-.Experience {}
+@import '../variables';
+
+.Experience {
+    padding: $layout-padding;   
+    .title {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+
+}

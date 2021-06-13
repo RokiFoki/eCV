@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './AboutMe.module.scss';
 import profile from '../Content/profil.jpeg';
 import { Link } from 'react-router-dom';
-import { InputNumber, Select, Slider, Tooltip, Typography } from 'antd';
+import { InputNumber, PageHeader, Select, Slider, Tooltip, Typography } from 'antd';
 import { DislikeOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
 const { Title, Paragraph, Text } = Typography;
 const { Option } = Select;
@@ -88,9 +88,8 @@ const AboutMe: React.FC = () => {
 
   return (
   <div className={styles.AboutMe}>
-    <Typography className={styles.title}>
-      <Title>About me</Title>
-    </Typography>
+    <PageHeader title="About me" className={styles.title} />
+    
     <section className={styles.bioContainer}>
       <img src={profile} className={styles.profileImage} alt="Roko Krstulovic's photo"></img>
       <Typography className={styles.bio}>
@@ -116,9 +115,7 @@ const AboutMe: React.FC = () => {
     
 
     <Typography className={`${styles.salaryExpectation}`}>
-      <Title style={{textAlign: 'center'}}>
-        Hire me?
-      </Title>
+      <PageHeader title="Hire me?" className={styles.title} />
       <Paragraph>
         Are you considering to hire me but you are still not sure? <Link to="/contact"> Lets have a chat!</Link> 
       </Paragraph>      

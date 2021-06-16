@@ -13,7 +13,8 @@
 
 .container {
   margin-left: $sidenav-width;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: auto;
 }
 
 pre {

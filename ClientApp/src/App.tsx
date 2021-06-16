@@ -48,7 +48,7 @@ const SideNavbarContent = withRouter((props) => {
 const App = () => {
   return (
   <Router>
-    <Layout>
+    <Layout style={{height: '100vh', width: '100vw'}}>
       <Sider id="components-layout-demo-fixed-sider"
         style={{
           overflow: 'auto',

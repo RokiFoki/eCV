@@ -2,8 +2,7 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
 RUN apt-get update
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
@@ -25,4 +24,4 @@ RUN dotnet publish "eCv.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "eCv.dll"]
+ENTRYPOINT ["dotnet", "eCv.dll", "--urls=http://0.0.0.0:8080"]

@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import styles from './Skills.module.scss';
 import skills, { ISkill } from '../Shared/skills-data';
 import SkillNode from './SkillNode/SkillNode';
-import { Space } from 'antd';
+import { PageHeader, Space } from 'antd';
 
 function* levelGenerator(nodes: ISkillNode[]) {
   let nodes_iterator: ISkillNode[] | undefined = nodes;
@@ -103,6 +103,7 @@ const Skills: React.FC = () => {
 
   return (
     <div className={styles.Skills}>
+      <PageHeader title="Skills" className={styles.title} />
       <svg className={styles.svgContainer} ref={svgRef}>
         {/* {Object.keys(svgCords).map(name => { 
           const cord = svgCords[name];

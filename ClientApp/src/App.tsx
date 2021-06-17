@@ -1,19 +1,26 @@
-import React from 'react';
-import { Layout, Menu, } from 'antd';
-import { UserOutlined, PhoneFilled } from '@ant-design/icons';
-import { BrowserRouter as Router, Link, Redirect, Route, Switch, useLocation, withRouter } from 'react-router-dom';
+import React, { useRef, useState } from 'react';
+import { Button, Layout, Menu, } from 'antd';
+import { UserOutlined, PhoneFilled, MenuOutlined } from '@ant-design/icons';
+import { BrowserRouter as Router, Link, Redirect, Route, RouteComponentProps, Switch, useLocation, withRouter } from 'react-router-dom';
 
-import './App.scss';
+import './Global.scss';
+import styles from './App.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faChess } from '@fortawesome/free-solid-svg-icons'
 import AboutMe from './AboutMe/AboutMe.lazy';
 import Experience from './Experience/Experience.lazy';
 import Skills from './Skills/Skills.lazy';
 import Contact from './Contact/Contact.lazy';
+import { useOutsideAlerter } from './Shared/utils';
+
 
 const { Sider } = Layout;
 
-const SideNavbarContent = withRouter((props) => {
+interface SideNavbarContentProps extends RouteComponentProps<any> {
+  onClick?: () => void;
+}
+
+const SideNavbarContent = withRouter((props: SideNavbarContentProps) => {
   const path = props.location.pathname;
   let selectionKey = '1';
   if (path.startsWith('/experience'))  {
@@ -27,16 +34,16 @@ const SideNavbarContent = withRouter((props) => {
     <React.Fragment>
       <div className="logo" />
       <Menu theme="dark" mode="inline" selectedKeys={[selectionKey]}>
-        <Menu.Item key="1" icon={<UserOutlined />}>
+        <Menu.Item key="1" icon={<UserOutlined />} onClick={props.onClick}>
           <Link to="/">About me</Link>
         </Menu.Item>
-        <Menu.Item key="2" icon={<FontAwesomeIcon icon={faBook} />}>
+        <Menu.Item key="2" icon={<FontAwesomeIcon icon={faBook} />} onClick={props.onClick}>
           <Link to="/experience">Experience</Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<FontAwesomeIcon icon={faChess} />}>
+        <Menu.Item key="3" icon={<FontAwesomeIcon icon={faChess} />} onClick={props.onClick}>
           <Link to="/skills">Skills</Link>
         </Menu.Item>
-        <Menu.Item key="4" icon={<PhoneFilled />}>
+        <Menu.Item key="4" icon={<PhoneFilled />} onClick={props.onClick}>
           <Link to="/contact">Contact</Link>
         </Menu.Item>
       </Menu>
@@ -44,22 +51,27 @@ const SideNavbarContent = withRouter((props) => {
   )
 })
 
-
 const App = () => {
+  const [sidenavCollapsed, setSidenavCollapsed] = useState(false);
+  const ref = useRef(null);
+  useOutsideAlerter(ref, () => {
+    setSidenavCollapsed(true);
+  })
+
   return (
   <Router>
     <Layout style={{height: '100vh', width: '100vw'}}>
       <Sider id="components-layout-demo-fixed-sider"
-        style={{
-          overflow: 'auto',
-          height: '100vh',
-          position: 'fixed',
-          left: 0,
-        }}
+        className={`${styles.Sider} ${sidenavCollapsed ? styles.Collapsed : ''}`}
+        ref={ref}
       >
-        <SideNavbarContent></SideNavbarContent>
+        <SideNavbarContent onClick={() => setSidenavCollapsed(true)}></SideNavbarContent>
       </Sider>
-      <Layout className="container">
+      <Layout className={styles.Container}>
+        { !!sidenavCollapsed && 
+          <Button type="primary" size="large" icon={<MenuOutlined />} shape="circle"
+            className={styles.MenuButton}
+            onClick={() => setSidenavCollapsed(false) }></Button>}
         <Switch>
           <Route exact path="/">
             <AboutMe></AboutMe>

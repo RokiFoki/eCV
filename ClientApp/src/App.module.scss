@@ -1,0 +1,43 @@
+@import './variables';
+
+$transition-duration: 0.5s;
+.Sider {
+    overflow: auto;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    transition: transform $transition-duration;
+    z-index: $side-nav-z-index;
+    width: $sidenav-width;
+}
+
+.MenuButton {
+    top: 15px;
+    left: 15px;
+    position: fixed;
+    z-index: $menu-button-z-index;
+    display: none;
+}
+
+.Container {
+    height: 100vh;
+    overflow: auto;
+    margin-left: $sidenav-width;
+    transition: margin $transition-duration;
+}
+  
+
+
+@media (max-width:600px) {
+    .Collapsed {
+        transform: translateX(-200px);
+    }
+
+    .Collapsed + .Container {
+       margin-left: 0;
+    }
+
+    .MenuButton {
+        display: block;
+    }
+}

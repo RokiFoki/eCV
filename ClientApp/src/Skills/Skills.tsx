@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './Skills.module.scss';
 import skills, { ISkill } from '../Shared/skills-data';
 import SkillNode from './SkillNode/SkillNode';
 import { PageHeader, Space } from 'antd';
 
+const animationTimeMs = 400;
 function* levelGenerator(nodes: ISkillNode[]) {
   let nodes_iterator: ISkillNode[] | undefined = nodes;
 
@@ -43,10 +44,17 @@ function nextLevel(nodes: ISkillNode[]) {
 const skillNodes = skills as ISkillNode[];
 const nodesLevels = [...levelGenerator(skillNodes)];
 let shownNodes = nodesLevels.flat();
-const Skills: React.FC = () => {
+const Skills = (props: SkillsProps): JSX.Element => {
   const [nodes, updateNodes] = useState(nodesLevels);
   const [svgCords, updateSvgCords] = useState<{[key: string]: {x: number, y: number, width: number, height: number}}>({});
   const svgRef = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    for (let i = 100; i <= animationTimeMs+100; i+= 100)
+      setTimeout(() => {
+        updateNodes([...nodes]);
+      }, i);   
+  }, [props.redraw])
 
   function updateSelection(skill: ISkillNode) {
     for (const nodeRow of nodes) {
@@ -128,7 +136,7 @@ const Skills: React.FC = () => {
         }
       </svg>
       {nodes.map(nodesRow => (
-        <div key={nodesRow[0].level} style={{marginBottom: 50}}>
+        <div key={nodesRow[0].level} style={{marginBottom: 50, display: 'flex', justifyContent: 'center'}}>
           <Space size="middle">
             {nodesRow.map(node => (
               <SkillNode
@@ -151,3 +159,7 @@ interface ISkillNode extends ISkill {
 }
 
 export default Skills;
+
+export interface SkillsProps {
+  redraw: number;
+}

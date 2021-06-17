@@ -53,9 +53,14 @@ const SideNavbarContent = withRouter((props: SideNavbarContentProps) => {
 
 const App = () => {
   const [sidenavCollapsed, setSidenavCollapsed] = useState(false);
+  const [redrawSkillsTime, setRedrawSkillsTime] = useState(+new Date());
+  const updateCollapsed = (collapsed: boolean) => {
+    setRedrawSkillsTime(+new Date());
+    setSidenavCollapsed(collapsed);
+  }
   const ref = useRef(null);
   useOutsideAlerter(ref, () => {
-    setSidenavCollapsed(true);
+    updateCollapsed(true);
   })
 
   return (
@@ -65,13 +70,13 @@ const App = () => {
         className={`${styles.Sider} ${sidenavCollapsed ? styles.Collapsed : ''}`}
         ref={ref}
       >
-        <SideNavbarContent onClick={() => setSidenavCollapsed(true)}></SideNavbarContent>
+        <SideNavbarContent onClick={() => updateCollapsed(true)}></SideNavbarContent>
       </Sider>
       <Layout className={styles.Container}>
         { !!sidenavCollapsed && 
           <Button type="primary" size="large" icon={<MenuOutlined />} shape="circle"
             className={styles.MenuButton}
-            onClick={() => setSidenavCollapsed(false) }></Button>}
+            onClick={() => updateCollapsed(false) }></Button>}
         <Switch>
           <Route exact path="/">
             <AboutMe></AboutMe>
@@ -80,7 +85,7 @@ const App = () => {
             <Experience></Experience>
           </Route>
           <Route path="/skills">
-            <Skills></Skills>
+            <Skills redraw={redrawSkillsTime}></Skills>
           </Route>
           <Route path="/contact">
             <Contact></Contact>

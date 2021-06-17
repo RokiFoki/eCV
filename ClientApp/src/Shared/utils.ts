@@ -9,8 +9,10 @@ export function useOutsideAlerter(ref: any, callback: any) {
         }
 
         document.addEventListener('mousedown', hadleClickOutside);
+        document.addEventListener('touchstart', hadleClickOutside)
         return () => {
             document.removeEventListener('mousedown', hadleClickOutside);
+            document.removeEventListener('touchstart', hadleClickOutside);
         }
     }, [ref]);
 }

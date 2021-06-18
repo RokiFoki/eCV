@@ -47,12 +47,14 @@ let shownNodes = nodesLevels.flat();
 const Skills = (props: SkillsProps): JSX.Element => {
   const [nodes, updateNodes] = useState(nodesLevels);
   const [svgCords, updateSvgCords] = useState<{[key: string]: {x: number, y: number, width: number, height: number}}>({});
+  const [redraw, updateRedraw] = useState(+new Date())
   const svgRef = useRef<SVGSVGElement>(null);
+  const nodeBoxRefs: any = useRef<any>({});
 
   useEffect(() => {
     for (let i = 100; i <= animationTimeMs+100; i+= 100)
       setTimeout(() => {
-        updateNodes([...nodes]);
+        updateRedraw(+new Date());
       }, i);   
   }, [props.redraw])
 
@@ -120,8 +122,8 @@ const Skills = (props: SkillsProps): JSX.Element => {
         })} */}
         {
           nodes.map(nodesRow => 
-            nodesRow.map(parent =>
-              parent.children.map(child => {
+            nodesRow.filter(p => shownNodes.some(node => node.name === p.name)).map(parent =>
+              parent.children.filter(c => shownNodes.some(node => node.name === c.name)).map(child => {
                 const parentBox = svgCords[parent.name];
                 const childBox = svgCords[child.name];
 
@@ -146,6 +148,7 @@ const Skills = (props: SkillsProps): JSX.Element => {
                 class={node.selected ? 'selected' : node.children.length > 0 ? 'has-children' : ''}
                 experience={node.experience}
                 nodeButtonRef={(el) => { handleNodeRef(node.name, el) }}
+                redraw={redraw}
                 ></SkillNode>))}
           </Space>
       </div>))}

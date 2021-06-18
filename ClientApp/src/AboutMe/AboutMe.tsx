@@ -4,7 +4,7 @@ import profile from '../Content/profil.jpeg';
 import { Link } from 'react-router-dom';
 import { InputNumber, PageHeader, Select, Slider, Tooltip, Typography } from 'antd';
 import { DislikeOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
-const { Title, Paragraph, Text } = Typography;
+const { Paragraph, Text } = Typography;
 const { Option } = Select;
 
 type Currency =  '$' | '€' | '£';
@@ -91,7 +91,7 @@ const AboutMe: React.FC = () => {
     <PageHeader title="About me" className="page-title" />
     
     <section className={styles.bioContainer}>
-      <img src={profile} className={styles.profileImage} alt="Roko Krstulovic's photo"></img>
+      <img src={profile} className={styles.profileImage} alt="Roko Krstulovic"></img>
       <Typography className={styles.bio}>
         <Paragraph>      
           Hey reader!

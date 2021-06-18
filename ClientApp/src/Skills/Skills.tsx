@@ -22,12 +22,8 @@ function* levelGenerator(nodes: ISkillNode[]) {
     yield nodes_iterator;
   }
 
-  while(nodes_iterator = nextLevel(nodes_iterator)) {
-    if (nodes_iterator.length > 0) {
-      yield nodes_iterator; 
-    } else {
-      break;
-    }
+  for (nodes_iterator=nextLevel(nodes_iterator); nodes_iterator && nodes_iterator.length > 0; nodes_iterator=nextLevel(nodes_iterator)) {
+    yield nodes_iterator;
   }
 }
 
@@ -49,7 +45,6 @@ const Skills = (props: SkillsProps): JSX.Element => {
   const [svgCords, updateSvgCords] = useState<{[key: string]: {x: number, y: number, width: number, height: number}}>({});
   const [redraw, updateRedraw] = useState(+new Date())
   const svgRef = useRef<SVGSVGElement>(null);
-  const nodeBoxRefs: any = useRef<any>({});
 
   useEffect(() => {
     for (let i = 100; i <= animationTimeMs+100; i+= 100)
@@ -79,7 +74,6 @@ const Skills = (props: SkillsProps): JSX.Element => {
 
   function handleNodeRef(name: string, el: HTMLButtonElement | null) {
     if (el) {
-      //console.log('adding ', name);
       const rect = el.getBoundingClientRect();
       const svgRect = svgRef.current?.getBoundingClientRect();
       const oldCords = svgCords[name];
@@ -91,21 +85,13 @@ const Skills = (props: SkillsProps): JSX.Element => {
       };
 
       if (JSON.stringify(oldCords) !== JSON.stringify(svgCords[name])) {
-        //console.log('svgCords', svgCords);
         updateSvgCords({...svgCords});
       }
     } else {
-      //console.log('trying to delete:', name);
       if (svgCords[name]) {
-        //console.log('its in the svgcords');
-        //if (!nodes.some(nodesRow => !nodesRow.some(n => n.name === name))) {
         if (!shownNodes.some(node => node.name === name)) {
-          //console.log('its in the shownNodes - deleting', name);
           delete svgCords[name];
           updateSvgCords({...svgCords});
-          //console.log('svgCords', svgCords);
-        } else {
-          //console.log(shownNodes);
         }
       }
     }
@@ -115,11 +101,6 @@ const Skills = (props: SkillsProps): JSX.Element => {
     <div className={styles.Skills}>
       <PageHeader title="Skills" className='page-title' />
       <svg className={styles.svgContainer} ref={svgRef}>
-        {/* {Object.keys(svgCords).map(name => { 
-          const cord = svgCords[name];
-          return (<rect x={cord.x} y={cord.y} width={cord.width} height={cord.height} key={name} 
-                        style={{ stroke: "rgb(255,255,255)", strokeWidth: 2 }} />)
-        })} */}
         {
           nodes.map(nodesRow => 
             nodesRow.filter(p => shownNodes.some(node => node.name === p.name)).map(parent =>

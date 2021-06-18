@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Button, Layout, Menu, } from 'antd';
 import { UserOutlined, PhoneFilled, MenuOutlined } from '@ant-design/icons';
-import { BrowserRouter as Router, Link, Redirect, Route, RouteComponentProps, Switch, useLocation, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Redirect, Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
 
 import './Global.scss';
 import styles from './App.module.scss';

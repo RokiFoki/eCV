@@ -9,6 +9,7 @@ const layout = {
   wrapperCol: { span: 20 },
 };
 
+/* eslint-disable no-template-curly-in-string */
 const validateMessages = {
   required: '${label} is required!',
   types: {

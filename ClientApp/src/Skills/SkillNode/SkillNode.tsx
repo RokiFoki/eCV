@@ -1,5 +1,5 @@
 import { Progress } from 'antd';
-import React, { useRef } from 'react';
+import React from 'react';
 import styles from './SkillNode.module.scss';
 
 const red = 'rgb(204, 0, 0)';
@@ -9,10 +9,6 @@ const green = 'rgb(51, 204, 51)';
 
 class SkillNode extends React.Component<SkillNodeProps> 
 {
-  constructor(props: SkillNodeProps) {
-    super(props);
-  }
-
   render() {
     return (
     <span className={`${styles.SkillNode} ${this.props.class && styles[this.props.class]}`}>

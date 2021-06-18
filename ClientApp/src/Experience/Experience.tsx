@@ -1,7 +1,7 @@
 import { PageHeader, Row, Timeline, Typography, Col } from 'antd';
 import React from 'react';
 import styles from './Experience.module.scss';
-const { Title, Text, Paragraph } = Typography;
+const { Text, Paragraph } = Typography;
 
 const Experience: React.FC = () => (
   <div className={styles.Experience}>

@@ -38,7 +38,8 @@ class SkillNode extends React.Component<SkillNodeProps>
   }
 
   shouldComponentUpdate(nextProps: SkillNodeProps, nextState: any) {
-    return nextProps.redraw !== this.props.redraw;
+    return nextProps.redraw !== this.props.redraw || 
+      nextProps.class !== this.props.class;
   }
 }
 

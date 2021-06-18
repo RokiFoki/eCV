@@ -88,7 +88,7 @@ const AboutMe: React.FC = () => {
 
   return (
   <div className={styles.AboutMe}>
-    <PageHeader title="About me" className={styles.title} />
+    <PageHeader title="About me" className="page-title" />
     
     <section className={styles.bioContainer}>
       <img src={profile} className={styles.profileImage} alt="Roko Krstulovic's photo"></img>
@@ -115,7 +115,7 @@ const AboutMe: React.FC = () => {
     
 
     <Typography className={`${styles.salaryExpectation}`}>
-      <PageHeader title="Hire me?" className={styles.title} />
+      <PageHeader title="Hire me?" className="page-title" />
       <Paragraph>
         Are you considering to hire me but you are still not sure? <Link to="/contact"> Lets have a chat!</Link> 
       </Paragraph>      

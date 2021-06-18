@@ -18,3 +18,9 @@ pre {
 .ant-layout {
   background-color: hsl(240, 20%, 90%);
 }
+
+.page-title {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}

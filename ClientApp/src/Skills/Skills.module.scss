@@ -4,12 +4,6 @@
     padding: $layout-padding;
     padding-top: $layout-padding + 8px;
     position: relative;
-
-    .title {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-    }
 }
 
 .svgContainer {

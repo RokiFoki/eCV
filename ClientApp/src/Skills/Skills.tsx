@@ -113,7 +113,7 @@ const Skills = (props: SkillsProps): JSX.Element => {
 
   return (
     <div className={styles.Skills}>
-      <PageHeader title="Skills" className={styles.title} />
+      <PageHeader title="Skills" className='page-title' />
       <svg className={styles.svgContainer} ref={svgRef}>
         {/* {Object.keys(svgCords).map(name => { 
           const cord = svgCords[name];

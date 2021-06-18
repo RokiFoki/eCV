@@ -1,1 +1,13 @@
-.Contact {}
+@import '../variables';
+
+.Contact {
+    padding: $layout-padding;
+
+    .Content {
+        max-width: 800px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

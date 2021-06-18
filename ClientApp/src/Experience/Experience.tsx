@@ -5,7 +5,7 @@ const { Title, Text, Paragraph } = Typography;
 
 const Experience: React.FC = () => (
   <div className={styles.Experience}>
-    <PageHeader title="Experience" className={styles.title} />
+    <PageHeader title="Experience" className="page-title" />
     <Timeline style={{maxWidth: 900, margin: 'auto'}}>
       <Timeline.Item>
         <Typography>            

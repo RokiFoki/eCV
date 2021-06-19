@@ -1,3 +1,4 @@
+using eCv.ConfigurationModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,9 @@ namespace eCv
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddHttpClient();
+            services.Configure<CurrencyConfiguration>(Configuration.GetSection("Currency"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

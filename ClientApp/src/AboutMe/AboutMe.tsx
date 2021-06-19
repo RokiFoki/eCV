@@ -17,10 +17,11 @@ const defaultSalary = 65000;
 
 let usdEur = 1;
 let usdGbp = 1;
-fetch(`https://free.currconv.com/api/v7/convert?q=USD_EUR&compact=ultra&apiKey=d84448d0b2f334d9937d`)
-.then(async data => usdEur = (await data.json()).USD_EUR); // move this to server
-fetch(`https://free.currconv.com/api/v7/convert?q=USD_GBP&compact=ultra&apiKey=d84448d0b2f334d9937d`)
-.then(async data => usdGbp = (await data.json()).USD_GBP); // move this to server
+fetch(`/api/salary/currency-rates`).then(async response => response.json())
+  .then(data => { 
+  usdEur = data.usdToEur;
+  usdGbp = data.usdToGbp;
+});
 const workingDays = 365 * 5 / 7;
 
 

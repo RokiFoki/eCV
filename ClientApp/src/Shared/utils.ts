@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-export function useOutsideAlerter(ref: any, callback: any) {
+export function useOutsideAlerter(ref: any, callback: Function) {
     useEffect(() => {
         function hadleClickOutside(event: any) {
             if (ref.current && !ref.current.contains(event.target)) {
@@ -15,4 +15,25 @@ export function useOutsideAlerter(ref: any, callback: any) {
             document.removeEventListener('touchstart', hadleClickOutside);
         }
     }, [ref]);
+}
+
+
+export function useMediaQuery(query: string) {
+    const [matches, setMatches] = useState(false);
+    
+    useEffect(() => {
+        const media = window.matchMedia(query);
+        if (media.matches !== matches) {
+            setMatches(media.matches);
+        }
+
+        const listener = (ev: MediaQueryListEvent): any => {
+            setMatches(ev.matches);
+        }
+        media.addEventListener('change', listener);
+
+        return () => media.removeEventListener('change', listener);
+    }, [query]);
+
+    return matches;
 }

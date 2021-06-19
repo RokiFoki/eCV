@@ -2,12 +2,8 @@ import React from 'react';
 import styles from './Contact.module.scss';
 
 import { Form, Input, Button, PageHeader, Typography } from 'antd';
+import { useMediaQuery } from '../Shared/utils';
 const { Paragraph, Title } = Typography;
-
-const layout = {
-  labelCol: { span: 4 },
-  wrapperCol: { span: 20 },
-};
 
 /* eslint-disable no-template-curly-in-string */
 const validateMessages = {
@@ -22,6 +18,15 @@ const Contact: React.FC = () => {
     console.log(values);
   };
 
+  const matches = useMediaQuery('(max-width: 600px)');
+  
+  const formLayoutData = matches ? null : {
+    labelCol: { span: 4 },
+    wrapperCol: { span: 20 },
+  }; 
+
+  const layout = matches ? 'vertical' : undefined;
+
   return (
   <div className={styles.Contact}>
     <PageHeader title="Contact (Form not working yet)" className="page-title" />
@@ -32,7 +37,7 @@ const Contact: React.FC = () => {
           Please fill in the form below and I try to reply within 24 hours. 
         </Paragraph>
       </Typography>
-      <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages} className={styles.Form}>
+      <Form {...formLayoutData} layout={layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages} className={styles.Form}>
         <Form.Item name={['user', 'name']} label="Name" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
@@ -43,9 +48,9 @@ const Contact: React.FC = () => {
         <Form.Item name={['user', 'message']} label="Message" rules={[{ required: true}]}>
           <Input.TextArea rows={4} />
         </Form.Item>
-        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-          <Button type="primary" htmlType="submit">
-            Submit
+        <Form.Item wrapperCol={{ span: 24 }}>
+          <Button type="primary" htmlType="submit" className={matches ? styles.FullWidth : styles.SendButton}>
+            Send
           </Button>
         </Form.Item>
       </Form>

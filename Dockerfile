@@ -26,5 +26,6 @@ FROM base AS final
 WORKDIR /app
 ARG DeploymentSlackHook
 COPY --from=publish /app/publish .
+ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
 RUN curl -X POST -H 'Content-type: application/json' --data '{"text":"Deployment finished"}' "${DeploymentSlackHook}"
 ENTRYPOINT ["dotnet", "eCv.dll", "--urls=http://0.0.0.0:8080"]

@@ -4,7 +4,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
 EXPOSE 8080
 RUN apt-get update
-RUN apt-get install -y curl
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
 
@@ -26,6 +25,4 @@ FROM base AS final
 WORKDIR /app
 ARG DeploymentSlackHook
 COPY --from=publish /app/publish .
-ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
-RUN curl -X POST -H 'Content-type: application/json' --data '{"text":"Deployment finished"}' "${DeploymentSlackHook}"
 ENTRYPOINT ["dotnet", "eCv.dll", "--urls=http://0.0.0.0:8080"]

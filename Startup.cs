@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RestSharp;
 
 namespace eCv
 {
@@ -70,6 +71,23 @@ namespace eCv
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
+
+            if (env.IsProduction())
+            {
+                SendDeploymentSuccessNotification(Configuration.GetValue<string>("DeploymentSlackHook"));
+            }
+        }
+
+        private void SendDeploymentSuccessNotification(string url)
+        {
+
+            var client = new RestClient(url);
+            var request = new RestRequest("", Method.POST);
+            request.AddJsonBody(new
+            {
+                text = "Deployment finished"
+            });
+            var response = client.Execute(request);
         }
     }
 }

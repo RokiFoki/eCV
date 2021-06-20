@@ -6,9 +6,5 @@
       "Microsoft.Hosting.Lifetime": "Information"
     }
   },
-  "Currency": {
-    "Key": "d84448d0b2f334d9937d"
-  },
-  "AllowedHosts": "*",
-  "MessagesSlackHook": ""
+  "MessagesSlackHook": "copy from https://api.slack.com/apps/A025SJLMSAY/incoming-webhooks? for dev-messages"
 }

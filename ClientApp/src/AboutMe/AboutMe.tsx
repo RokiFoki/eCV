@@ -101,7 +101,7 @@ const AboutMe: React.FC = () => {
           Let me tell you about me!
         </Paragraph>
         <Paragraph>
-          I am an experienced full-stack web developer with expertise in 
+          My name is Roko Krstulović and I am an experienced full-stack web developer with expertise in 
           <Tooltip title='For better deep in please click here'>
             <Link to="/skills"> .NET, node.js, Angular and React </Link>
             </Tooltip> 

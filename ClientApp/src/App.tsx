@@ -1,17 +1,18 @@
 import React, { useRef, useState } from 'react';
 import { Button, Layout, Menu, } from 'antd';
-import { UserOutlined, PhoneFilled, MenuOutlined } from '@ant-design/icons';
+import { UserOutlined, PhoneFilled, MenuOutlined, ExperimentOutlined } from '@ant-design/icons';
 import { BrowserRouter as Router, Link, Redirect, Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
 
 import './Global.scss';
 import styles from './App.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome';
 import { faBook, faChess } from '@fortawesome/free-solid-svg-icons'
 import AboutMe from './AboutMe/AboutMe.lazy';
 import Experience from './Experience/Experience.lazy';
 import Skills from './Skills/Skills.lazy';
 import Contact from './Contact/Contact.lazy';
 import { useOutsideAlerter } from './Shared/utils';
+import Projects from './Projects/Projects.lazy';
 
 
 const { Sider } = Layout;
@@ -27,8 +28,10 @@ const SideNavbarContent = withRouter((props: SideNavbarContentProps) => {
     selectionKey = '2';
   } else if (path.startsWith('/skills')) {
     selectionKey = '3';
-  } else if (path.startsWith('/contact')) {
+  } else if (path.startsWith('/projects')) {
     selectionKey = '4';
+  } else if (path.startsWith('/contact')) {
+    selectionKey = '5';
   }
   return (
     <React.Fragment>
@@ -43,7 +46,10 @@ const SideNavbarContent = withRouter((props: SideNavbarContentProps) => {
         <Menu.Item key="3" icon={<FontAwesomeIcon icon={faChess} />} onClick={props.onClick}>
           <Link to="/skills">Skills</Link>
         </Menu.Item>
-        <Menu.Item key="4" icon={<PhoneFilled />} onClick={props.onClick}>
+        <Menu.Item key="4" icon={<ExperimentOutlined />} onClick={props.onClick}>
+          <Link to="/projects">Projects</Link>
+        </Menu.Item>
+        <Menu.Item key="5" icon={<PhoneFilled />} onClick={props.onClick}>
           <Link to="/contact">Contact</Link>
         </Menu.Item>
       </Menu>
@@ -90,6 +96,9 @@ const App = () => {
           </Route>
           <Route path="/skills">
             <Skills redraw={redrawSkillsTime}></Skills>
+          </Route>
+          <Route path="/projects">
+            <Projects></Projects>
           </Route>
           <Route path="/contact">
             <Contact></Contact>

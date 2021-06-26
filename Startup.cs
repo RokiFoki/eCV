@@ -85,7 +85,7 @@ namespace eCv
             var request = new RestRequest("", Method.POST);
             request.AddJsonBody(new
             {
-                text = "Deployment finished"
+                text = "Deployment finished\nhttps://developer-full-stack.com"
             });
             var response = client.Execute(request);
         }

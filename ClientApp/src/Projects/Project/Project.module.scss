@@ -18,3 +18,19 @@
     width: 400px;
     overflow: hidden;
 }
+
+.FirstParagraph {
+    word-wrap: normal;
+}
+
+@media (max-width: 500px) {
+    .FirstParagraph {
+        clear: both;
+    }
+    
+    .ImageWrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}

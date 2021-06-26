@@ -21,10 +21,14 @@ const Project: React.FC<IProjectProps> = ({title, paragraphs, tech, img, buzzwor
           className={`${styles.Project} ${!expanded ? styles.NotExpanded: ''}`} 
           bordered={false} onClick={() => setExpanded(!expanded)}>
           {expanded && !!img && <Tooltip placement="bottom" title="Click for full screen">
+          <div className={styles.ImageWrapper}>
             <img src={img?.source} className={styles.ProjectImage} alt={img?.alt} onClick={showModal}></img>
+          </div>
           </Tooltip>}
           <Typography>
-            <Typography.Paragraph ellipsis={{rows: 3, expandable: false }}>{paragraphs[0]}</Typography.Paragraph>
+            <Typography.Paragraph ellipsis={!expanded && {rows: 3, expandable: false }} className={styles.FirstParagraph}>
+              {paragraphs[0]}
+            </Typography.Paragraph>
             {expanded && paragraphs.length > 1 && paragraphs.slice(1).map((par, i) => 
               (<Typography.Paragraph key={i}>{par}</Typography.Paragraph>))}
           </Typography>

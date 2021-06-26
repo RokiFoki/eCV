@@ -57,9 +57,9 @@ const SideNavbarContent = withRouter((props: SideNavbarContentProps) => {
   )
 })
 
-let toBeColapsed = false;
+let toBeColapsed = true;
 const App = () => {
-  const [sidenavCollapsed, setSidenavCollapsed] = useState(false);
+  const [sidenavCollapsed, setSidenavCollapsed] = useState(toBeColapsed);
   const [redrawSkillsTime, setRedrawSkillsTime] = useState(+new Date());
   const updateCollapsed = (collapsed: boolean) => {
     if (toBeColapsed === collapsed) return;

@@ -40,7 +40,7 @@ const Projects = () => {
           <img src={droneImg} className={styles.ProjectImage} alt="Drone Diagram" onClick={showModal}></img>
         </Tooltip>}
         <Typography>
-          <Typography.Paragraph ellipsis={{rows: 3, expandable: true, symbol: 'more'}}>The project involved a drone that is self-controlled, holding an Android device that measures network bandwidth. The position, status, and network bandwidth are displayed in real-time on a web application where users can send basic commands to the drone. The drone has sensors on it making it able to avoid obstacles on the given path.</Typography.Paragraph>
+          <Typography.Paragraph ellipsis={{rows: 3, expandable: false }}>The project involved a drone that is self-controlled, holding an Android device that measures network bandwidth. The position, status, and network bandwidth are displayed in real-time on a web application where users can send basic commands to the drone. The drone has sensors on it making it able to avoid obstacles on the given path.</Typography.Paragraph>
           {expanded && <Typography.Paragraph>I worked on the development of the AI for drone movement, real-time communication with the server, server with real-time information about the drone’s position and status. Assisted in developing measurement tests for the Android device that the drone was holding. </Typography.Paragraph>}
         </Typography>
         

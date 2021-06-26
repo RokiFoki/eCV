@@ -4,11 +4,20 @@
     padding: $layout-padding;
 
     .ProjectImage {
-        max-width: 300px;
+        max-width: calc(min(100%, 300px));
         max-height: 300px;
         cursor: pointer;
         float: left;
         margin-right: 10px;
         margin-bottom: 10px;
+    }
+
+    .Project {
+        cursor: pointer;
+    }
+
+    .NotExpanded {
+        max-width: 400px;
+        overflow: hidden;
     }
 }

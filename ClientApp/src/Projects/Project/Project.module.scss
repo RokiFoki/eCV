@@ -23,11 +23,12 @@
     word-wrap: normal;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 500px),
+        (min-width: 601px) and (max-width: 700px) {
     .FirstParagraph {
         clear: both;
     }
-    
+
     .ImageWrapper {
         display: flex;
         flex-direction: row;

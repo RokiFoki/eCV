@@ -14,7 +14,9 @@ interface IProject {
     
 }
 
-const projects: IProject[] = [{
+const projects: IProject[] = // [
+    Array(10).fill(null).map(() => (
+    {
     title: 'Self flying drone for network performance measurements',
     img: {source: droneImg, alt: 'Project diagram',  width: 650},
     paragraphs: ['The project involved a drone that is self-controlled, holding an Android device that measures network bandwidth. The position, status, and network bandwidth are displayed in real-time on a web application where users can send basic commands to the drone. The drone has sensors on it making it able to avoid obstacles on the given path.',
@@ -30,6 +32,6 @@ const projects: IProject[] = [{
     {name: 'DroneKit.', description: 'Python library to control drone.'},
     {name: 'Android/Java', description: 'Used to implement network measurement tests.'}, ],
     buzzwords: ['IOT', 'AI', 'ML']
-}];
-
+    }));
+//}];
 export default projects;

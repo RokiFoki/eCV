@@ -14,10 +14,12 @@
 
     .Project {
         cursor: pointer;
+        transition: width 0.3s;
+        width: 100%;
     }
 
     .NotExpanded {
-        max-width: 400px;
+        width: 400px;
         overflow: hidden;
     }
 }

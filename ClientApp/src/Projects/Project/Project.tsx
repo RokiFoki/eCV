@@ -59,11 +59,18 @@ const Project: React.FC<IProjectProps> = ({title, paragraphs, tech, img, buzzwor
   );
 }
 
-interface IProjectProps {
+type ProjectParagraph = string | JSX.Element;
+
+interface ITech {
+  name: string;
+  description: string
+}
+
+export interface IProjectProps {
   title: string;
   img?: {source: string, alt: string, width: number},
-  paragraphs: { 0: string } & string[],
-  tech: {name: string, description: string}[],
+  paragraphs: { 0: ProjectParagraph } & ProjectParagraph[],
+  tech: ITech[],
   buzzwords: string[]
 }
 

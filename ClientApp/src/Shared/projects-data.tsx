@@ -1,19 +1,6 @@
 import droneImg from '../Content/drone-diagram.png';
 import poslovkoImg from '../Content/poslovko.png';
-
-interface ITech {
-    name: string;
-    description: string
-}
-
-interface IProject {
-    title: string,
-    img?: {source: string, alt: string, width: number},
-    paragraphs: { 0: string } & string[],
-    tech: ITech[],
-    buzzwords: string[]
-    
-}
+import { IProjectProps as IProject } from '../Projects/Project/Project';
 
 const projects: IProject[] = [{
     title: 'Self flying drone for network performance measurements',
@@ -65,5 +52,16 @@ const projects: IProject[] = [{
         {name: 'Azure', description: 'Clould computing service used to deploy the app.'}
     ],
     buzzwords: ['Microservices', 'Cloud', 'SAAS']
+}, {
+    title: 'Microsoft Dynamics 365 for Finance and Operations',
+    paragraphs: [
+        <>Enterprise resource planning system for medium to large organizations covering the full spectrum of accounting, financial management, production, advanced warehousing and transportation management (<a href="https://www.google.com/search?q=what+is+microsoft+dynamics+365+for+finance+and+operations" target="_blank">google for more</a>).</>,
+        <>The system is split into many modules. I've worked on a warehouse module that was solving challenges with inventory (such as "putting", "picking", counting, reserving inventory, etc). Generating works for the warehouse workers when orders received and <a href="https://docs.microsoft.com/en-us/dynamics365/supply-chain/warehousing/warehouse-management-overview" target="_blank">plenty of other stuff</a>.</>,
+    ],
+    tech: [
+        {name: 'X++ (.NET)', description: 'Used for backend and frontend.'}, 
+        {name: 'SQL Server', description: 'Database used for the project and for raising pub-sub events.'},
+    ],
+    buzzwords: ['ERP', 'Cloud', 'SAAS']
 }];
 export default projects;

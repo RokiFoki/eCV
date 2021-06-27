@@ -45,7 +45,8 @@ const projects: IProject[] = [{
         {name: 'Angular/Javascript', description: `Framework used for frontend. `}, 
         {name: 'WebSocket', description: 'Used to send information in real-time from server to the browser.'}, 
         {name: 'Angular Material', description: 'UI library used for the project.'},
-        {name: 'AWS', description: 'Clould computing service used to deploy the app'}
+        {name: 'AWS', description: 'Clould computing service used to deploy the app.'},
+        {name: 'python', description: 'Used to scrape available locations.'}
     ],
     buzzwords: ['Startup', 'Client/Server', 'Algorithms', 'Scraping']
 }];

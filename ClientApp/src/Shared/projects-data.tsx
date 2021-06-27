@@ -49,5 +49,21 @@ const projects: IProject[] = [{
         {name: 'python', description: 'Used to scrape available locations.'}
     ],
     buzzwords: ['Startup', 'Client/Server', 'Algorithms', 'Scraping']
+}, {
+    title: 'SAAS for settling insurance claims',
+    paragraphs: [
+        `The solution connects the insurance company, its policyholders with item suppliers and item repair companies allowing policyholders to create claims, which can be settled with a replacement or repair depending on the mutual agreement.`,
+        `For the solution, microservice architecture is used. Its logic is split into different services which work together and accomplish successful SAAS. There is a service for processing feed files from suppliers that populates/updates the database with available settlements, a service for serving UI for insurance company handlers, a service for finding products that would best replace the item in the claim, a service for serving UI for policyholders, service for processing and ordering settlements, service for booking collections/inspections/repairs, service for invoice generation and other internal services. Mentioned services communicate using message queue and REST HTTP requests.`,
+        `I've worked on most of the services, but mostly on the one for UI for insurance company handlers which I took ownership off.`
+    ],
+    tech: [
+        {name: '.NET', description: 'Used for server backend.'}, 
+        {name: 'SQL Server', description: 'Database used for the project and for raising pub-sub events.'},
+        {name: 'Angular/Javascript', description: `Framework used for frontend. `}, 
+        {name: 'Angular Material', description: 'UI library used for an app used by insurance company handlers.'},
+        {name: 'PrimeNG', description: 'UI library used for an app used by clients.'},
+        {name: 'Azure', description: 'Clould computing service used to deploy the app.'}
+    ],
+    buzzwords: ['Microservices', 'Cloud', 'SAAS']
 }];
 export default projects;

@@ -77,7 +77,7 @@ const skills: ISkillNoLevel[] = [{
         }, {
             name: 'React',
             children: [],
-            experience: 50
+            experience: 70
         }]
     }]
 }, {
@@ -122,20 +122,25 @@ const skills: ISkillNoLevel[] = [{
         children: [],
         experience: 80
     }, {
+        name: 'Docker',
+        children: [],
+        experience: 70
+    },
+    {
         name: 'Cloud Platforms',
         experience: 'max',
         children: [{
             name: 'AWS',
             children: [],
-            experience: 50
+            experience: 65
         }, {
             name: 'Azure',
             children: [],
-            experience: 50
+            experience: 65
         }, {
             name: 'DigitalOcean',
             children: [],
-            experience: 30
+            experience: 65
         }]
     }]
 }]

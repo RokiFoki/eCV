@@ -63,5 +63,19 @@ const projects: IProject[] = [{
         {name: 'SQL Server', description: 'Database used for the project and for raising pub-sub events.'},
     ],
     buzzwords: ['ERP', 'Cloud', 'SAAS']
+}, {
+    title: 'My Portofolio (this webiste)',
+    paragraphs: [
+        <>My online Curriculum Vitae.</>,
+        <>I've developed the whole app myself.</>,
+    ],
+    tech: [
+        {name: '.NET', description: 'Used for backend.'}, 
+        {name: 'React', description: 'Used for frontend.'},
+        {name: 'Ant Design', description: 'UI library used in the project.'},
+        {name: 'Docker', description: 'Used to ease building and deployment of the app.'},
+        {name: 'Digital Ocean', description: 'Clould computing service used to deploy the app.'}
+    ],
+    buzzwords: ['ERP', 'Cloud', 'SAAS']
 }];
 export default projects;

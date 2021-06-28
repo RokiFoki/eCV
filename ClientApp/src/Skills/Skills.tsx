@@ -70,6 +70,7 @@ const Skills = (props: SkillsProps): JSX.Element => {
     const nodesLevels = [...levelGenerator(skillNodes)];
     shownNodes = nodesLevels.flat();
     updateNodes(nodesLevels);
+    updateRedraw(+new Date());
   }
 
   function handleNodeRef(name: string, el: HTMLButtonElement | null) {
@@ -118,9 +119,9 @@ const Skills = (props: SkillsProps): JSX.Element => {
           ))
         }
       </svg>
-      {nodes.map(nodesRow => (
-        <div key={nodesRow[0].level} style={{marginBottom: 50, display: 'flex', justifyContent: 'center'}}>
-          <Space size="middle">
+      <div style={{display: 'inline-flex', flexDirection: 'column', justifyContent: 'start', alignItems: 'stretch', minWidth: 'auto'}}>
+        {nodes.map(nodesRow => (
+          <Space size="middle" key={nodesRow[0].level} style={{marginBottom: 50, display: 'inline-flex', justifyContent: 'center'}}>
             {nodesRow.map(node => (
               <SkillNode
                 onClick={() => selectNode(node)}
@@ -132,7 +133,8 @@ const Skills = (props: SkillsProps): JSX.Element => {
                 redraw={redraw}
                 ></SkillNode>))}
           </Space>
-      </div>))}
+        ))}
+      </div>
     </div>
   )
 };

@@ -4,6 +4,10 @@
     padding: $layout-padding;
     padding-top: $layout-padding + 8px;
     position: relative;
+    min-height: 100vh;
+    overflow: auto;
+    width: fit-content;
+    margin: auto;
 }
 
 .svgContainer {

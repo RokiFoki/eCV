@@ -47,7 +47,7 @@ const Project: React.FC<IProjectProps> = ({title, paragraphs, tech, img, buzzwor
             </ul>  
           </div>}
           {!expanded && <p><strong>Technology:</strong> {tech.map(t => t.name).join(', ')}</p>}
-          <p><strong>Buzzwords:</strong> {buzzwords.join(', ')}</p>
+          {!!buzzwords.length && <p><strong>Buzzwords:</strong> {buzzwords.join(', ')}</p>}
         </Card>
       </Tooltip>
       {!!img && <Modal title={null} visible={isModalVisible} footer={null} onCancel={hideModal} width={img?.width+50}>

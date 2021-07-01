@@ -76,6 +76,22 @@ const projects: IProject[] = [{
         {name: 'Docker', description: 'Used to ease building and deployment of the app.'},
         {name: 'Digital Ocean', description: 'Clould computing service used to deploy the app.'}
     ],
-    buzzwords: ['ERP', 'Cloud', 'SAAS']
+    buzzwords: []
+}, {
+    title: 'Tractor Plowing Tracking App',
+    paragraphs: [
+        <>Web platform for tracking field plowing by tractors. It allows users to see the current position of tractors and their movement through the past.</>,
+        <>I've developed the whole app myself.</>,
+    ],
+    tech: [
+        {name: '.NET', description: 'Used for backend.'}, 
+        {name: 'jQuery', description: 'Used for frontend.'},
+        {name: 'Bootstrap', description: 'UI library used in the project.'},
+        {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.'},
+        {name: 'RaspberryPi', description: 'Little compter that is sending current geo position and was attached to the tractors.'},
+        {name: 'Python', description: 'Scripting lanague used sending geo positions to the server.'},
+        {name: 'AWS', description: 'Clould computing service used to deploy the app.'}
+    ],
+    buzzwords: ['IOT', 'Clould']
 }];
 export default projects;

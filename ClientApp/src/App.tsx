@@ -35,7 +35,7 @@ const SideNavbarContent = withRouter((props: SideNavbarContentProps) => {
   }
   return (
     <React.Fragment>
-      <div className="logo" />
+      <div className="logo">ePortofolio</div>
       <Menu theme="dark" mode="inline" selectedKeys={[selectionKey]}>
         <Menu.Item key="1" icon={<UserOutlined />} onClick={props.onClick}>
           <Link to="/">About me</Link>

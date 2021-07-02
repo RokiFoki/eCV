@@ -106,7 +106,7 @@ const AboutMe: React.FC = () => {
             <Link to="/skills"> .NET, node.js, Angular and React </Link>
             </Tooltip> 
           for more than {years} years. 
-          I started my IT career since very early ages. On my 19th birthday, I won first place on a Regional Competition in Algorithms (Infokup). I graduated (with honors: magna cum laude) masters at Faculty of Electrical Engineering and Computing.
+          I started my IT career at a very early age. On my 19th birthday, I won first place in a Regional Competition in Algorithms (Infokup). I graduated (with honors: magna cum laude) masters at the Faculty of Electrical Engineering and Computing.
         </Paragraph>
         <Paragraph>
           I’ve worked on a large cloud base SAAS solution at Microsoft that is used by millions of users every day. I’ve developed obstacle detection and movement logic for an autonomous drone for measuring network benchmarks around high buildings at Ericsson. There are other projects I am proud of that you can find under <Link to="/experience">Experience</Link>.

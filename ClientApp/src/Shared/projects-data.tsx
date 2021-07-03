@@ -1,5 +1,29 @@
 import droneImg from '../Content/drone-diagram.png';
 import poslovkoImg from '../Content/poslovko.png';
+import dotNetImg from '../Content/Tech/dotnet.png';
+import signalRImg from '../Content/Tech/signalr.png';
+import wbGLImg from '../Content/Tech/webgl.png';
+import sqlserverImg from '../Content/Tech/sqlserver.jpg';
+import jqueryImg from '../Content/Tech/jquery.jpg';
+import javascriptImg from '../Content/Tech/javascript.png';
+import bootstrapImg from '../Content/Tech/bootstrap.png';
+import raspberryPiImg from '../Content/Tech/raspberrypi.png';
+import pythonImg from '../Content/Tech/python.jpg';
+import dronekitImg from '../Content/Tech/dronekit.png';
+import androidImg from '../Content/Tech/android.png';
+import javaImg from '../Content/Tech/java.png';
+import azureImg from '../Content/Tech/azure.png';
+import nodejsImg from '../Content/Tech/nodejs.png';
+import postgresImg from '../Content/Tech/postgres.svg';
+import angularImg from '../Content/Tech/angular.png';
+import angularMaterialImg from '../Content/Tech/angularmaterial.png';
+import awsImg from '../Content/Tech/aws.png';
+import primengImg from '../Content/Tech/primeng.png';
+import reactImg from '../Content/Tech/react.svg';
+import antDesignImg from '../Content/Tech/antdesign.png';
+import digitalOceanImg from '../Content/Tech/digitalocean.png';
+import dockerImg from '../Content/Tech/docker.png';
+
 import { IProjectProps as IProject } from '../Projects/Project/Project';
 
 const projects: IProject[] = [{
@@ -8,17 +32,17 @@ const projects: IProject[] = [{
     paragraphs: ['The project involved a drone that is self-controlled, holding an Android device that measures network bandwidth. The position, status, and network bandwidth are displayed in real-time on a web application where users can send basic commands to the drone. The drone has sensors on it making it able to avoid obstacles on the given path.',
         'I worked on the development of the AI for drone movement, real-time communication with the server, server with real-time information about the drone’s position and status. Assisted in developing measurement tests for the Android device that the drone was holding.'],
     tech: [
-        {name: '.NET', description: 'Used for server backend.'}, 
-        {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.'},
-        {name: 'WebGL', description: `Used to display drone's positon in relation to detected obstacles. `}, 
-        {name: 'SQL Server', description: 'Database used for the project.'}, 
-        {name: 'JavaScript/jQuery', description: 'Used to make the browser interactive.'},
-        {name: 'Bootstrap', description: 'UI library used for the project.'},
-        {name: 'RaspberryPi', description: 'Little compter that acted as the brain between sensors, movement logic and Android device.'},
-        {name: 'Python', description: 'Scripting lanague used for movement AI.'},
-        {name: 'DroneKit.', description: 'Python library to control drone.'},
-        {name: 'Android/Java', description: 'Used to implement network measurement tests.'},
-        {name: 'Azure', description: 'Clould computing service used to deploy the app.'}, 
+        {name: '.NET', description: 'Used for server backend.', img: dotNetImg}, 
+        {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.', img: signalRImg},
+        {name: 'WebGL', description: `Used to display drone's positon in relation to detected obstacles. `, img: wbGLImg}, 
+        {name: 'SQL Server', description: 'Database used for the project.', img: sqlserverImg}, 
+        {name: 'JavaScript/jQuery', description: 'Used to make the browser interactive.', imgs: [jqueryImg, javascriptImg]},
+        {name: 'Bootstrap', description: 'UI library used for the project.', img: bootstrapImg},
+        {name: 'RaspberryPi', img: raspberryPiImg, description: 'Little compter that acted as the brain between sensors, movement logic and Android device.'},
+        {name: 'Python', description: 'Scripting lanague used for movement AI.', img: pythonImg},
+        {name: 'DroneKit.', description: 'Python library to control drone.', img: dronekitImg},
+        {name: 'Android/Java', description: 'Used to implement network measurement tests.', imgs: [androidImg, javaImg]},
+        {name: 'Azure', description: 'Clould computing service used to deploy the app.', img: azureImg}, 
     ],
     buzzwords: ['IOT', 'AI', 'ML']
 }, {
@@ -27,13 +51,13 @@ const projects: IProject[] = [{
     paragraphs: ['The platform allows clients to post jobs (when looking for professional help). Professionals, with the advanced search, can find related jobs and apply to them. Similarly, professionals can post their services to allow customers to contact them directly. Platform eases communication between client and professional with its real-time chat functionality and notification system. After the professional finishes the task, the client gives a review to the professional, and the professional gives a review for the client that is used for future ranking.',
         `I've developed the whole platform myself.`],
     tech: [
-        {name: 'Node.js', description: 'Used for server backend.'}, 
-        {name: 'PostgreSQL', description: 'Database used for the project and for raising pub-sub events.'},
-        {name: 'Angular/Javascript', description: `Framework used for frontend. `}, 
+        {name: 'Node.js', description: 'Used for server backend.', img: nodejsImg}, 
+        {name: 'PostgreSQL', description: 'Database used for the project and for raising pub-sub events.', img: postgresImg},
+        {name: 'Angular', description: `Framework used for frontend.`, img: angularImg}, 
         {name: 'WebSocket', description: 'Used to send information in real-time from server to the browser.'}, 
-        {name: 'Angular Material', description: 'UI library used for the project.'},
-        {name: 'AWS', description: 'Clould computing service used to deploy the app.'},
-        {name: 'python', description: 'Used to scrape available locations.'}
+        {name: 'Angular Material', description: 'UI library used for the project.', img: angularMaterialImg},
+        {name: 'AWS', description: 'Clould computing service used to deploy the app.', img: awsImg},
+        {name: 'Python', description: 'Used to scrape available locations.', img: pythonImg}
     ],
     buzzwords: ['Startup', 'Client/Server', 'Algorithms', 'Scraping']
 }, {
@@ -44,12 +68,12 @@ const projects: IProject[] = [{
         `I've worked on most of the services, but mostly on the one for UI for insurance company handlers which I took ownership off.`
     ],
     tech: [
-        {name: '.NET', description: 'Used for server backend.'}, 
-        {name: 'SQL Server', description: 'Database used for the project and for raising pub-sub events.'},
-        {name: 'Angular/Javascript', description: `Framework used for frontend. `}, 
-        {name: 'Angular Material', description: 'UI library used for an app used by insurance company handlers.'},
-        {name: 'PrimeNG', description: 'UI library used for an app used by clients.'},
-        {name: 'Azure', description: 'Clould computing service used to deploy the app.'}
+        {name: '.NET', description: 'Used for server backend.', img: dotNetImg}, 
+        {name: 'SQL Server', description: 'Database used for the project and for raising pub-sub events.', img: sqlserverImg},
+        {name: 'Angular', description: `Framework used for frontend.`, img: angularImg}, 
+        {name: 'Angular Material', description: 'UI library used for an app used by insurance company handlers.', img: angularMaterialImg},
+        {name: 'PrimeNG', description: 'UI library used for an app used by clients.', img: primengImg},
+        {name: 'Azure', description: 'Clould computing service used to deploy the app.', img: azureImg}
     ],
     buzzwords: ['Microservices', 'Cloud', 'SAAS']
 }, {
@@ -59,8 +83,8 @@ const projects: IProject[] = [{
         <>The system is split into many modules. I've worked on a warehouse module that was solving challenges with inventory (such as "putting", "picking", counting, reserving inventory, etc). Generating works for the warehouse workers when orders received and <a href="https://docs.microsoft.com/en-us/dynamics365/supply-chain/warehousing/warehouse-management-overview" target="_blank">plenty of other stuff</a>.</>,
     ],
     tech: [
-        {name: 'X++ (.NET)', description: 'Used for backend and frontend.'}, 
-        {name: 'SQL Server', description: 'Database used for the project and for raising pub-sub events.'},
+        {name: 'X++ (.NET)', description: 'Used for backend and frontend.', img: dotNetImg}, 
+        {name: 'SQL Server', description: 'Database used for the project and for raising pub-sub events.', img: sqlserverImg},
     ],
     buzzwords: ['ERP', 'Cloud', 'SAAS']
 }, {
@@ -70,11 +94,11 @@ const projects: IProject[] = [{
         <>I've developed the whole app myself.</>,
     ],
     tech: [
-        {name: '.NET', description: 'Used for backend.'}, 
-        {name: 'React', description: 'Used for frontend.'},
-        {name: 'Ant Design', description: 'UI library used in the project.'},
-        {name: 'Docker', description: 'Used to ease building and deployment of the app.'},
-        {name: 'Digital Ocean', description: 'Clould computing service used to deploy the app.'}
+        {name: '.NET', description: 'Used for backend.', img: dotNetImg}, 
+        {name: 'React', description: 'Used for frontend.', img: reactImg},
+        {name: 'Ant Design', description: 'UI library used in the project.', img: antDesignImg},
+        {name: 'Docker', description: 'Used to ease building and deployment of the app.', img: dockerImg},
+        {name: 'Digital Ocean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
     ],
     buzzwords: []
 }, {
@@ -84,13 +108,13 @@ const projects: IProject[] = [{
         <>I've developed the whole app myself.</>,
     ],
     tech: [
-        {name: '.NET', description: 'Used for backend.'}, 
-        {name: 'jQuery', description: 'Used for frontend.'},
-        {name: 'Bootstrap', description: 'UI library used in the project.'},
-        {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.'},
-        {name: 'RaspberryPi', description: 'Little compter that is sending current geo position and was attached to the tractors.'},
-        {name: 'Python', description: 'Scripting lanague used sending geo positions to the server.'},
-        {name: 'AWS', description: 'Clould computing service used to deploy the app.'}
+        {name: '.NET', description: 'Used for backend.', img: dotNetImg}, 
+        {name: 'jQuery/Javascript', description: 'Used for frontend.', imgs: [jqueryImg, javascriptImg]},
+        {name: 'Bootstrap', description: 'UI library used in the project.', img: bootstrapImg},
+        {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.', img: signalRImg},
+        {name: 'RaspberryPi', description: 'Little compter that is sending current geo position and was attached to the tractors.', img: raspberryPiImg},
+        {name: 'Python', description: 'Scripting lanague used sending geo positions to the server.', img: pythonImg},
+        {name: 'AWS', description: 'Clould computing service used to deploy the app.', img: awsImg}
     ],
     buzzwords: ['IOT', 'Clould']
 }];

@@ -1,4 +1,4 @@
-import { Card, List, Modal, Tooltip, Typography } from 'antd';
+import { Avatar, Card, List, Modal, Tooltip, Typography } from 'antd';
 import React, { useState } from 'react';
 import styles from './Project.module.scss';
 
@@ -14,6 +14,8 @@ const Project: React.FC<IProjectProps> = ({title, paragraphs, tech, img, buzzwor
   const hideModal = () => {
     setIsModalVisible(false);
   };
+
+  const techImages = tech.map(t => t.img ? [t.img] : t.imgs).flat().filter(i => !!i);
   return (
     <React.Fragment key={title}>
       <Tooltip title={expanded ? null : title}>
@@ -41,12 +43,24 @@ const Project: React.FC<IProjectProps> = ({title, paragraphs, tech, img, buzzwor
                 dataSource={tech}
                 renderItem={item => 
                 <List.Item key={item.name}>
-                  <List.Item.Meta title={item.name} description={item.description} />
+                  <List.Item.Meta 
+                    avatar={item.img ? <Avatar size={42} src={item.img} /> : 
+                            item.imgs ? <Avatar.Group>
+                              {item.imgs.map(i => <Avatar size={30} src={i} key={i}/>)}
+                            </Avatar.Group> : null}
+                    title={item.name} 
+                    description={item.description} />
                 </List.Item>}
               />
             </ul>  
           </div>}
           {!expanded && <p><strong>Technology:</strong> {tech.map(t => t.name).join(', ')}</p>}
+          {!expanded && !!techImages?.length && 
+            <Avatar.Group maxCount={10}>
+              {techImages.map(i =>
+                <Avatar size={30} src={i} key={i}/>
+              )}
+            </Avatar.Group>}
           {!!buzzwords.length && <p><strong>Buzzwords:</strong> {buzzwords.join(', ')}</p>}
         </Card>
       </Tooltip>
@@ -63,7 +77,9 @@ type ProjectParagraph = string | JSX.Element;
 
 interface ITech {
   name: string;
-  description: string
+  description: string;
+  img?: string;
+  imgs?: string[];
 }
 
 export interface IProjectProps {

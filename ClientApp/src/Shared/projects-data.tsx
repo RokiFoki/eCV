@@ -23,6 +23,7 @@ import reactImg from '../Content/Tech/react.svg';
 import antDesignImg from '../Content/Tech/antdesign.png';
 import digitalOceanImg from '../Content/Tech/digitalocean.png';
 import dockerImg from '../Content/Tech/docker.png';
+import azureSearchImg from '../Content/Tech/azuresearch.png';
 
 import { IProjectProps as IProject } from '../Projects/Project/Project';
 
@@ -73,7 +74,8 @@ const projects: IProject[] = [{
         {name: 'Angular', description: `Framework used for frontend.`, img: angularImg}, 
         {name: 'Angular Material', description: 'UI library used for an app used by insurance company handlers.', img: angularMaterialImg},
         {name: 'PrimeNG', description: 'UI library used for an app used by clients.', img: primengImg},
-        {name: 'Azure', description: 'Clould computing service used to deploy the app.', img: azureImg}
+        {name: 'Azure', description: 'Clould computing service used to deploy the app.', img: azureImg},
+        {name: 'Azure search', description: 'Quick text search used to find products by their characteristics.', img: azureSearchImg}
     ],
     buzzwords: ['Microservices', 'Cloud', 'SAAS']
 }, {

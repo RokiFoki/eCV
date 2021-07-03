@@ -24,6 +24,7 @@ import antDesignImg from '../Content/Tech/antdesign.png';
 import digitalOceanImg from '../Content/Tech/digitalocean.png';
 import dockerImg from '../Content/Tech/docker.png';
 import azureSearchImg from '../Content/Tech/azuresearch.png';
+import jenkinsImg from '../Content/Tech/jenkins.png';
 
 import { IProjectProps as IProject } from '../Projects/Project/Project';
 
@@ -101,6 +102,9 @@ const projects: IProject[] = [{
         {name: 'Angular', description: `Framework used for frontend.`, img: angularImg}, 
         {name: 'Angular Material', description: 'UI library used in the project.', img: angularMaterialImg},
         {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
+        {name: 'Jenkins', description: 'Continuous integration and continuous delivery tool used.', img: jenkinsImg},
+        {name: 'Docker', description: 'Used to ease building and deployment of the app.', img: dockerImg},
+        {name: 'Digital Ocean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
     ],
     buzzwords: ['Clould', 'AI']
 }, {
@@ -130,8 +134,8 @@ const projects: IProject[] = [{
         {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.', img: signalRImg},
         {name: 'RaspberryPi', description: 'Little compter that is sending current geo position and was attached to the tractors.', img: raspberryPiImg},
         {name: 'Python', description: 'Scripting lanague used sending geo positions to the server.', img: pythonImg},
-        {name: 'AWS', description: 'Clould computing service used to deploy the app.', img: awsImg},
         {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
+        {name: 'AWS', description: 'Clould computing service used to deploy the app.', img: awsImg},
     ],
     buzzwords: ['IOT', 'Clould']
 }, {
@@ -145,6 +149,7 @@ const projects: IProject[] = [{
         {name: 'Angular', description: 'Used for frontend.', img: angularImg},
         {name: 'Angular Material', description: 'UI library used in the project.', img: angularMaterialImg},        
         {name: 'PostgreSQL', description: 'Database used for the project.', img: postgresImg},
+        {name: 'Digital Ocean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
     ], 
     buzzwords: ['Could', 'DevOps']
 }];

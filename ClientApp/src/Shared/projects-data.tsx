@@ -3,7 +3,7 @@ import poslovkoImg from '../Content/poslovko.png';
 import dotNetImg from '../Content/Tech/dotnet.png';
 import signalRImg from '../Content/Tech/signalr.png';
 import wbGLImg from '../Content/Tech/webgl.png';
-import sqlserverImg from '../Content/Tech/sqlserver.jpg';
+import sqlServerImg from '../Content/Tech/sqlserver.jpg';
 import jqueryImg from '../Content/Tech/jquery.jpg';
 import javascriptImg from '../Content/Tech/javascript.png';
 import bootstrapImg from '../Content/Tech/bootstrap.png';
@@ -36,7 +36,7 @@ const projects: IProject[] = [{
         {name: '.NET', description: 'Used for server backend.', img: dotNetImg}, 
         {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.', img: signalRImg},
         {name: 'WebGL', description: `Used to display drone's positon in relation to detected obstacles. `, img: wbGLImg}, 
-        {name: 'SQL Server', description: 'Database used for the project.', img: sqlserverImg}, 
+        {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg}, 
         {name: 'JavaScript/jQuery', description: 'Used to make the browser interactive.', imgs: [jqueryImg, javascriptImg]},
         {name: 'Bootstrap', description: 'UI library used for the project.', img: bootstrapImg},
         {name: 'RaspberryPi', img: raspberryPiImg, description: 'Little compter that acted as the brain between sensors, movement logic and Android device.'},
@@ -70,7 +70,7 @@ const projects: IProject[] = [{
     ],
     tech: [
         {name: '.NET', description: 'Used for server backend.', img: dotNetImg}, 
-        {name: 'SQL Server', description: 'Database used for the project and for raising pub-sub events.', img: sqlserverImg},
+        {name: 'SQL Server', description: 'Database used for the project and for raising pub-sub events.', img: sqlServerImg},
         {name: 'Angular', description: `Framework used for frontend.`, img: angularImg}, 
         {name: 'Angular Material', description: 'UI library used for an app used by insurance company handlers.', img: angularMaterialImg},
         {name: 'PrimeNG', description: 'UI library used for an app used by clients.', img: primengImg},
@@ -86,9 +86,23 @@ const projects: IProject[] = [{
     ],
     tech: [
         {name: 'X++ (.NET)', description: 'Used for backend and frontend.', img: dotNetImg}, 
-        {name: 'SQL Server', description: 'Database used for the project and for raising pub-sub events.', img: sqlserverImg},
+        {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
     ],
     buzzwords: ['ERP', 'Cloud', 'SAAS']
+} ,{
+    title: 'Codeswifter - App for scaffolding applications from Database/Data models',
+    paragraphs: [
+        <>Web application that allows you to import your database schema and scaffold apps using it with custom defined templates.</>,
+        <>Its arhitected in a way that the projects created can be shared within multiple users in he same team.</>,
+        <>I worked on part of the frontend of the app and I've done little bits on the backend.</>
+    ],
+    tech: [
+        {name: '.NET', description: 'Used for backend.', img: dotNetImg}, 
+        {name: 'Angular', description: `Framework used for frontend.`, img: angularImg}, 
+        {name: 'Angular Material', description: 'UI library used in the project.', img: angularMaterialImg},
+        {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
+    ],
+    buzzwords: ['Clould', 'AI']
 }, {
     title: 'My Portofolio (this webiste)',
     paragraphs: [
@@ -116,8 +130,22 @@ const projects: IProject[] = [{
         {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.', img: signalRImg},
         {name: 'RaspberryPi', description: 'Little compter that is sending current geo position and was attached to the tractors.', img: raspberryPiImg},
         {name: 'Python', description: 'Scripting lanague used sending geo positions to the server.', img: pythonImg},
-        {name: 'AWS', description: 'Clould computing service used to deploy the app.', img: awsImg}
+        {name: 'AWS', description: 'Clould computing service used to deploy the app.', img: awsImg},
+        {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
     ],
     buzzwords: ['IOT', 'Clould']
+}, {
+    title: 'Web app for log analysis for PosLovko - Supporko',
+    paragraphs: [
+        <>Web application that eases log analysis for PosLovko. It allows users to filter out the errors and display logs generated for a particular job/user which allows easier troubleshooting of production errors.</>,
+        <>I've developed the whole app myself.</>,
+    ],
+    tech: [
+        {name: 'Node.js', description: 'Used for backend.', img: nodejsImg},
+        {name: 'Angular', description: 'Used for frontend.', img: angularImg},
+        {name: 'Angular Material', description: 'UI library used in the project.', img: angularMaterialImg},        
+        {name: 'PostgreSQL', description: 'Database used for the project.', img: postgresImg},
+    ], 
+    buzzwords: ['Could', 'DevOps']
 }];
 export default projects;

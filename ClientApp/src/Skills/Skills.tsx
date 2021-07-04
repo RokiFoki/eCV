@@ -1,6 +1,8 @@
 import { PageHeader, Radio } from 'antd';
 import React, { useState } from 'react';
+import SkillList from './SkillList/SkillList.lazy';
 import styles from './Skills.module.scss';
+import SkillTree from './SkillTree/SkillTree.lazy';
 import SkillTree3D, { SkillTree3DProps } from './SkillTree3D/SkillTree3D';
 
 const Skills = (props: SkillTree3DProps) => {
@@ -19,9 +21,16 @@ const Skills = (props: SkillTree3DProps) => {
         </Radio.Group>
       </div>
 
-      {/* {skillsView === 'list' && <SkillTree {...props}></SkillTree>} */}
-      {/* {skillsView === 'tree' && <SkillTree {...props}></SkillTree>} */}
-      {skillsView === '3dtree' && <SkillTree3D {...props}></SkillTree3D>}
+      <div className={styles.SkillsDataContainer}>
+        <>
+          {skillsView === 'list' && <SkillList></SkillList>}
+          {skillsView === 'tree' && <SkillTree></SkillTree>}
+          {skillsView === '3dtree' && <SkillTree3D {...props}></SkillTree3D>}
+        </>
+        <div style={{flex: 1, border: 'black solid 1px', margin: 10, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          Here, relevant projects will be listed
+        </div>
+      </div>
     </div>;
 }
 

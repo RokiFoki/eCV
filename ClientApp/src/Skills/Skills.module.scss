@@ -2,4 +2,12 @@
 
 .Skills {
     padding: $layout-padding;
+
+    .SkillsDataContainer {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+    }
 }

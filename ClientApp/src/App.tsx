@@ -9,7 +9,7 @@ import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome';
 import { faBook, faChess } from '@fortawesome/free-solid-svg-icons'
 import AboutMe from './AboutMe/AboutMe.lazy';
 import Experience from './Experience/Experience.lazy';
-import Skills from './Skills/Skills.lazy';
+import SkillTree from './Skills/SkillTree/SkillTree.lazy';
 import Contact from './Contact/Contact.lazy';
 import { useOutsideAlerter } from './Shared/utils';
 import Projects from './Projects/Projects.lazy';
@@ -95,7 +95,7 @@ const App = () => {
             <Experience></Experience>
           </Route>
           <Route path="/skills">
-            <Skills redraw={redrawSkillsTime}></Skills>
+            <SkillTree redraw={redrawSkillsTime}></SkillTree>
           </Route>
           <Route path="/projects">
             <Projects></Projects>

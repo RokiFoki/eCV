@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './Skills.module.scss';
-import skills, { ISkill } from '../Shared/skills-data';
+import styles from './SkillTree.module.scss';
+import skills, { ISkill } from '../../Shared/skills-data';
 import SkillNode from './SkillNode/SkillNode';
 import { PageHeader, Space } from 'antd';
 
@@ -40,7 +40,7 @@ function nextLevel(nodes: ISkillNode[]) {
 const skillNodes = skills as ISkillNode[];
 const nodesLevels = [...levelGenerator(skillNodes)];
 let shownNodes = nodesLevels.flat();
-const Skills = (props: SkillsProps): JSX.Element => {
+const SkillTree = (props: SkillTreeProps): JSX.Element => {
   const [nodes, updateNodes] = useState(nodesLevels);
   const [svgCords, updateSvgCords] = useState<{[key: string]: {x: number, y: number, width: number, height: number}}>({});
   const [redraw, updateRedraw] = useState(+new Date())
@@ -99,8 +99,8 @@ const Skills = (props: SkillsProps): JSX.Element => {
   }
 
   return (
-    <div className={styles.Skills}>
-      <PageHeader title="Skills" className='page-title' />
+    <div className={styles.SkillTree}>
+      <PageHeader title="Skill" className='page-title' />
       <svg className={styles.svgContainer} ref={svgRef}>
         {
           nodes.map(nodesRow => 
@@ -144,8 +144,8 @@ interface ISkillNode extends ISkill {
   children: ISkillNode[];
 }
 
-export default Skills;
+export default SkillTree;
 
-export interface SkillsProps {
+export interface SkillTreeProps {
   redraw: number;
 }

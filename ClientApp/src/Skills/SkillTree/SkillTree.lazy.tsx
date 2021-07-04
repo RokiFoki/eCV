@@ -1,12 +1,12 @@
 import React, { lazy, Suspense } from 'react';
-import { SkillsProps } from './Skills';
+import { SkillTreeProps } from './SkillTree';
 
-const LazySkills = lazy(() => import('./Skills'));
+const LazySkills = lazy(() => import('./SkillTree'));
 
-const Skills = (props: JSX.IntrinsicAttributes & { children?: React.ReactNode; } & SkillsProps) => (
+const SkillTree = (props: JSX.IntrinsicAttributes & { children?: React.ReactNode; } & SkillTreeProps) => (
   <Suspense fallback={null}>
     <LazySkills {...props} />
   </Suspense>
 );
 
-export default Skills;
+export default SkillTree;

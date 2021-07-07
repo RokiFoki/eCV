@@ -19,7 +19,7 @@ function toTreeNode(skill: ISkill): ITreeData {
 
 const treeData = skills.map(s => toTreeNode(s));
 
-const SkillTree = () => {
+const SkillTree: React.FC<ISkillTreeProps> = ({setTags}: ISkillTreeProps) => {
   const [expandedKeys, setExpandedKeys] = useState<React.Key[]>(treeData.map(d => d.key));
   const [checkedKeys, setCheckedKeys] = useState<React.Key[]>(treeData.map(d => d.key));
   const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
@@ -65,3 +65,7 @@ const SkillTree = () => {
 };
 
 export default SkillTree;
+
+export interface ISkillTreeProps {
+  setTags: (tags: string[]) => void;
+}

@@ -1,13 +1,19 @@
 import { PageHeader, Radio } from 'antd';
 import React, { useState } from 'react';
+import ProjectList from '../Projects/ProjectList/ProjectList.lazy';
 import SkillList from './SkillList/SkillList.lazy';
 import styles from './Skills.module.scss';
 import SkillTree from './SkillTree/SkillTree.lazy';
-import SkillTree3D, { SkillTree3DProps } from './SkillTree3D/SkillTree3D';
+import SkillTree3D from './SkillTree3D/SkillTree3D';
+import projects from '../Shared/projects-data';
 
-const Skills = (props: SkillTree3DProps) => {
+//console.log([...new Set(([] as string[]).concat(...projects.map(p => p.tech.map(t => t.name))))].sort());
+
+const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
   const [skillsView, updateSkillsView] = useState<'list' | 'tree' | '3dtree'>('list');
+  const [tags, setTags] = useState<string[]>([]);
 
+  const filteredProjects = projects.filter(p => !tags.length || p.tech.some(t => tags.includes(t.name)));
   return <div className={styles.Skills}>    
       <PageHeader title="Skills" className='page-title' />
       <div>
@@ -22,16 +28,18 @@ const Skills = (props: SkillTree3DProps) => {
       </div>
 
       <div className={styles.SkillsDataContainer}>
-        <>
-          {skillsView === 'list' && <SkillList></SkillList>}
-          {skillsView === 'tree' && <SkillTree></SkillTree>}
-          {skillsView === '3dtree' && <SkillTree3D {...props}></SkillTree3D>}
-        </>
-        <div style={{flex: 1, border: 'black solid 1px', margin: 10, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-          Here, relevant projects will be listed
+          {skillsView === 'list' && <SkillList setTags={setTags}></SkillList>}
+          {skillsView === 'tree' && <SkillTree setTags={setTags}></SkillTree>}
+          {skillsView === '3dtree' && <SkillTree3D setTags={setTags} {...props}></SkillTree3D>}
+        <div style={{flex: 1}}>
+          <ProjectList projects={filteredProjects}></ProjectList>
         </div>
       </div>
     </div>;
 }
 
 export default Skills;
+
+export interface ISkillsProps {
+  redraw: number;
+}

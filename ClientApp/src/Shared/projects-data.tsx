@@ -25,8 +25,10 @@ import digitalOceanImg from '../Content/Tech/digitalocean.png';
 import dockerImg from '../Content/Tech/docker.png';
 import azureSearchImg from '../Content/Tech/azuresearch.png';
 import jenkinsImg from '../Content/Tech/jenkins.png';
+import octopusImg from '../Content/Tech/octopus.png';
+import teamCityImg from '../Content/Tech/teamcity.png';
 
-import { IProjectProps as IProject } from '../Projects/Project/Project';
+import { IProjectProps as IProject } from '../Projects/ProjectList/Project/Project';
 
 const projects: IProject[] = [{
     title: 'Self flying drone for network performance measurements',
@@ -76,7 +78,9 @@ const projects: IProject[] = [{
         {name: 'Angular Material', description: 'UI library used for an app used by insurance company handlers.', img: angularMaterialImg},
         {name: 'PrimeNG', description: 'UI library used for an app used by clients.', img: primengImg},
         {name: 'Azure', description: 'Clould computing service used to deploy the app.', img: azureImg},
-        {name: 'Azure search', description: 'Quick text search used to find products by their characteristics.', img: azureSearchImg}
+        {name: 'Azure search', description: 'Quick text search used to find products by their characteristics.', img: azureSearchImg},
+        {name: 'Octopus', description: 'Used to manage different SAAS tenants confiration and deployments.', img: octopusImg},
+        {name: 'TeamCity', description: 'Used to create build versions used for deployments.', img: teamCityImg},
     ],
     buzzwords: ['Microservices', 'Cloud', 'SAAS']
 }, {
@@ -104,7 +108,7 @@ const projects: IProject[] = [{
         {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
         {name: 'Jenkins', description: 'Continuous integration and continuous delivery tool used.', img: jenkinsImg},
         {name: 'Docker', description: 'Used to ease building and deployment of the app.', img: dockerImg},
-        {name: 'Digital Ocean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
+        {name: 'DigitalOcean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
     ],
     buzzwords: ['Clould', 'AI']
 }, {
@@ -118,7 +122,7 @@ const projects: IProject[] = [{
         {name: 'React', description: 'Used for frontend.', img: reactImg},
         {name: 'Ant Design', description: 'UI library used in the project.', img: antDesignImg},
         {name: 'Docker', description: 'Used to ease building and deployment of the app.', img: dockerImg},
-        {name: 'Digital Ocean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
+        {name: 'DigitalOcean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
     ],
     buzzwords: []
 }, {
@@ -149,7 +153,7 @@ const projects: IProject[] = [{
         {name: 'Angular', description: 'Used for frontend.', img: angularImg},
         {name: 'Angular Material', description: 'UI library used in the project.', img: angularMaterialImg},        
         {name: 'PostgreSQL', description: 'Database used for the project.', img: postgresImg},
-        {name: 'Digital Ocean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
+        {name: 'DigitalOcean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
     ], 
     buzzwords: ['Could', 'DevOps']
 }];

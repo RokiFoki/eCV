@@ -1,9 +1,9 @@
 import React, { lazy, Suspense } from 'react';
-import { SkillTree3DProps } from './SkillTree3D/SkillTree3D';
+import { ISkillsProps } from './Skills';
 
 const LazySkills = lazy(() => import('./Skills'));
 
-const Skills = (props: JSX.IntrinsicAttributes & { children?: React.ReactNode; } & SkillTree3DProps) => (
+const Skills = (props: JSX.IntrinsicAttributes & { children?: React.ReactNode; } & ISkillsProps) => (
   <Suspense fallback={null}>
     <LazySkills {...props} />
   </Suspense>

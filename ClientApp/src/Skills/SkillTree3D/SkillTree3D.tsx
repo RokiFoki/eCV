@@ -40,10 +40,10 @@ function nextLevel(nodes: ISkillNode[]) {
 const skillNodes = skills as ISkillNode[];
 const nodesLevels = [...levelGenerator(skillNodes)];
 let shownNodes = nodesLevels.flat();
-const SkillTree3D = (props: SkillTree3DProps): JSX.Element => {
+const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
   const [nodes, updateNodes] = useState(nodesLevels);
   const [svgCords, updateSvgCords] = useState<{[key: string]: {x: number, y: number, width: number, height: number}}>({});
-  const [redraw, updateRedraw] = useState(+new Date())
+  const [redrawState, updateRedraw] = useState(+new Date())
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const SkillTree3D = (props: SkillTree3DProps): JSX.Element => {
       setTimeout(() => {
         updateRedraw(+new Date());
       }, i);   
-  }, [props.redraw])
+  }, [redraw])
 
   function updateSelection(skill: ISkillNode) {
     for (const nodeRow of nodes) {
@@ -129,7 +129,7 @@ const SkillTree3D = (props: SkillTree3DProps): JSX.Element => {
                 class={node.selected ? 'selected' : node.children.length > 0 ? 'has-children' : ''}
                 experience={node.experience}
                 nodeButtonRef={(el) => { handleNodeRef(node.name, el) }}
-                redraw={redraw}
+                redraw={redrawState}
                 ></SkillNode>))}
           </Space>
         ))}
@@ -147,4 +147,5 @@ export default SkillTree3D;
 
 export interface SkillTree3DProps {
   redraw: number;
+  setTags: (tags: string[]) => void;
 }

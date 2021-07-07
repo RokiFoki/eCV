@@ -23,7 +23,7 @@ const skills: ISkillNoLevel[] = [{
         name: 'Backend',
         experience: 'max',
         children: [{
-            name: '.Net',
+            name: '.NET',
             children: [],
             experience: 90
         }, {
@@ -89,7 +89,7 @@ const skills: ISkillNoLevel[] = [{
         children: [],
         experience: 40
     }, {
-        name: 'TensorFlow (python)',
+        name: 'TensorFlow (Python)',
         children: [],
         experience: 50
     }]
@@ -101,7 +101,7 @@ const skills: ISkillNoLevel[] = [{
         name: 'Scripting',
         experience: 'max',
         children: [{
-            name: 'python',
+            name: 'Python',
             children: [],
             experience: 80
         }, {

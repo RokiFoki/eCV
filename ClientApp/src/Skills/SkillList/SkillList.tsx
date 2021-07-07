@@ -13,10 +13,11 @@ function *treeToList(nodes: ISkill[]): Generator<ISkill> {
 }
 const data = [...treeToList(skillData)].filter(d => !d.children?.length);
 
-const SkillList = () => {
+const SkillList: React.FC<ISkillListProps> = ({setTags}: ISkillListProps) => {
   
   return (
   <div className={styles.SkillList}>
+    <Checkbox.Group onChange={(tags) => setTags(tags as string[])}>
     <List
       size="small"
       dataSource={data}
@@ -25,8 +26,12 @@ const SkillList = () => {
           <Checkbox value={item.name}>{item.name}</Checkbox> 
         </List.Item>
     }
-    />
+    /></Checkbox.Group>
   </div>
 )};
 
 export default SkillList;
+
+export interface ISkillListProps {
+  setTags: (tags: string[]) => void;
+}

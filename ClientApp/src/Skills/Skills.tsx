@@ -31,7 +31,7 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
           {skillsView === 'list' && <SkillList setTags={setTags}></SkillList>}
           {skillsView === 'tree' && <SkillTree setTags={setTags}></SkillTree>}
           {skillsView === '3dtree' && <SkillTree3D setTags={setTags} {...props}></SkillTree3D>}
-        <div style={{flex: 1}}>
+        <div style={{flex: 1, maxWidth: '100%'}}>
           <ProjectList projects={filteredProjects}></ProjectList>
         </div>
       </div>

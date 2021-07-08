@@ -101,7 +101,7 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
 
   return (
     <div className={styles.SkillTree3D}>
-      <svg className={styles.svgContainer} ref={svgRef}>
+      <svg className={styles.SvgContainer} ref={svgRef}>
         {
           nodes.map(nodesRow => 
             nodesRow.filter(p => shownNodes.some(node => node.name === p.name)).map(parent =>
@@ -119,7 +119,7 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
           ))
         }
       </svg>
-      <div style={{display: 'inline-flex', flexDirection: 'column', justifyContent: 'start', alignItems: 'stretch', minWidth: 'auto'}}>
+      <div className={styles.NodesContainer}>
         {nodes.map(nodesRow => (
           <Space size="middle" key={nodesRow[0].level} style={{marginBottom: 50, display: 'inline-flex', justifyContent: 'center'}}>
             {nodesRow.map(node => (

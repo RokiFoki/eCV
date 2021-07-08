@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from './SkillTree3D.module.scss';
 import skills, { ISkill } from '../../Shared/skills-data';
 import SkillNode from './SkillNode/SkillNode';
-import { PageHeader, Space } from 'antd';
+import { Space } from 'antd';
 
 const animationTimeMs = 400;
 function* levelGenerator(nodes: ISkillNode[]) {
@@ -69,6 +69,7 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
     updateSelection(skill);
     const nodesLevels = [...levelGenerator(skillNodes)];
     shownNodes = nodesLevels.flat();
+    setTags(shownNodes.filter(n => n.level > skill.level || n.name === skill.name).map(n => n.name));
     updateNodes(nodesLevels);
     updateRedraw(+new Date());
   }

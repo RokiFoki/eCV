@@ -22,7 +22,6 @@ const treeData = skills.map(s => toTreeNode(s));
 const SkillTree: React.FC<ISkillTreeProps> = ({setTags}: ISkillTreeProps) => {
   const [expandedKeys, setExpandedKeys] = useState<React.Key[]>(treeData.map(d => d.key));
   const [checkedKeys, setCheckedKeys] = useState<React.Key[]>(treeData.map(d => d.key));
-  const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
   const [autoExpandParent, setAutoExpandParent] = useState<boolean>(true);
 
   const onExpand = (expandedKeysValue: React.Key[]) => {
@@ -34,17 +33,11 @@ const SkillTree: React.FC<ISkillTreeProps> = ({setTags}: ISkillTreeProps) => {
   };
 
   const onCheck = (checkedKeysValue: React.Key[] | { checked: React.Key[]; halfChecked: React.Key[]; }) => {
-    //console.log('onCheck', checkedKeysValue);
-    if (Array.isArray(checkedKeysValue))
+    if (Array.isArray(checkedKeysValue)) {
       setCheckedKeys(checkedKeysValue as React.Key[]);
+      setTags(checkedKeysValue as string[]);
+    }
   };
-
-  const onSelect = (selectedKeysValue: React.Key[], info: any) => {
-    //console.log('onSelect', info);
-    setSelectedKeys(selectedKeysValue);
-  };
-
-
 
   return (
     <div className={styles.SkillTree}>
@@ -56,8 +49,6 @@ const SkillTree: React.FC<ISkillTreeProps> = ({setTags}: ISkillTreeProps) => {
         autoExpandParent={autoExpandParent}
         onCheck={onCheck}
         checkedKeys={checkedKeys}
-        onSelect={onSelect}
-        selectedKeys={selectedKeys}
         treeData={treeData}
       />
     </div>

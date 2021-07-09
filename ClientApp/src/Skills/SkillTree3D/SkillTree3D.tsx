@@ -69,7 +69,7 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
     updateSelection(skill);
     const nodesLevels = [...levelGenerator(skillNodes)];
     shownNodes = nodesLevels.flat();
-    setTags(shownNodes.filter(n => n.level > skill.level || n.name === skill.name).map(n => n.name));
+    setTags(shownNodes.filter(n => n.level > skill.level || n.name === skill.name).map(n => n.key));
     updateNodes(nodesLevels);
     updateRedraw(+new Date());
   }

@@ -74,7 +74,8 @@ const projects: IProject[] = [{
     tech: [
         {name: '.NET', description: 'Used for server backend.', img: dotNetImg}, 
         {name: 'SQL Server', description: 'Database used for the project and for raising pub-sub events.', img: sqlServerImg},
-        {name: 'Angular', description: `Framework used for frontend.`, img: angularImg}, 
+        {name: 'Angular', description: `Framework used for frontend.`, img: angularImg},
+        {name: 'AngularJS', description: `Framework used for frontend.`, img: angularImg}, 
         {name: 'Angular Material', description: 'UI library used for an app used by insurance company handlers.', img: angularMaterialImg},
         {name: 'PrimeNG', description: 'UI library used for an app used by clients.', img: primengImg},
         {name: 'Azure', description: 'Clould computing service used to deploy the app.', img: azureImg},

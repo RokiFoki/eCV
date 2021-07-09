@@ -7,8 +7,6 @@ import SkillTree from './SkillTree/SkillTree.lazy';
 import SkillTree3D from './SkillTree3D/SkillTree3D';
 import projects from '../Shared/projects-data';
 
-//console.log([...new Set(([] as string[]).concat(...projects.map(p => p.tech.map(t => t.name))))].sort());
-
 const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
   const [skillsView, updateSkillsView] = useState<'list' | 'tree' | '3dtree'>('list');
   const [tags, setTags] = useState<string[]>([]);

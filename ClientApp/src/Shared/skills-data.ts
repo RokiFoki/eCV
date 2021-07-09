@@ -1,14 +1,17 @@
 export interface ISkillNoLevel {
     level?: number,
     name: string,
+    key?: string,
     children: ISkillNoLevel[]
     experience: number | 'avg' | 'max' | 'min';
 }
+
 
 export interface ISkill extends ISkillNoLevel {
     level: number,
     children: ISkill[],
     experience: number;
+    key: string;
 }
 
 const avg = (exps: number[]) => exps.length && exps.reduce((a, b) => a + b, 0) / exps.length;
@@ -67,6 +70,7 @@ const skills: ISkillNoLevel[] = [{
             experience: 'max',
             children: [{
                 name: 'Angular2+',
+                key: 'Angular',
                 children: [],
                 experience: 90,
             }, {
@@ -148,7 +152,11 @@ const skills: ISkillNoLevel[] = [{
 const updateNodes = (data: ISkillNoLevel, level=1) => {
     if (data.level === undefined) {
         data.level = level;
-    };
+    }
+
+    if (data.key === undefined) {
+        data.key = data.name;
+    }
 
     for (const node of data.children) {
         updateNodes(node, data.level+1);

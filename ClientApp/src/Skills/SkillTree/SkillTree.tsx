@@ -12,7 +12,7 @@ interface ITreeData {
 function toTreeNode(skill: ISkill): ITreeData {
   return {
     title: skill.name,
-    key: skill.name,
+    key: skill.key,
     children: skill.children.map(c => toTreeNode(c))
   }
 }

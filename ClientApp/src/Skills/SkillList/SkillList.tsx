@@ -23,7 +23,7 @@ const SkillList: React.FC<ISkillListProps> = ({setTags}: ISkillListProps) => {
       dataSource={data}
       renderItem={item => 
         <List.Item>
-          <Checkbox value={item.name}>{item.name}</Checkbox> 
+          <Checkbox value={item.key}>{item.name}</Checkbox> 
         </List.Item>
     }
     /></Checkbox.Group>

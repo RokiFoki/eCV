@@ -1,10 +1,11 @@
+import { Spin } from 'antd';
 import React, { lazy, Suspense } from 'react';
 import { SkillTree3DProps } from './SkillTree3D';
 
 const LazySkillTree3D = lazy(() => import('./SkillTree3D'));
 
 const SkillTree3D = (props: JSX.IntrinsicAttributes & { children?: React.ReactNode; } & SkillTree3DProps) => (
-  <Suspense fallback={null}>
+  <Suspense fallback={<Spin size="large" />}>
     <LazySkillTree3D {...props} />
   </Suspense>
 );

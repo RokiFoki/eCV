@@ -57,16 +57,16 @@ const SideNavbarContent = withRouter((props: SideNavbarContentProps) => {
   )
 })
 
-let toBeColapsed = true;
 const App = () => {
-  const [sidenavCollapsed, setSidenavCollapsed] = useState(toBeColapsed);
+  const [sidenavCollapsed, setSidenavCollapsed] = useState(true);
   const [redrawSkillsTime, setRedrawSkillsTime] = useState(+new Date());
-  const updateCollapsed = (collapsed: boolean) => {
-    if (toBeColapsed === collapsed) return;
-
-    setRedrawSkillsTime(+new Date());
-    toBeColapsed = collapsed;
-    setSidenavCollapsed(collapsed);
+  const updateCollapsed = (collapsed: boolean) => {    
+    setSidenavCollapsed((wasCollapsed) => {
+      if (wasCollapsed != collapsed) {
+        setRedrawSkillsTime(+new Date());
+      }
+      return collapsed;
+    });
   }
   const ref = useRef(null);
   useOutsideAlerter(ref, () => {

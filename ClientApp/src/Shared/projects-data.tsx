@@ -1,34 +1,7 @@
-import droneImg from '../Content/drone-diagram.png';
-import poslovkoImg from '../Content/poslovko.png';
-import dotNetImg from '../Content/Tech/dotnet.png';
-import signalRImg from '../Content/Tech/signalr.png';
-import wbGLImg from '../Content/Tech/webgl.png';
-import sqlServerImg from '../Content/Tech/sqlserver.jpg';
-import jqueryImg from '../Content/Tech/jquery.jpg';
-import javascriptImg from '../Content/Tech/javascript.png';
-import bootstrapImg from '../Content/Tech/bootstrap.png';
-import raspberryPiImg from '../Content/Tech/raspberrypi.png';
-import pythonImg from '../Content/Tech/python.jpg';
-import dronekitImg from '../Content/Tech/dronekit.png';
-import androidImg from '../Content/Tech/android.png';
-import javaImg from '../Content/Tech/java.png';
-import azureImg from '../Content/Tech/azure.png';
-import nodejsImg from '../Content/Tech/nodejs.png';
-import postgresImg from '../Content/Tech/postgres.svg';
-import angularImg from '../Content/Tech/angular.png';
-import angularMaterialImg from '../Content/Tech/angularmaterial.png';
-import awsImg from '../Content/Tech/aws.png';
-import primengImg from '../Content/Tech/primeng.png';
-import reactImg from '../Content/Tech/react.svg';
-import antDesignImg from '../Content/Tech/antdesign.png';
-import digitalOceanImg from '../Content/Tech/digitalocean.png';
-import dockerImg from '../Content/Tech/docker.png';
-import azureSearchImg from '../Content/Tech/azuresearch.png';
-import jenkinsImg from '../Content/Tech/jenkins.png';
-import octopusImg from '../Content/Tech/octopus.png';
-import teamCityImg from '../Content/Tech/teamcity.png';
+
 
 import { IProjectProps as IProject } from '../Projects/ProjectList/Project/Project';
+import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bootstrapImg, digitalOceanImg, dockerImg, dotNetImg, droneImg, dronekitImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, nodejsImg, octopusImg, poslovkoImg, postgresImg, primengImg, pythonImg, raspberryPiImg, reactImg, signalRImg, sqlServerImg, teamCityImg, wbGLImg } from './tech-images';
 
 const projects: IProject[] = [{
     title: 'Self flying drone for network performance measurements',

@@ -1,4 +1,4 @@
-import { Checkbox, List } from 'antd';
+import { Avatar, Checkbox, List } from 'antd';
 import React from 'react';
 import styles from './SkillList.module.scss';
 import skillData, { ISkill } from '../../Shared/skills-data';
@@ -23,7 +23,7 @@ const SkillList: React.FC<ISkillListProps> = ({setTags}: ISkillListProps) => {
       dataSource={data}
       renderItem={item => 
         <List.Item>
-          <Checkbox value={item.key}>{item.name}</Checkbox> 
+          <Checkbox value={item.key}>{!!item.url && <Avatar src={item.url} style={{marginRight: 5}} size={24} /> }{item.name}</Checkbox>
         </List.Item>
     }
     /></Checkbox.Group>

@@ -1,9 +1,12 @@
+import { angularImg, awsImg, azureImg, bashImg, digitalOceanImg, dockerImg, dotNetImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, postgresImg, powerShellImg, pythonImg, reactImg, scipyImg, sqlServerImg, teamCityImg, tensorflowImg } from './tech-images';
+
 export interface ISkillNoLevel {
     level?: number,
     name: string,
     key?: string,
-    children: ISkillNoLevel[]
-    experience: number | 'avg' | 'max' | 'min';
+    children: ISkillNoLevel[],
+    url?: string,
+    experience: number | 'avg' | 'max' | 'min'
 }
 
 
@@ -28,11 +31,13 @@ const skills: ISkillNoLevel[] = [{
         children: [{
             name: '.NET',
             children: [],
-            experience: 90
+            experience: 90,
+            url: dotNetImg
         }, {
             name: 'Node.js',
             children: [],
-            experience: 90
+            experience: 90,
+            url: nodejsImg
         }, {
             name: 'Database',
             experience: 'max',
@@ -42,15 +47,18 @@ const skills: ISkillNoLevel[] = [{
                 children: [{
                     name: 'PostgreSQL',
                     children: [],
-                    experience: 90
+                    experience: 90,
+                    url: postgresImg
                 }, {
                     name: 'SQL Server',
                     children: [],
-                    experience: 90
+                    experience: 90,
+                    url: sqlServerImg
                 }, {
                     name: 'MySQL',
                     children: [],
-                    experience: 50
+                    experience: 50,
+                    url: mySqlImg
                 }]
             }, {
                 name: 'NoSQL',
@@ -58,7 +66,8 @@ const skills: ISkillNoLevel[] = [{
                 children: [{
                     name: 'mongoDB',
                     children: [],
-                    experience: 40
+                    experience: 40,
+                    url: mongoDbImg
                 }]
             }]
         }]
@@ -73,15 +82,18 @@ const skills: ISkillNoLevel[] = [{
                 key: 'Angular',
                 children: [],
                 experience: 90,
+                url: angularImg
             }, {
                 name: 'AngularJS',
                 children: [],
-                experience: 90
+                experience: 90,
+                url: angularImg
             }]
         }, {
             name: 'React',
             children: [],
-            experience: 70
+            experience: 70,
+            url: reactImg
         }]
     }]
 }, {
@@ -89,13 +101,15 @@ const skills: ISkillNoLevel[] = [{
     name: 'Data Science',
     experience: 'max',
     children: [{
-        name: 'Machine Learning',
+        name: 'SciPy',
         children: [],
-        experience: 40
+        experience: 40,
+        url: scipyImg
     }, {
-        name: 'TensorFlow (Python)',
+        name: 'TensorFlow',
         children: [],
-        experience: 50
+        experience: 50,
+        url: tensorflowImg
     }]
 }, {
     level: 1,
@@ -107,28 +121,34 @@ const skills: ISkillNoLevel[] = [{
         children: [{
             name: 'Python',
             children: [],
-            experience: 80
+            experience: 80,
+            url: pythonImg
         }, {
             name: 'bash', 
             children: [],
-            experience: 65
+            experience: 65,
+            url: bashImg
         }, {
             name: 'PowerShell',
             children: [],
-            experience: 35
+            experience: 35,
+            url: powerShellImg
         }]
     }, {
         name: 'Octopus', 
         children: [],
-        experience: 80
+        experience: 80,
+        url: octopusImg
     }, {
         name: 'TeamCity',
         children: [],
-        experience: 80
+        experience: 80,
+        url: teamCityImg
     }, {
         name: 'Docker',
         children: [],
-        experience: 70
+        experience: 70,
+        url: dockerImg
     },
     {
         name: 'Cloud Platforms',
@@ -136,15 +156,18 @@ const skills: ISkillNoLevel[] = [{
         children: [{
             name: 'AWS',
             children: [],
-            experience: 65
+            experience: 65,
+            url: awsImg
         }, {
             name: 'Azure',
             children: [],
-            experience: 65
+            experience: 65,
+            url: azureImg
         }, {
             name: 'DigitalOcean',
             children: [],
-            experience: 65
+            experience: 65,
+            url: digitalOceanImg
         }]
     }]
 }]

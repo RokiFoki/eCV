@@ -1,7 +1,7 @@
 import { PageHeader, Radio } from 'antd';
 import React, { useState } from 'react';
-import ProjectList from '../Projects/ProjectList/ProjectList.lazy';
-import SkillList from './SkillList/SkillList.lazy';
+import ProjectList from '../Projects/ProjectList/ProjectList';
+import SkillList from './SkillList/SkillList';
 import styles from './Skills.module.scss';
 import SkillTree from './SkillTree/SkillTree.lazy';
 import SkillTree3D from './SkillTree3D/SkillTree3D';

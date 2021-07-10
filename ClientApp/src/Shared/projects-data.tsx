@@ -1,7 +1,11 @@
 
 
 import { IProjectProps as IProject } from '../Projects/ProjectList/Project/Project';
-import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bootstrapImg, digitalOceanImg, dockerImg, dotNetImg, droneImg, dronekitImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, nodejsImg, octopusImg, poslovkoImg, postgresImg, primengImg, pythonImg, raspberryPiImg, reactImg, signalRImg, sqlServerImg, teamCityImg, wbGLImg } from './tech-images';
+import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bootstrapImg, digitalOceanImg, dockerImg, dotNetImg, dronekitImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, mySqlImg, nodejsImg, octopusImg, pawnImg, phpImg, postgresImg, primengImg, pythonImg, raspberryPiImg, reactImg, signalRImg, sqlServerImg, teamCityImg, wbGLImg } from './tech-images';
+import gtaImg from '../Content/gta.png';
+import droneImg from '../Content/drone-diagram.png';
+import poslovkoImg from '../Content/poslovko.png';
+
 
 const projects: IProject[] = [{
     title: 'Self flying drone for network performance measurements',
@@ -130,5 +134,24 @@ const projects: IProject[] = [{
         {name: 'DigitalOcean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
     ], 
     buzzwords: ['Could', 'DevOps']
+}, {
+    title: 'GTA San Andreas Multiplayer Roleplay Server - Towny RP',
+    img: { source: gtaImg, alt: 'GTA San Andreas', width: 542 },
+    paragraphs: [
+        <>Towny RP is a custom-made roleplay server for <a href="https://www.sa-mp.com/" target="_blank">San Andreas Multiplayer</a>. On top of what Grand Theft Auto: San Andreas offers, 
+        players can find a job and earn money, join gangs or mafias to fight over the drugs and weapon business. Alternatively, players can join factions. There are Police Departments in 
+        big cities and Sheriffs' Departments in villages that are supposed to fight crime. There are other factions such as ambulance, firefighters, FBI, government, hitman agency and others 
+        that make the roleplay very exciting. Custom casinos have been designed and implemented allowing users to play Holdem Texas Poker. Players distribute given skill points to their 
+        character skills. That makes them unique to other players. Available skills were: strength, health, speed, agility, shooting, reflexes, intelligence, poker, detective, and others. 
+        There are other features that the roleplay server offers.  
+        </>,
+        <>I've developed the whole server myself.</>,
+    ],
+    tech: [
+        {name: 'Pawn', description: 'Programming language used to write servers for San Andreas Multiplayer Servers.', img: pawnImg},
+        {name: 'PHP', description: 'Scripting language used to communicate with outside resources.', img: phpImg},      
+        {name: 'MySQL', description: 'Database used.', img: mySqlImg},
+    ], 
+    buzzwords: ['Gaming']
 }];
 export default projects;

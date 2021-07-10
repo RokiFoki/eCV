@@ -88,7 +88,7 @@ const projects: IProject[] = [{
         {name: 'Docker', description: 'Used to ease building and deployment of the app.', img: dockerImg},
         {name: 'DigitalOcean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
     ],
-    buzzwords: ['Clould', 'AI']
+    buzzwords: ['Clould', 'AI', 'Startup']
 }, {
     title: 'My Portofolio (this webiste)',
     paragraphs: [

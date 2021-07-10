@@ -4,7 +4,7 @@ import ProjectList from '../Projects/ProjectList/ProjectList';
 import SkillList from './SkillList/SkillList';
 import styles from './Skills.module.scss';
 import SkillTree from './SkillTree/SkillTree.lazy';
-import SkillTree3D from './SkillTree3D/SkillTree3D';
+import SkillTree3D from './SkillTree3D/SkillTree3D.lazy';
 import projects from '../Shared/projects-data';
 
 const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {

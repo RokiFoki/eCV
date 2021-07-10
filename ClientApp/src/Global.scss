@@ -1,10 +1,7 @@
 @import '~antd/dist/antd.css';
 @import './_variables.scss';
 
-@font-face {
-  font-family: "Kalam";
-  src: url(./Kalam-Bold.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
 
 ul {
   padding-inline-start: 5px;

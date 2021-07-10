@@ -2,8 +2,8 @@ import { Progress } from 'antd';
 import React from 'react';
 import styles from './SkillNode.module.scss';
 
-const red = 'rgb(204, 0, 0)';
 const orange = 'rgb(255, 153, 51)';
+const yellow = 'hsl(60, 100%, 50%)';
 const lightGreen = 'rgb(204, 255, 51)';
 const green = 'rgb(51, 204, 51)';
 
@@ -25,7 +25,7 @@ class SkillNode extends React.Component<SkillNodeProps>
             <Progress percent={this.props.experience} showInfo={false} 
               strokeColor={ this.props.experience >= 90 ? green :
                             this.props.experience >= 75 ? lightGreen :
-                            this.props.experience >= 50 ? orange :red } 
+                            this.props.experience >= 50 ? yellow : orange } 
               strokeWidth={5}/>
           </div>
         </span>

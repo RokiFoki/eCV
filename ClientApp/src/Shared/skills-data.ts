@@ -76,6 +76,7 @@ const skills: ISkillNoLevel[] = [{
         experience: 'max',
         children: [{
             name: 'Angular',
+            key: 'All Angulars',
             experience: 'max',
             children: [{
                 name: 'Angular2+',

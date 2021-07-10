@@ -1,7 +1,7 @@
 
 
 import { IProjectProps as IProject } from '../Projects/ProjectList/Project/Project';
-import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bootstrapImg, digitalOceanImg, dockerImg, dotNetImg, dronekitImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, pawnImg, phpImg, postgresImg, primengImg, pythonImg, raspberryPiImg, reactImg, scipyImg, signalRImg, sqlServerImg, teamCityImg, tensorflowImg, wbGLImg } from './tech-images';
+import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bashImg, bootstrapImg, digitalOceanImg, dockerImg, dotNetImg, dronekitImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, pawnImg, phpImg, postgresImg, powerShellImg, primengImg, pythonImg, raspberryPiImg, reactImg, scipyImg, signalRImg, sqlServerImg, teamCityImg, tensorflowImg, wbGLImg } from './tech-images';
 import gtaImg from '../Content/gta.png';
 import droneImg from '../Content/drone-diagram.png';
 import poslovkoImg from '../Content/poslovko.png';
@@ -23,7 +23,8 @@ const projects: IProject[] = [{
         {name: 'Python', description: 'Scripting lanague used for movement AI.', img: pythonImg},
         {name: 'DroneKit.', description: 'Python library to control drone.', img: dronekitImg},
         {name: 'Android/Java', description: 'Used to implement network measurement tests.', imgs: [androidImg, javaImg]},
-        {name: 'Azure', description: 'Clould computing service used to deploy the app.', img: azureImg}, 
+        {name: 'Azure', description: 'Clould computing service used to deploy the app.', img: azureImg},
+        {name: 'bash', description: 'For Linux configuration on RaspberryPi', img: bashImg} 
     ],
     buzzwords: ['IOT', 'AI', 'ML']
 }, {
@@ -59,6 +60,7 @@ const projects: IProject[] = [{
         {name: 'Azure search', description: 'Quick text search used to find products by their characteristics.', img: azureSearchImg},
         {name: 'Octopus', description: 'Used to manage different SAAS tenants confiration and deployments.', img: octopusImg},
         {name: 'TeamCity', description: 'Used to create build versions used for deployments.', img: teamCityImg},
+        {name: 'PowerShell', description: 'Custom scripts used tp configure Octopus and TeamCity', img: powerShellImg}
     ],
     buzzwords: ['Microservices', 'Cloud', 'SAAS']
 }, {
@@ -70,6 +72,7 @@ const projects: IProject[] = [{
     tech: [
         {name: 'X++ (.NET)', description: 'Used for backend and frontend.', img: dotNetImg}, 
         {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
+        {name: 'PowerShell', description: 'Useful scripts for used to speedup development', img: powerShellImg}
     ],
     buzzwords: ['ERP', 'Cloud', 'SAAS']
 } ,{

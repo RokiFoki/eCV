@@ -11,7 +11,13 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
   const [skillsView, updateSkillsView] = useState<'list' | 'tree' | '3dtree'>('list');
   const [tags, setTags] = useState<string[]>([]);
 
-  const filteredProjects = projects.filter(p => !tags.length || p.tech.some(t => tags.includes(t.name)));
+  const filteredProjects = projects.filter(p => {
+    if (tags.length) {
+      return p.tech.some(t => tags.includes(t.name));
+    }
+
+    return !p.hideWithAll;
+  });
   return <div className={styles.Skills}>    
       <PageHeader title="Skills" className='page-title' />
       <div>

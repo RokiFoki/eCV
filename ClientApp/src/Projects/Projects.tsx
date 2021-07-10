@@ -6,9 +6,11 @@ import Project from './ProjectList/Project/Project';
 import ProjectList from './ProjectList/ProjectList';
 
 const Projects = () => {
+  const projectsToDisplay = projects.filter(p => !p.hideWithAll);
+
   return (
   <div className={styles.Projects}>
-    <ProjectList projects={projects}></ProjectList>
+    <ProjectList projects={projectsToDisplay}></ProjectList>
   </div>
 )};
 

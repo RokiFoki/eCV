@@ -87,7 +87,11 @@ export interface IProjectProps {
   img?: {source: string, alt: string, width: number},
   paragraphs: { 0: ProjectParagraph } & ProjectParagraph[],
   tech: ITech[],
-  buzzwords: string[]
+  buzzwords: string[],
+  /**
+   * when true, will not be shown unless its triggered with the filters
+   */
+  hideWithAll?: boolean
 }
 
 export default Project;

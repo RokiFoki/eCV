@@ -1,7 +1,7 @@
 
 
 import { IProjectProps as IProject } from '../Projects/ProjectList/Project/Project';
-import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bootstrapImg, digitalOceanImg, dockerImg, dotNetImg, dronekitImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, mySqlImg, nodejsImg, octopusImg, pawnImg, phpImg, postgresImg, primengImg, pythonImg, raspberryPiImg, reactImg, signalRImg, sqlServerImg, teamCityImg, wbGLImg } from './tech-images';
+import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bootstrapImg, digitalOceanImg, dockerImg, dotNetImg, dronekitImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, pawnImg, phpImg, postgresImg, primengImg, pythonImg, raspberryPiImg, reactImg, scipyImg, signalRImg, sqlServerImg, teamCityImg, tensorflowImg, wbGLImg } from './tech-images';
 import gtaImg from '../Content/gta.png';
 import droneImg from '../Content/drone-diagram.png';
 import poslovkoImg from '../Content/poslovko.png';
@@ -135,6 +135,18 @@ const projects: IProject[] = [{
     ], 
     buzzwords: ['Could', 'DevOps']
 }, {
+    title: 'Tuition centre management application',
+    paragraphs: [
+        <>The application allows teachers to maintain the time of their courses, their classes and their students.</>,
+        <>I've developed the whole server myself.</>,
+    ],
+    tech: [
+        {name: 'JavaScript/jQuery', description: 'Used to make the browser interactive.', imgs: [jqueryImg, javascriptImg]},
+        { name: 'PHP', description: 'Used for backend', img: phpImg},
+        { name: 'MySQL', description: 'Database used for the project.', img: mySqlImg}
+    ],
+    buzzwords: ['eLearning']
+}, {
     title: 'GTA San Andreas Multiplayer Roleplay Server - Towny RP',
     img: { source: gtaImg, alt: 'GTA San Andreas', width: 542 },
     paragraphs: [
@@ -153,5 +165,37 @@ const projects: IProject[] = [{
         {name: 'MySQL', description: 'Database used.', img: mySqlImg},
     ], 
     buzzwords: ['Gaming']
+}, {
+    title: 'MongoDB - 2 semester university course',
+    paragraphs: [
+        <>In the 2 semester course, I've learned basic MongoDB features and its usages in the industry.</>,
+    ],
+    tech: [
+        {name: 'mongoDB', description: 'Topic of the course.', img: mongoDbImg},
+    ], 
+    buzzwords: [],
+    hideWithAll: true
+}, {
+    title: 'Artificial Intelligence  - 2 semester university course',
+    paragraphs: [
+        <>In the 2 semester course, we used SciPi and scikit-learn to implement advanced AI algorithms.</>,
+    ],
+    tech: [
+        {name: 'SciPy', description: 'Python package for AI.', img: scipyImg},
+        {name: 'Python', description: 'Programming language used in the course.', img: pythonImg},
+    ], 
+    buzzwords: [],
+    hideWithAll: true
+}, {
+    title: 'Deep Learning  - 2 semester university course',
+    paragraphs: [
+        <>In the 2 semester course, we used TensorFlow to implement different neural networks.</>,
+    ],
+    tech: [
+        {name: 'TensorFlow', description: 'Python package for building and training neural networks.', img: tensorflowImg},
+        {name: 'Python', description: 'Programming language used in the course.', img: pythonImg},
+    ], 
+    buzzwords: [],
+    hideWithAll: true
 }];
 export default projects;

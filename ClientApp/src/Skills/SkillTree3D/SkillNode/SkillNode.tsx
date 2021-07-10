@@ -42,7 +42,7 @@ class SkillNode extends React.Component<SkillNodeProps>
 interface SkillNodeProps {
   name: string;
   onClick?: () => void;
-  class?: 'selected' | 'has-children' | '';
+  class?: 'selected' | 'expanded' | 'has-children' | '';
   experience: number;
   nodeButtonRef: (el: HTMLButtonElement) => void;
   redraw: number;

@@ -29,12 +29,12 @@ function* levelGenerator(nodes: ISkillNode[]) {
 
 function nextLevel(nodes: ISkillNode[]) {
   if (nodes.length === 0) return undefined;
-  if (!nodes.some(node => node.selected)) {
+  if (!nodes.some(node => node.expanded)) {
     const nodeToExpand = nodes.find(nodes => nodes.children.length > 0);
-    if (nodeToExpand) nodeToExpand.selected = true;
+    if (nodeToExpand) nodeToExpand.expanded = true;
   };
 
-  return nodes.find(node => node.selected)?.children;
+  return nodes.find(node => node.expanded)?.children;
 }
 
 const skillNodes = skills as ISkillNode[];
@@ -42,6 +42,7 @@ const nodesLevels = [...levelGenerator(skillNodes)];
 let shownNodes = nodesLevels.flat();
 const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
   const [nodes, updateNodes] = useState(nodesLevels);
+  const [selectedNode, updateSelectedNode] = useState<string>(nodesLevels[0][0].name)
   const [svgCords, updateSvgCords] = useState<{[key: string]: {x: number, y: number, width: number, height: number}}>({});
   const [redrawState, updateRedraw] = useState(+new Date())
   const svgRef = useRef<SVGSVGElement>(null);
@@ -53,12 +54,12 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
       }, i);   
   }, [redraw])
 
-  function updateSelection(skill: ISkillNode) {
+  function updateExpansion(skill: ISkillNode) {
     for (const nodeRow of nodes) {
       for (const node of nodeRow) {
         if (node === skill) {
-            nodeRow.forEach(n => n.selected = false);
-            node.selected = true;
+            nodeRow.forEach(n => n.expanded = false);
+            node.expanded = true;
             return;
         }
       }
@@ -66,7 +67,8 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
   }
 
   function selectNode(skill: ISkillNode) {
-    updateSelection(skill);
+    updateExpansion(skill);
+    updateSelectedNode(skill.name);
     const nodesLevels = [...levelGenerator(skillNodes)];
     shownNodes = nodesLevels.flat();
     setTags(shownNodes.filter(n => n.level > skill.level || n.name === skill.name).map(n => n.key));
@@ -127,7 +129,7 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
                 onClick={() => selectNode(node)}
                 name={node.name} 
                 key={node.name}
-                class={node.selected ? 'selected' : node.children.length > 0 ? 'has-children' : ''}
+                class={selectedNode === node.name ? 'selected' : node.expanded ? 'expanded' : node.children.length > 0 ? 'has-children' : ''}
                 experience={node.experience}
                 nodeButtonRef={(el) => { handleNodeRef(node.name, el) }}
                 redraw={redrawState}
@@ -140,7 +142,7 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
 };
 
 interface ISkillNode extends ISkill {
-  selected?: boolean;
+  expanded?: boolean;
   children: ISkillNode[];
 }
 

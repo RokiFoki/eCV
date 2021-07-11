@@ -3,3 +3,16 @@
 .Projects {
     padding: $layout-padding;
 }
+
+.Filters {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.Tags {
+    margin-top: 3px;
+    display: flex;
+    flex-flow: row wrap;
+}

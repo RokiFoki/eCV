@@ -1,11 +1,12 @@
 
 
-import { IProjectProps as IProject } from '../Projects/ProjectList/Project/Project';
+import { IProjectProps } from '../Projects/ProjectList/Project/Project';
 import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bashImg, bootstrapImg, digitalOceanImg, dockerImg, dotNetImg, dronekitImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, pawnImg, phpImg, postgresImg, powerShellImg, primengImg, pythonImg, raspberryPiImg, reactImg, scipyImg, signalRImg, sqlServerImg, teamCityImg, tensorflowImg, wbGLImg } from './tech-images';
 import gtaImg from '../Content/gta.png';
 import droneImg from '../Content/drone-diagram.png';
 import poslovkoImg from '../Content/poslovko.png';
 
+export declare type IProject = IProjectProps;
 
 const projects: IProject[] = [{
     title: 'Self flying drone for network performance measurements',
@@ -114,7 +115,7 @@ const projects: IProject[] = [{
     ],
     tech: [
         {name: '.NET', description: 'Used for backend.', img: dotNetImg}, 
-        {name: 'jQuery/Javascript', description: 'Used for frontend.', imgs: [jqueryImg, javascriptImg]},
+        {name: 'JavaScript/jQuery', description: 'Used for frontend.', imgs: [jqueryImg, javascriptImg]},
         {name: 'Bootstrap', description: 'UI library used in the project.', img: bootstrapImg},
         {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.', img: signalRImg},
         {name: 'RaspberryPi', description: 'Little compter that is sending current geo position and was attached to the tractors.', img: raspberryPiImg},

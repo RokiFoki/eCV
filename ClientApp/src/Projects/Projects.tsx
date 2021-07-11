@@ -1,9 +1,8 @@
-import { AutoComplete, Divider, Input, Tag } from 'antd';
+import { AutoComplete, Divider, Input, PageHeader, Tag } from 'antd';
 import React, { useState } from 'react';
 import styles from './Projects.module.scss';
 import projects, { IProject } from '../Shared/projects-data';
 import ProjectList from './ProjectList/ProjectList';
-import { SearchOutlined } from '@ant-design/icons';
 
 const Projects = () => {
   const [techInputValue, setTechInputValue] = useState('');
@@ -81,53 +80,63 @@ const Projects = () => {
 
   return (
   <div className={styles.Projects}>
+    <PageHeader title="Projects" className='page-title' />
     <section className={styles.Filters}>
       <section className={styles.FilterSection}>
-        <div>
-          <Input
-            value={searchValue}
-            onChange={onSearchChange}
-            addonAfter={<SearchOutlined />}
-            allowClear
-          />
+        <div className={styles.Label}>
+          Search:
         </div>
+        <Input
+          className={styles.SearchInput}
+          value={searchValue}
+          onChange={onSearchChange}
+          allowClear
+        />
       </section>
-      <section className={styles.FilterSection}>
-        <div>
-          Tech: <AutoComplete
-            value={techInputValue}
-            options={avalilTech}
-            style={{ width: 200 }}
-            onSelect={onSelectTech}
-            onChange={onChangeTech}
-            filterOption={(inputValue, option) => option!.value.toUpperCase().includes(inputValue.toUpperCase())}
-          />
+      <div className={styles.BuzzAndTechFilters}>
+        <section className={styles.FilterSection}>
+          <div className={styles.Label}>
+            Tech: 
+          </div>
+          <div className={styles.AutoCompleteAndTags}>
+            <AutoComplete
+              className={styles.AutoComplete}
+              value={techInputValue}
+              options={avalilTech}
+              onSelect={onSelectTech}
+              onChange={onChangeTech}
+              filterOption={(inputValue, option) => option!.value.toUpperCase().includes(inputValue.toUpperCase())}
+            />
+            <div className={styles.Tags}>
+              {selectedTechs.map(t => (
+                <Tag closable key={t} onClose={(e) => removeTechTag(t, e)}>{t}</Tag>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className={styles.FilterSection}>
+        <div className={styles.Label}>
+          Buzzwords: 
         </div>
-        <div className={styles.Tags}>
-          {selectedTechs.map(t => (
-            <Tag closable key={t} onClose={(e) => removeTechTag(t, e)}>{t}</Tag>
-          ))}
-        </div>
-      </section>
-      <section className={styles.FilterSection}>
-        <div>
-          Buzzwords: <AutoComplete
+        <div className={styles.AutoCompleteAndTags}>
+          <AutoComplete
+            className={styles.AutoComplete}
             value={buzzWordsInputValue}
             options={avalilBuzzWords}
-            style={{ width: 200 }}
             onSelect={onSelectBuzz}
             onChange={onChangeBuzz}
             filterOption={(inputValue, option) => option!.value.toUpperCase().includes(inputValue.toUpperCase())}
           />
-        </div>
-        <div className={styles.Tags}>
-          {selectedBuzzwords.map(t => (
-            <Tag closable key={t} onClose={(e) => removeBuzzwordTag(t, e)}>{t}</Tag>
-          ))}
+          <div className={styles.Tags}>
+            {selectedBuzzwords.map(t => (
+              <Tag closable key={t} onClose={(e) => removeBuzzwordTag(t, e)}>{t}</Tag>
+            ))}
+          </div>
         </div>
       </section>
+      </div>
     </section>
-    <Divider>Projects</Divider>
+    <Divider />
 
     <ProjectList projects={projectsToDisplay}></ProjectList>
   </div>

@@ -11,8 +11,69 @@
     justify-content: space-between;
 }
 
+.BuzzAndTechFilters {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    flex-grow: 2;
+
+    .FilterSection:first-of-type {
+        margin-right: 3px;
+    }
+}
+
+.FilterSection {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+.AutoCompleteAndTags {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+}
+
+.Label {
+    margin-right: 5px;
+}
+
 .Tags {
     margin-top: 3px;
     display: flex;
     flex-flow: row wrap;
+}
+
+.SearchInput {
+    width: 250px;
+}
+
+.AutoComplete {
+    min-width: 200px;
+}
+
+@media (max-width: 1149px) {
+    .SearchInput {
+        flex-grow: 1;
+    }
+    .BuzzAndTechFilters {
+        margin-top: 3px;;
+    }
+}
+
+@media (max-width: 824px) {
+    .AutoCompleteAndTags {
+        flex-grow: 1;
+    }       
+}
+
+@media (min-width: 600px) and (max-width: 732px),
+       (max-width: 533px) {
+    .BuzzAndTechFilters  {
+        .FilterSection:first-of-type {
+            margin-right: 0px;
+        }
+    } 
 }

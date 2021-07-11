@@ -55,9 +55,17 @@ namespace eCv.Controllers
             {
                 var response = await (await client.GetAsync($"https://free.currconv.com/api/v7/convert?q=USD_EUR&compact=ultra&apiKey={_currencyConfig.Key}")).Content.ReadAsStringAsync();
 
-                result = JsonSerializer.Deserialize<UsdEurResponse>(response);
-
-                _cache.Set("USD_EUR", result, new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10)));
+                try
+                {
+                    result = JsonSerializer.Deserialize<UsdEurResponse>(response);
+                    _cache.Set("USD_EUR", result, new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10)));
+                } catch (Exception e)
+                {
+                    result = new UsdEurResponse
+                    {
+                        UsdToEur = 0.84M
+                    };
+                }
             }
 
             return result;            
@@ -70,9 +78,17 @@ namespace eCv.Controllers
             {
                 var response = await (await client.GetAsync($"https://free.currconv.com/api/v7/convert?q=USD_GBP&compact=ultra&apiKey={_currencyConfig.Key}")).Content.ReadAsStringAsync();
 
-                result = JsonSerializer.Deserialize<UsdGbpResponse>(response);
-
-                _cache.Set("USD_GBP", result, new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10)));
+                try
+                {
+                    result = JsonSerializer.Deserialize<UsdGbpResponse>(response);
+                    _cache.Set("USD_GBP", result, new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10)));
+                } catch (Exception e)
+                {
+                    result = new UsdGbpResponse
+                    {
+                        UsdToGbp = 0.72M
+                    };
+                }
             }
 
             return result;

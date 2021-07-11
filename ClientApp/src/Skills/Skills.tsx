@@ -1,4 +1,4 @@
-import { PageHeader, Radio } from 'antd';
+import { PageHeader, Radio, RadioChangeEvent } from 'antd';
 import React, { useState } from 'react';
 import ProjectList from '../Projects/ProjectList/ProjectList';
 import SkillList from './SkillList/SkillList';
@@ -18,13 +18,18 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
 
     return !p.hideWithAll;
   });
+
+  const onSkillViewChange = (e: RadioChangeEvent) => {
+    updateSkillsView(e.target.value);
+    setTags([]);
+  }
   return <div className={styles.Skills}>    
       <PageHeader title="Skills" className='page-title' />
       <div>
         <label style={{marginRight: 10}}>
           Skills view:
         </label>
-        <Radio.Group value={skillsView} onChange={(e) => updateSkillsView(e.target.value)}>
+        <Radio.Group value={skillsView} onChange={onSkillViewChange}>
           <Radio.Button value="list">List</Radio.Button>
           <Radio.Button value="tree">Tree</Radio.Button>
           <Radio.Button value="3dtree">3D tree</Radio.Button>

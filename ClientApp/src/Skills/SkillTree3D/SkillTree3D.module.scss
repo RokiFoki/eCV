@@ -2,7 +2,6 @@
 
 .SkillTree3D {
     padding-top: $layout-padding + 8px;
-    position: relative;
     overflow: auto;
     width: fit-content;
     min-width: 100%;
@@ -26,4 +25,5 @@
     align-items: stretch;
     min-width: auto;
     margin: 0 auto;  
+    position: relative;
 }

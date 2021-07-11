@@ -103,25 +103,26 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
 
   return (
     <div className={styles.SkillTree3D}>
-      <svg className={styles.SvgContainer} ref={svgRef}>
-        {
-          nodes.map(nodesRow => 
-            nodesRow.filter(p => shownNodes.some(node => node.name === p.name)).map(parent =>
-              parent.children.filter(c => shownNodes.some(node => node.name === c.name)).map(child => {
-                const parentBox = svgCords[parent.name];
-                const childBox = svgCords[child.name];
-
-                return parentBox && childBox && (<line style={{stroke:'gray', strokeWidth:2}}
-                  key={`${parent.name};${child.name}`}
-                  x1={parentBox.x + parentBox.width/2} 
-                  y1={parentBox.y + parentBox.height + 3}
-                  x2={childBox.x + childBox.width/2}
-                  y2={childBox.y} />)
-              })
-          ))
-        }
-      </svg>
       <div className={styles.NodesContainer}>
+        <svg className={styles.SvgContainer} ref={svgRef}>
+          {
+            nodes.map(nodesRow => 
+              nodesRow.filter(p => shownNodes.some(node => node.name === p.name)).map(parent =>
+                parent.children.filter(c => shownNodes.some(node => node.name === c.name)).map(child => {
+                  const parentBox = svgCords[parent.name];
+                  const childBox = svgCords[child.name];
+
+                  return parentBox && childBox && (<line style={{stroke:'gray', strokeWidth:2}}
+                    key={`${parent.name};${child.name}`}
+                    x1={parentBox.x + parentBox.width/2} 
+                    y1={parentBox.y + parentBox.height + 3}
+                    x2={childBox.x + childBox.width/2}
+                    y2={childBox.y} />)
+                })
+            ))
+          }
+        </svg>
+        
         {nodes.map(nodesRow => (
           <Space size="middle" key={nodesRow[0].level} style={{marginBottom: 50, display: 'inline-flex', justifyContent: 'center'}}>
             {nodesRow.map(node => (

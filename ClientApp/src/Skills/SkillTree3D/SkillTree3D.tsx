@@ -3,6 +3,7 @@ import styles from './SkillTree3D.module.scss';
 import skills, { ISkill } from '../../Shared/skills-data';
 import SkillNode from './SkillNode/SkillNode';
 import { Space } from 'antd';
+import { deepCopy } from '../../Shared/utils';
 
 const animationTimeMs = 400;
 function* levelGenerator(nodes: ISkillNode[]) {
@@ -37,15 +38,24 @@ function nextLevel(nodes: ISkillNode[]) {
   return nodes.find(node => node.expanded)?.children;
 }
 
-const skillNodes = skills as ISkillNode[];
-const nodesLevels = [...levelGenerator(skillNodes)];
-let shownNodes = nodesLevels.flat();
+let shownNodes: ISkillNode[] = [];
+let skillNodes: ISkillNode[] = [];
 const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
-  const [nodes, updateNodes] = useState(nodesLevels);
-  const [selectedNode, updateSelectedNode] = useState<string>(nodesLevels[0][0].name)
+  const [nodes, updateNodes] = useState<ISkillNode[][]>([]);
+  const [selectedNode, updateSelectedNode] = useState<string>('')
   const [svgCords, updateSvgCords] = useState<{[key: string]: {x: number, y: number, width: number, height: number}}>({});
   const [redrawState, updateRedraw] = useState(+new Date())
   const svgRef = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    skillNodes = deepCopy(skills) as ISkillNode[];
+    const nodesLevels = [...levelGenerator(skillNodes)];
+    shownNodes = nodesLevels.flat();
+
+    updateNodes(nodesLevels);
+    updateSelectedNode(nodesLevels[0][0].name);
+    setTags(shownNodes.filter(n => n.level > nodesLevels[0][0].level || n.name === nodesLevels[0][0].name).map(n => n.key));
+  }, [])
 
   useEffect(() => {
     for (let i = 100; i <= animationTimeMs+100; i+= 100)

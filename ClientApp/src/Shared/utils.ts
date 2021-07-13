@@ -37,3 +37,7 @@ export function useMediaQuery(query: string) {
 
     return matches;
 }
+
+export function deepCopy<T extends object>(obj: T): T {
+    return JSON.parse(JSON.stringify(obj));
+}

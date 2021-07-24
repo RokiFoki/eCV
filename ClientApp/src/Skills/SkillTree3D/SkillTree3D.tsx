@@ -48,7 +48,7 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    skillNodes = deepCopy(skills) as ISkillNode[];
+    skillNodes = deepCopy(skills.filter(s => !s.hideInTree)) as ISkillNode[];
     const nodesLevels = [...levelGenerator(skillNodes)];
     shownNodes = nodesLevels.flat();
 

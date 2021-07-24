@@ -1,4 +1,4 @@
-import { angularImg, awsImg, azureImg, bashImg, digitalOceanImg, dockerImg, dotNetImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, postgresImg, powerShellImg, pythonImg, reactImg, scipyImg, sqlServerImg, teamCityImg, tensorflowImg } from './tech-images';
+import { angularImg, awsImg, azureImg, bashImg, digitalOceanImg, dockerImg, dotNetImg, graphqlImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, postgresImg, powerShellImg, pythonImg, reactImg, scipyImg, sqlServerImg, teamCityImg, tensorflowImg } from './tech-images';
 
 export interface ISkillNoLevel {
     level?: number,
@@ -6,7 +6,8 @@ export interface ISkillNoLevel {
     key?: string,
     children: ISkillNoLevel[],
     url?: string,
-    experience: number | 'avg' | 'max' | 'min'
+    experience: number | 'avg' | 'max' | 'min',
+    hideInTree?: boolean
 }
 
 
@@ -15,6 +16,7 @@ export interface ISkill extends ISkillNoLevel {
     children: ISkill[],
     experience: number;
     key: string;
+    hideInTree: boolean;
 }
 
 const avg = (exps: number[]) => exps.length && exps.reduce((a, b) => a + b, 0) / exps.length;
@@ -171,6 +173,12 @@ const skills: ISkillNoLevel[] = [{
             url: digitalOceanImg
         }]
     }]
+}, {
+    name: 'GraphQL',
+    children: [],
+    experience: 55,
+    hideInTree: true,
+    url: graphqlImg
 }]
 
 const updateNodes = (data: ISkillNoLevel, level=1) => {
@@ -182,6 +190,10 @@ const updateNodes = (data: ISkillNoLevel, level=1) => {
         data.key = data.name;
     }
 
+    if (data.hideInTree === undefined) {
+        data.hideInTree = false;
+    }
+    
     for (const node of data.children) {
         updateNodes(node, data.level+1);
     }

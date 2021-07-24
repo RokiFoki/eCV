@@ -1,7 +1,7 @@
 
 
 import { IProjectProps } from '../Projects/ProjectList/Project/Project';
-import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bashImg, bootstrapImg, digitalOceanImg, dockerImg, dotNetImg, dronekitImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, pawnImg, phpImg, postgresImg, powerShellImg, primengImg, pythonImg, raspberryPiImg, reactImg, scipyImg, signalRImg, sqlServerImg, teamCityImg, tensorflowImg, wbGLImg } from './tech-images';
+import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bashImg, bootstrapImg, digitalOceanImg, dockerImg, dotNetImg, dronekitImg, graphqlImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, pawnImg, phpImg, postgresImg, powerShellImg, primengImg, pythonImg, raspberryPiImg, reactImg, scipyImg, signalRImg, sqlServerImg, teamCityImg, tensorflowImg, wbGLImg } from './tech-images';
 import gtaImg from '../Content/gta.png';
 import droneImg from '../Content/drone-diagram.png';
 import poslovkoImg from '../Content/poslovko.png';
@@ -198,6 +198,18 @@ const projects: IProject[] = [{
     tech: [
         {name: 'TensorFlow', description: 'Python package for building and training neural networks.', img: tensorflowImg},
         {name: 'Python', description: 'Programming language used in the course.', img: pythonImg},
+    ], 
+    buzzwords: [],
+    hideWithAll: true
+}, {
+    title: 'QraphQL tutorial',
+    paragraphs: [
+        <>A simple app to test QraphQL basics.</>,
+    ],
+    tech: [
+        {name: 'GraphQL', description: 'Data query language used to fetch data', img: graphqlImg},
+        {name: 'Node.js', description: 'Used for backend.', img: nodejsImg},
+        {name: 'React', description: 'Used for frontend.', img: reactImg},
     ], 
     buzzwords: [],
     hideWithAll: true

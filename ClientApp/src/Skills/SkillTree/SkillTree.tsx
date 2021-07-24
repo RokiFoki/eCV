@@ -32,7 +32,7 @@ function toTreeNode(skill: ISkill): ITreeData {
   }
 }
 
-const treeData = skills.map(s => toTreeNode(s));
+const treeData = skills.filter(s => !s.hideInTree).map(s => toTreeNode(s));
 
 const SkillTree: React.FC<ISkillTreeProps> = ({setTags}: ISkillTreeProps) => {
   const [expandedKeys, setExpandedKeys] = useState<React.Key[]>(treeData.map(d => d.key));

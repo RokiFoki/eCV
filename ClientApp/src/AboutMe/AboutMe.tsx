@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './AboutMe.module.scss';
 import profile from '../Content/profil.jpeg';
 import { Link } from 'react-router-dom';
@@ -14,49 +14,50 @@ type PaymentType = "Annually" | "Monthly" | "Daily" | "Hourly";
 const annualSalaryMin = 40000;
 const annualSalaryMax = 150000;
 const defaultSalary = 65000;
-
-let usdEur = 1;
-let usdGbp = 1;
-fetch(`/api/salary/currency-rates`).then(async response => response.json())
-  .then(data => { 
-  usdEur = data.usdToEur;
-  usdGbp = data.usdToGbp;
-});
 const workingDays = 365 * 5 / 7;
-
-
-const toCurrency = (amount: number, toCur: Currency, fromCur: Currency = '$') => {
-  if (fromCur === '€') amount = amount / usdEur;
-  else if (fromCur === '£') amount = amount / usdGbp;
-
-  if (toCur === '$') return amount;
-  if (toCur === '€') return usdEur * amount;
-  return usdGbp * amount;
-}
-
-const convertPaymentType = (amount: number, toPaymentType: PaymentType, fromPaymentType: PaymentType = 'Annually') => {
-  if (fromPaymentType === 'Monthly') amount *= 12;
-  else if (fromPaymentType === 'Daily') amount *= workingDays;
-  else if (fromPaymentType === 'Hourly') amount *= workingDays * 8;
-  
-  if (toPaymentType === 'Annually') return amount;
-  if (toPaymentType === 'Monthly') return amount / 12;
-  if (toPaymentType === 'Daily') return amount / workingDays;
-  return amount / workingDays / 8;
-}
-
-const convertAmount = (amount: number, currency: Currency, paymentType: PaymentType) => {
-  return convertPaymentType(toCurrency(amount, currency), paymentType);
-}
 
 const AboutMe: React.FC = () => {
   const [salary, updateSalary] = useState(defaultSalary);
   const [currency, updateCurrency] = useState<Currency>('$');
   const [paymentType, updatePaymentType] = useState<PaymentType>('Annually');
+  const [usdEur, setUsdEur] = useState(1);
+  const [usdGbp, setUsdGbp] = useState(1);
+
+  useEffect(() => {
+    fetch(`/api/salary/currency-rates`).then(async response => response.json())
+      .then(data => { 
+        setUsdEur(data.usdToEur);
+        setUsdGbp(data.usdToGbp);
+    });
+  }, []);
 
   const now = new Date();
   let years = now.getFullYear() - 2015;
   if (now.getMonth() < 6) years -= 1; 
+
+  const toCurrency = (amount: number, toCur: Currency, fromCur: Currency = '$') => {
+    if (fromCur === '€') amount = amount / usdEur;
+    else if (fromCur === '£') amount = amount / usdGbp;
+  
+    if (toCur === '$') return amount;
+    if (toCur === '€') return usdEur * amount;
+    return usdGbp * amount;
+  }
+  
+  const convertPaymentType = (amount: number, toPaymentType: PaymentType, fromPaymentType: PaymentType = 'Annually') => {
+    if (fromPaymentType === 'Monthly') amount *= 12;
+    else if (fromPaymentType === 'Daily') amount *= workingDays;
+    else if (fromPaymentType === 'Hourly') amount *= workingDays * 8;
+    
+    if (toPaymentType === 'Annually') return amount;
+    if (toPaymentType === 'Monthly') return amount / 12;
+    if (toPaymentType === 'Daily') return amount / workingDays;
+    return amount / workingDays / 8;
+  }
+  
+  const convertAmount = (amount: number, currency: Currency, paymentType: PaymentType) => {
+    return convertPaymentType(toCurrency(amount, currency), paymentType);
+  }
 
   const selectCurrency = (newCur: Currency) => {
     updateSalary(toCurrency(salary, newCur, currency));

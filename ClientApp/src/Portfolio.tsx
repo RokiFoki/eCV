@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { Button, Layout, Menu, } from 'antd';
 import { UserOutlined, PhoneFilled, MenuOutlined, ExperimentOutlined } from '@ant-design/icons';
 import { Link, Redirect, Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
@@ -62,16 +62,16 @@ const App = () => {
   const [redrawSkillsTime, setRedrawSkillsTime] = useState(+new Date());
   const updateCollapsed = (collapsed: boolean) => {    
     setSidenavCollapsed((wasCollapsed) => {
-      if (wasCollapsed != collapsed) {
+      if (wasCollapsed !== collapsed) {
         setRedrawSkillsTime(+new Date());
       }
       return collapsed;
     });
   }
   const ref = useRef(null);
-  useOutsideAlerter(ref, () => {
+  useOutsideAlerter(ref, useCallback(() => {
     updateCollapsed(true);
-  })
+  }, []))
 
   return (
   <Layout style={{height: '100vh', width: '100vw'}}>

@@ -67,8 +67,8 @@ const projects: IProject[] = [{
 }, {
     title: 'Microsoft Dynamics 365 for Finance and Operations',
     paragraphs: [
-        <>Enterprise resource planning system for medium to large organizations covering the full spectrum of accounting, financial management, production, advanced warehousing and transportation management (<a href="https://www.google.com/search?q=what+is+microsoft+dynamics+365+for+finance+and+operations" target="_blank">google for more</a>).</>,
-        <>The system is split into many modules. I've worked on a warehouse module that was solving challenges with inventory (such as "putting", "picking", counting, reserving inventory, etc). Generating works for the warehouse workers when orders received and <a href="https://docs.microsoft.com/en-us/dynamics365/supply-chain/warehousing/warehouse-management-overview" target="_blank">plenty of other stuff</a>.</>,
+        <>Enterprise resource planning system for medium to large organizations covering the full spectrum of accounting, financial management, production, advanced warehousing and transportation management (<a href="https://www.google.com/search?q=what+is+microsoft+dynamics+365+for+finance+and+operations" target="_blank" rel="noopener noreferrer">google for more</a>).</>,
+        <>The system is split into many modules. I've worked on a warehouse module that was solving challenges with inventory (such as "putting", "picking", counting, reserving inventory, etc). Generating works for the warehouse workers when orders received and <a href="https://docs.microsoft.com/en-us/dynamics365/supply-chain/warehousing/warehouse-management-overview" target="_blank" rel="noopener noreferrer">plenty of other stuff</a>.</>,
     ],
     tech: [
         {name: 'X++ (.NET)', description: 'Used for backend and frontend.', img: dotNetImg}, 
@@ -154,7 +154,7 @@ const projects: IProject[] = [{
     title: 'GTA San Andreas Multiplayer Roleplay Server - Towny RP',
     img: { source: gtaImg, alt: 'GTA San Andreas', width: 542 },
     paragraphs: [
-        <>Towny RP is a custom-made roleplay server for <a href="https://www.sa-mp.com/" target="_blank">San Andreas Multiplayer</a>. On top of what Grand Theft Auto: San Andreas offers, 
+        <>Towny RP is a custom-made roleplay server for <a href="https://www.sa-mp.com/" target="_blank" rel="noopener noreferrer">San Andreas Multiplayer</a>. On top of what Grand Theft Auto: San Andreas offers, 
         players can find a job and earn money, join gangs or mafias to fight over the drugs and weapon business. Alternatively, players can join factions. There are Police Departments in 
         big cities and Sheriffs' Departments in villages that are supposed to fight crime. There are other factions such as ambulance, firefighters, FBI, government, hitman agency and others 
         that make the roleplay very exciting. Custom casinos have been designed and implemented allowing users to play Holdem Texas Poker. Players distribute given skill points to their 

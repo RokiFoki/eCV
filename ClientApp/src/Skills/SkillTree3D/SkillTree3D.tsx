@@ -55,7 +55,7 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
     updateNodes(nodesLevels);
     updateSelectedNode(nodesLevels[0][0].name);
     setTags(shownNodes.filter(n => n.level > nodesLevels[0][0].level || n.name === nodesLevels[0][0].name).map(n => n.key));
-  }, [])
+  }, [setTags])
 
   useEffect(() => {
     for (let i = 100; i <= animationTimeMs+100; i+= 100)

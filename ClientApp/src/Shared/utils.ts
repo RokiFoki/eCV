@@ -14,7 +14,7 @@ export function useOutsideAlerter(ref: any, callback: Function) {
             document.removeEventListener('mousedown', hadleClickOutside);
             document.removeEventListener('touchstart', hadleClickOutside);
         }
-    }, [ref]);
+    }, [ref, callback]);
 }
 
 
@@ -23,9 +23,7 @@ export function useMediaQuery(query: string) {
     
     useEffect(() => {
         const media = window.matchMedia(query);
-        if (media.matches !== matches) {
-            setMatches(media.matches);
-        }
+        setMatches(media.matches);
 
         const listener = (ev: MediaQueryListEvent): any => {
             setMatches(ev.matches);

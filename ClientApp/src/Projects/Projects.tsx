@@ -64,7 +64,7 @@ const Projects = () => {
       p.title.toLowerCase().includes(searchValueLowerCase) ||
       p.paragraphs.some(par => par.toString().toLowerCase().includes(searchValueLowerCase)) ||
       p.tech.some(t => t.name.toLowerCase().includes(searchValueLowerCase)) ||
-      p.buzzwords.some(b => selectedBuzzwords.includes(b)));
+      p.buzzwords.some(b => b.toLowerCase().includes(searchValueLowerCase)));
   }
 
   if (!selectedTechs.length && !selectedBuzzwords.length && !searchValue) {

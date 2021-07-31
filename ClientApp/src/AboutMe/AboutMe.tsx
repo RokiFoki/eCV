@@ -110,7 +110,11 @@ const AboutMe: React.FC = () => {
           I started my IT career at a very early age. On my 19th birthday, I won first place in a Regional Competition in Algorithms (Infokup). I graduated (with honors: magna cum laude) masters at the Faculty of Electrical Engineering and Computing.
         </Paragraph>
         <Paragraph>
-          I’ve worked on a large cloud base SAAS solution at Microsoft that is used by millions of users every day. I’ve developed obstacle detection and movement logic for an autonomous drone for measuring network benchmarks around high buildings at Ericsson. There are other projects I am proud of that you can find under <Link to="/experience">Experience</Link>.
+          I’ve worked on a large cloud base SAAS solution at Microsoft that is used by millions of users every day. I’ve developed obstacle detection and movement logic for an autonomous drone for measuring network benchmarks around high buildings at Ericsson. 
+          There are other projects I am proud of that you can find under <Link to="/projects">Projects</Link>.
+        </Paragraph>
+        <Paragraph>
+          You can find the full list of my skills with related projects I've used them on under <Link to="/skills">Skills</Link>.
         </Paragraph>
       </Typography>
     </section>
@@ -119,10 +123,10 @@ const AboutMe: React.FC = () => {
     <Typography className={`${styles.salaryExpectation}`}>
       <PageHeader title="Hire me?" className="page-title" />
       <Paragraph>
-        Are you considering to hire me but you are still not sure? <Link to="/contact"> Lets have a chat!</Link> 
+        Are you considering to hire me but you are still not sure or maybe your company is offering referral bonus? <Link to="/contact"> Lets have a chat!</Link> 
       </Paragraph>      
       <Paragraph>
-        I am sure we can come up to an agreement. Alternativelly, you can check my expectaton using following slider.       
+        Check my expectaton using following slider.
       </Paragraph>
 
       Salary type: <Select value={paymentType} onChange={selectPaymentType} style={{minWidth: 100}}>

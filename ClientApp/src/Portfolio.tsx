@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Button, Layout, Menu, } from 'antd';
 import { UserOutlined, PhoneFilled, MenuOutlined, ExperimentOutlined } from '@ant-design/icons';
-import { BrowserRouter as Router, Link, Redirect, Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
+import { Link, Redirect, Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
 
 import './Global.scss';
 import styles from './App.module.scss';
@@ -74,8 +74,7 @@ const App = () => {
   })
 
   return (
-  <Router>
-    <Layout style={{height: '100vh', width: '100vw'}}>
+  <Layout style={{height: '100vh', width: '100vw'}}>
       <Sider id="components-layout-demo-fixed-sider"
         className={`${styles.Sider} ${sidenavCollapsed ? styles.Collapsed : ''}`}
         ref={ref}
@@ -107,7 +106,6 @@ const App = () => {
         </Switch>
       </Layout>     
     </Layout>
-  </Router>
 )};
 
 export default App;

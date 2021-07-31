@@ -3,13 +3,49 @@ import React, { useState } from 'react';
 import styles from './Projects.module.scss';
 import projects, { IProject } from '../Shared/projects-data';
 import ProjectList from './ProjectList/ProjectList';
+import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
+
+function useFiltersQuery() {
+  const queryParams = new URLSearchParams(useLocation().search);
+
+  return ({
+    selectedTechs: queryParams.get('tech')?.split(',').filter(t => projects.some(p => p.tech.map(p => p.name).includes(t))) || [],
+    selectedBuzzwords: queryParams.get('buzz')?.split(',').filter(t => projects.some(p => p.buzzwords.includes(t))) || [],
+    searchValue: queryParams.get('search') || ''
+  });
+}
 
 const Projects = () => {
+  const { selectedTechs, selectedBuzzwords, searchValue } = useFiltersQuery();
+  const { url } = useRouteMatch();
+  const history = useHistory();
   const [techInputValue, setTechInputValue] = useState('');
   const [buzzWordsInputValue, setbuzzWordsInputValue] = useState('');
-  const [selectedTechs, setSelectedTechs] = useState<string[]>([]);
-  const [selectedBuzzwords, setSelectedBuzzwords] = useState<string[]>([]);
-  const [searchValue, setSearchValue] = useState('');
+  
+  const buildUrl = ({tech, buzz, search}: {tech: string[], buzz: string[], search: string}) => {
+    let newUrl = url;
+    let separator = '';
+    if (tech.length || buzz.length || search.length) {
+      newUrl += '?';
+
+      if (tech.length) {
+        newUrl += `${separator}tech=${tech.join(',')}`;
+        separator = '&'
+      }
+
+      if (buzz.length) {
+        newUrl += `${separator}buzz=${buzz.join(',')}`;
+        separator = '&'
+      }
+
+      if (search.length) {
+        newUrl += `${separator}search=${search}`;
+        separator = '&'
+      }
+    }
+
+    history.push(newUrl);
+  }
 
 
   let projectsToDisplay: IProject[] = projects;
@@ -41,15 +77,11 @@ const Projects = () => {
   avalilBuzzWords.sort((a, b) => a.value.localeCompare(b.value));
 
   const onSelectTech = (selected: string) => {
-    setSelectedTechs((techs: string[]) => {
-      return techs.concat(selected)
-    })
+    buildUrl({tech: selectedTechs.concat(selected), buzz: selectedBuzzwords, search: searchValue });
     setTechInputValue('');
   }
   const onSelectBuzz = (selected: string) => {
-    setSelectedBuzzwords((buzzwords: string[]) => {
-      return buzzwords.concat(selected)
-    })
+    buildUrl({tech: selectedTechs, buzz: selectedBuzzwords.concat(selected), search: searchValue });    
     setbuzzWordsInputValue('');
   }
 
@@ -61,21 +93,17 @@ const Projects = () => {
   }
 
   const removeTechTag = (techToremove: string, e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    setSelectedTechs((techs: string[]) => {
-      return [...techs.filter(t => t !== techToremove)];
-    })
+    e.preventDefault();    
+    buildUrl({tech: selectedTechs.filter(t => t !== techToremove), buzz: selectedBuzzwords, search: searchValue});
   }
 
   const removeBuzzwordTag = (buzzwordToRemove: string, e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    setSelectedBuzzwords((buzzs: string[]) => {
-      return [...buzzs.filter(b => b !== buzzwordToRemove)];
-    })
+    buildUrl({tech: selectedTechs, buzz: selectedBuzzwords.filter(b => b !== buzzwordToRemove), search: searchValue});
   }
 
   const onSearchChange = (val: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(val.target.value);
+    buildUrl({tech: selectedTechs, buzz: selectedBuzzwords, search: val.target.value});
   }
 
   return (

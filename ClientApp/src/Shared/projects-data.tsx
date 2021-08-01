@@ -27,7 +27,7 @@ const projects: IProject[] = [{
         {name: 'Azure', description: 'Clould computing service used to deploy the app.', img: azureImg},
         {name: 'bash', description: 'For Linux configuration on RaspberryPi', img: bashImg} 
     ],
-    buzzwords: ['IOT', 'AI', 'ML']
+    buzzwords: ['IOT', 'AI', 'ML', 'Algorithms']
 }, {
     title: 'Work marketplace for finding workers for your shortterm projects - PosLovko',
     img: {source: poslovkoImg, alt: 'PosLovko UI',  width: 650},

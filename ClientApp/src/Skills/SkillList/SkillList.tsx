@@ -1,28 +1,20 @@
 import { Avatar, Checkbox, List, Progress } from 'antd';
 import React from 'react';
 import styles from './SkillList.module.scss';
-import skillData, { ISkill } from '../../Shared/skills-data';
+import { skillsList } from '../../Shared/skills-data';
 
-function *treeToList(nodes: ISkill[]): Generator<ISkill> {
-  for (const n of nodes) {
-    yield n;
-    for (const e of [...treeToList(n.children)]) {
-      yield e;
-    }
-  }
-}
-const data = [...treeToList(skillData)].filter(d => !d.children?.length);
+
+const data = skillsList.filter(d => !d.children?.length);
 
 const orange = 'rgb(255, 153, 51)';
 const yellow = 'hsl(60, 100%, 50%)';
 const lightGreen = 'rgb(204, 255, 51)';
 const green = 'rgb(51, 204, 51)';
 
-const SkillList: React.FC<ISkillListProps> = ({setTags}: ISkillListProps) => {
-  
+const SkillList: React.FC<ISkillListProps> = ({setTags, tags}: ISkillListProps) => {  
   return (
   <div className={styles.SkillList}>
-    <Checkbox.Group onChange={(tags) => setTags(tags as string[])}>
+    <Checkbox.Group onChange={(tags) => setTags(tags as string[])} defaultValue={tags}>
     <List
       size="small"
       dataSource={data}
@@ -50,4 +42,5 @@ export default SkillList;
 
 export interface ISkillListProps {
   setTags: (tags: string[]) => void;
+  tags: string[]
 }

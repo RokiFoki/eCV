@@ -1,7 +1,7 @@
 import { Progress, Tree } from 'antd';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './SkillTree.module.scss';
-import skills, { ISkill } from '../../Shared/skills-data';
+import { ISkill, skillsTree as skills } from '../../Shared/skills-data';
 
 interface ITreeData {
   title: string | JSX.Element;
@@ -34,10 +34,18 @@ function toTreeNode(skill: ISkill): ITreeData {
 
 const treeData = skills.filter(s => !s.hideInTree).map(s => toTreeNode(s));
 
-const SkillTree: React.FC<ISkillTreeProps> = ({setTags}: ISkillTreeProps) => {
+const SkillTree: React.FC<ISkillTreeProps> = ({setTags, tags}: ISkillTreeProps) => {
   const [expandedKeys, setExpandedKeys] = useState<React.Key[]>(treeData.map(d => d.key));
-  const [checkedKeys, setCheckedKeys] = useState<React.Key[]>(treeData.map(d => d.key));
+  const [checkedKeys, setCheckedKeys] = useState<React.Key[]>([]);
   const [autoExpandParent, setAutoExpandParent] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (tags.length > 0) {
+      setCheckedKeys(tags);
+    }  
+  // should be called only on mount thus following:
+  // eslint-disable-next-line react-hooks/exhaustive-deps 
+  }, [])
 
   const onExpand = (expandedKeysValue: React.Key[]) => {
     //console.log('onExpand', expandedKeysValue);
@@ -74,4 +82,5 @@ export default SkillTree;
 
 export interface ISkillTreeProps {
   setTags: (tags: string[]) => void;
+  tags: string[];
 }

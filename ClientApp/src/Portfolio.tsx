@@ -93,7 +93,7 @@ const App = () => {
           <Route path="/experience">
             <Experience></Experience>
           </Route>
-          <Route path="/skills">
+          <Route path="/skills/:skillsView?">
             <Skills redraw={redrawSkillsTime}></Skills>
           </Route>
           <Route path="/projects">

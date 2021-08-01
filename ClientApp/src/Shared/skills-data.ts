@@ -209,4 +209,15 @@ const updateNodes = (data: ISkillNoLevel, level=1) => {
     return data as ISkill;
 }
 
-export default skills.map(skill => updateNodes(skill));
+function *treeToList(nodes: ISkill[]): Generator<ISkill> {
+    for (const n of nodes) {
+        yield n;
+        for (const e of [...treeToList(n.children)]) {
+        yield e;
+        }
+    }
+}
+
+const skillsTree = skills.map(skill => updateNodes(skill));
+const skillsList = [...treeToList(skillsTree)]
+export { skillsTree, skillsList };

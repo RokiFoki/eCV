@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './SkillTree3D.module.scss';
-import skills, { ISkill } from '../../Shared/skills-data';
+import { ISkill, skillsTree as skills } from '../../Shared/skills-data';
 import SkillNode from './SkillNode/SkillNode';
 import { Space } from 'antd';
 import { deepCopy } from '../../Shared/utils';
@@ -38,9 +38,26 @@ function nextLevel(nodes: ISkillNode[]) {
   return nodes.find(node => node.expanded)?.children;
 }
 
+function expandParentsOf(nodesKey: string, nodes: ISkillNode[]) {
+  for (let n of nodes) {
+    if (nodesKey === n.key) {
+      n.expanded = true;
+      return true;
+    }
+
+    const itsChild = expandParentsOf(nodesKey, n.children);
+    if (itsChild) {
+      n.expanded = true;
+      return true;
+    }
+  }
+
+  return false;
+}
+
 let shownNodes: ISkillNode[] = [];
 let skillNodes: ISkillNode[] = [];
-const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
+const SkillTree3D = ({redraw, setTags, tags}: SkillTree3DProps): JSX.Element => {
   const [nodes, updateNodes] = useState<ISkillNode[][]>([]);
   const [selectedNode, updateSelectedNode] = useState<string>('')
   const [svgCords, updateSvgCords] = useState<{[key: string]: {x: number, y: number, width: number, height: number}}>({});
@@ -49,13 +66,24 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
 
   useEffect(() => {
     skillNodes = deepCopy(skills.filter(s => !s.hideInTree)) as ISkillNode[];
+    if (tags.length > 0) {
+      const selectedNode = tags[0];
+      expandParentsOf(selectedNode, skillNodes);
+      updateSelectedNode(selectedNode);
+    } else {
+      updateSelectedNode(skills[0].key)
+    }
+    
     const nodesLevels = [...levelGenerator(skillNodes)];
     shownNodes = nodesLevels.flat();
 
     updateNodes(nodesLevels);
-    updateSelectedNode(nodesLevels[0][0].name);
-    setTags(shownNodes.filter(n => n.level > nodesLevels[0][0].level || n.name === nodesLevels[0][0].name).map(n => n.key));
-  }, [setTags])
+    if (!tags.length) {
+      setTags(shownNodes.filter(n => n.level > nodesLevels[0][0].level || n.name === nodesLevels[0][0].name).map(n => n.key));
+    }
+  // should be called only on mount thus following:
+  // eslint-disable-next-line react-hooks/exhaustive-deps 
+  }, [])
 
   useEffect(() => {
     for (let i = 100; i <= animationTimeMs+100; i+= 100)
@@ -78,7 +106,7 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
 
   function selectNode(skill: ISkillNode) {
     updateExpansion(skill);
-    updateSelectedNode(skill.name);
+    updateSelectedNode(skill.key);
     const nodesLevels = [...levelGenerator(skillNodes)];
     shownNodes = nodesLevels.flat();
     setTags(shownNodes.filter(n => n.level > skill.level || n.name === skill.name).map(n => n.key));
@@ -140,7 +168,7 @@ const SkillTree3D = ({redraw, setTags}: SkillTree3DProps): JSX.Element => {
                 onClick={() => selectNode(node)}
                 name={node.name} 
                 key={node.name}
-                class={selectedNode === node.name ? 'selected' : node.expanded ? 'expanded' : node.children.length > 0 ? 'has-children' : ''}
+                class={selectedNode === node.key ? 'selected' : node.expanded ? 'expanded' : node.children.length > 0 ? 'has-children' : ''}
                 experience={node.experience}
                 nodeButtonRef={(el) => { handleNodeRef(node.name, el) }}
                 redraw={redrawState}
@@ -162,4 +190,5 @@ export default SkillTree3D;
 export interface SkillTree3DProps {
   redraw: number;
   setTags: (tags: string[]) => void;
+  tags: string[];
 }

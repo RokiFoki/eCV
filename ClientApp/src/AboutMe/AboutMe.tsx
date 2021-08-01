@@ -104,7 +104,7 @@ const AboutMe: React.FC = () => {
         <Paragraph>
           My name is Roko Krstulović and I am an experienced full-stack web developer with expertise in 
           <Tooltip title='For better deep in please click here'>
-            <Link to="/skills"> .NET, node.js, Angular and React </Link>
+            <Link to="/skills/list?tech=.NET,Node.js,Angular,React"> .NET, Node.js, Angular and React </Link>
             </Tooltip> 
           for more than {years} years. 
           I started my IT career at a very early age. On my 19th birthday, I won first place in a Regional Competition in Algorithms (Infokup). I graduated (with honors: magna cum laude) masters at the Faculty of Electrical Engineering and Computing.

@@ -16,6 +16,7 @@ import Projects from './Projects/Projects.lazy';
 import { ErrorBoundary } from 'react-error-boundary'
 import ErrorFallback from './ErrorFallback/ErrorFallback';
 import { logError } from './Portfolio.utils';
+import NotFound from './NotFound/NotFound.lazy';
 
 const { Sider } = Layout;
 
@@ -25,8 +26,10 @@ interface SideNavbarContentProps extends RouteComponentProps<any> {
 
 const SideNavbarContent = withRouter((props: SideNavbarContentProps) => {
   const path = props.location.pathname;
-  let selectionKey = '1';
-  if (path.startsWith('/experience'))  {
+  let selectionKey;
+  if (path === '/') {
+    selectionKey = '1';
+  } else if (path.startsWith('/experience'))  {
     selectionKey = '2';
   } else if (path.startsWith('/skills')) {
     selectionKey = '3';
@@ -38,7 +41,7 @@ const SideNavbarContent = withRouter((props: SideNavbarContentProps) => {
   return (
     <React.Fragment>
       <div className="logo">ePortfolio</div>
-      <Menu theme="dark" mode="inline" selectedKeys={[selectionKey]} onClick={props.onClick}>
+      <Menu theme="dark" mode="inline" selectedKeys={selectionKey ? [selectionKey] : []} onClick={props.onClick}>
         <Menu.Item key="1" icon={<UserOutlined />}>
           <Link to="/">About me</Link>
         </Menu.Item>
@@ -115,6 +118,9 @@ const App = () => {
             </Route>
             <Route path="/contact">
               <Contact></Contact>
+            </Route>
+            <Route path="/not-found">
+              <NotFound></NotFound>
             </Route>
             <Redirect to="/not-found"></Redirect>
         </Switch>

@@ -1,0 +1,62 @@
+.NotFound {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.Container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    min-height: 30%;
+}
+
+.SmallNumber {
+    margin: 5px;
+    font-size: 3em;
+    transition: all 0.5s;
+
+    &.Invert {
+        font-size: 4em;
+        font-weight: bold;
+    }
+}
+
+.BigNumber {
+    margin: 5px;
+    font-size: 4em;
+    font-weight: bold;
+    transition: all 0.5s;
+
+    &.Invert {
+        font-size: 3em;
+        font-weight: normal;
+    }
+}
+
+@media (max-width: 601px) {
+    .NotFound {
+        margin-top: 20px;
+    }
+
+    .Container {
+        min-height: 60%;
+    }
+
+    .BigNumber {
+        font-size: 3em;
+        &.Invert {
+            font-size: 2em;
+        }
+    }
+
+    .SmallNumber {
+        font-size: 2em;
+        &.Invert {
+            font-size: 3em;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { Button, Layout, Menu, } from 'antd';
 import { UserOutlined, PhoneFilled, MenuOutlined, ExperimentOutlined } from '@ant-design/icons';
-import { Link, Redirect, Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
+import { Link, Redirect, Route, RouteComponentProps, Switch, useLocation, withRouter } from 'react-router-dom';
 
 import './Global.scss';
 import styles from './App.module.scss';
@@ -66,6 +66,7 @@ const App = () => {
   const [sidenavCollapsed, setSidenavCollapsed] = useState(true);
   const [redrawSkillsTime, setRedrawSkillsTime] = useState(+new Date());
   const [clearErrorToggle, setClearErrorToggle] = useState(false);
+  const location = useLocation();
   const clearErrorState = () => setClearErrorToggle(e => !e);
   const updateCollapsed = (collapsed: boolean) => {    
     setSidenavCollapsed((wasCollapsed) => {
@@ -122,7 +123,7 @@ const App = () => {
             <Route path="/not-found">
               <NotFound></NotFound>
             </Route>
-            <Redirect to="/not-found"></Redirect>
+            <Redirect to={{pathname: "/not-found", state: {from: location}}}></Redirect>
         </Switch>
         </ErrorBoundary>
       </Layout> 

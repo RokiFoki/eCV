@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { logError } from '../Portfolio.utils';
 import styles from './NotFound.module.scss';
 
 const emptyIf = (condition: boolean, resultIfFalse: string) => {
@@ -16,13 +17,20 @@ const BigSmall = (val: string, condition: boolean) => {
 
 const NotFound = () => {
   const [counter, setCounter] = useState(0);
+  const { state } = useLocation();
   useEffect(() => {
     const interval = setInterval(() => {
       setCounter(counter => counter + 1);
     }, 1000 / 3)
 
     return () => clearInterval(interval);
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    if ((state as any)?.from?.pathname) {
+      logError(new Error("Page not found"), {componentStack: 'from: ' + (state as any).from.pathname});
+    }
+  }, []);
 
   return (
   <div className={styles.NotFound}>

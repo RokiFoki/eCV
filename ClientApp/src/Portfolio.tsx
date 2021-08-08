@@ -13,7 +13,9 @@ import Skills from './Skills/Skills.lazy';
 import Contact from './Contact/Contact.lazy';
 import { useOutsideAlerter } from './Shared/utils';
 import Projects from './Projects/Projects.lazy';
-
+import { ErrorBoundary } from 'react-error-boundary'
+import ErrorFallback from './ErrorFallback/ErrorFallback';
+import { logError } from './Portfolio.utils';
 
 const { Sider } = Layout;
 
@@ -36,20 +38,20 @@ const SideNavbarContent = withRouter((props: SideNavbarContentProps) => {
   return (
     <React.Fragment>
       <div className="logo">ePortfolio</div>
-      <Menu theme="dark" mode="inline" selectedKeys={[selectionKey]}>
-        <Menu.Item key="1" icon={<UserOutlined />} onClick={props.onClick}>
+      <Menu theme="dark" mode="inline" selectedKeys={[selectionKey]} onClick={props.onClick}>
+        <Menu.Item key="1" icon={<UserOutlined />}>
           <Link to="/">About me</Link>
         </Menu.Item>
-        <Menu.Item key="2" icon={<FontAwesomeIcon icon={faBook} />} onClick={props.onClick}>
+        <Menu.Item key="2" icon={<FontAwesomeIcon icon={faBook} />}>
           <Link to="/experience">Experience</Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<FontAwesomeIcon icon={faChess} />} onClick={props.onClick}>
+        <Menu.Item key="3" icon={<FontAwesomeIcon icon={faChess} />}>
           <Link to="/skills">Skills</Link>
         </Menu.Item>
-        <Menu.Item key="4" icon={<ExperimentOutlined />} onClick={props.onClick}>
+        <Menu.Item key="4" icon={<ExperimentOutlined />}>
           <Link to="/projects">Projects</Link>
         </Menu.Item>
-        <Menu.Item key="5" icon={<PhoneFilled />} onClick={props.onClick}>
+        <Menu.Item key="5" icon={<PhoneFilled />}>
           <Link to="/contact">Contact</Link>
         </Menu.Item>
       </Menu>
@@ -60,6 +62,8 @@ const SideNavbarContent = withRouter((props: SideNavbarContentProps) => {
 const App = () => {
   const [sidenavCollapsed, setSidenavCollapsed] = useState(true);
   const [redrawSkillsTime, setRedrawSkillsTime] = useState(+new Date());
+  const [clearErrorToggle, setClearErrorToggle] = useState(false);
+  const clearErrorState = () => setClearErrorToggle(e => !e);
   const updateCollapsed = (collapsed: boolean) => {    
     setSidenavCollapsed((wasCollapsed) => {
       if (wasCollapsed !== collapsed) {
@@ -68,6 +72,11 @@ const App = () => {
       return collapsed;
     });
   }
+  const onSidebarOptionClick = () => {
+    clearErrorState();
+    updateCollapsed(true);
+  }
+
   const ref = useRef(null);
   useOutsideAlerter(ref, useCallback(() => {
     updateCollapsed(true);
@@ -79,33 +88,39 @@ const App = () => {
         className={`${styles.Sider} ${sidenavCollapsed ? styles.Collapsed : ''}`}
         ref={ref}
       >
-        <SideNavbarContent onClick={() => updateCollapsed(true)}></SideNavbarContent>
+        <SideNavbarContent onClick={() => onSidebarOptionClick()}></SideNavbarContent>
       </Sider>
       <Layout className={styles.Container}>
-        { !!sidenavCollapsed && 
-          <Button type="primary" size="large" icon={<MenuOutlined />} shape="circle"
-            className={styles.MenuButton}
-            onClick={() => updateCollapsed(false) }></Button>}
-        <Switch>
-          <Route exact path="/">
-            <AboutMe></AboutMe>
-          </Route>
-          <Route path="/experience">
-            <Experience></Experience>
-          </Route>
-          <Route path="/skills/:skillsView?">
-            <Skills redraw={redrawSkillsTime}></Skills>
-          </Route>
-          <Route path="/projects">
-            <Projects></Projects>
-          </Route>
-          <Route path="/contact">
-            <Contact></Contact>
-          </Route>
-          <Redirect to="/not-found"></Redirect>
+        <ErrorBoundary 
+          FallbackComponent={ErrorFallback}
+          onError={logError}
+          resetKeys={[clearErrorToggle]}
+          >
+          { !!sidenavCollapsed &&
+            <Button type="primary" size="large" icon={<MenuOutlined />} shape="circle"
+              className={styles.MenuButton}
+              onClick={() => updateCollapsed(false) }></Button>}
+          <Switch>
+            <Route exact path="/">
+              <AboutMe></AboutMe>
+            </Route>
+            <Route path="/experience">
+              <Experience></Experience>
+            </Route>
+            <Route path="/skills/:skillsView?">
+              <Skills redraw={redrawSkillsTime}></Skills>
+            </Route>
+            <Route path="/projects">
+              <Projects></Projects>
+            </Route>
+            <Route path="/contact">
+              <Contact></Contact>
+            </Route>
+            <Redirect to="/not-found"></Redirect>
         </Switch>
-      </Layout>     
-    </Layout>
+        </ErrorBoundary>
+      </Layout> 
+    </Layout> 
 )};
 
 export default App;

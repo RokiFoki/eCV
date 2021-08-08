@@ -6,5 +6,6 @@
       "Microsoft.Hosting.Lifetime": "Information"
     }
   },
-  "MessagesSlackHook": "copy from https://api.slack.com/apps/A025SJLMSAY/incoming-webhooks? for dev-messages"
+  "MessagesSlackHook": "copy from https://api.slack.com/apps/A025SJLMSAY/incoming-webhooks? for dev-messages",
+  "LogsSlackHook": "copy from https://api.slack.com/apps/A025SJLMSAY/incoming-webhooks? for dev-logs"
 }

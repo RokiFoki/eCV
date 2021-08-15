@@ -24,7 +24,7 @@ const projects: IProject[] = [{
         {name: 'Python', description: 'Scripting lanague used for movement AI.', img: pythonImg},
         {name: 'DroneKit.', description: 'Python library to control drone.', img: dronekitImg},
         {name: 'Android/Java', description: 'Used to implement network measurement tests.', imgs: [androidImg, javaImg]},
-        {name: 'Azure', description: 'Clould computing service used to deploy the app.', img: azureImg},
+        {name: 'Azure', description: 'Cloud computing service used to deploy the app.', img: azureImg},
         {name: 'bash', description: 'For Linux configuration on RaspberryPi', img: bashImg} 
     ],
     buzzwords: ['IOT', 'AI', 'ML', 'Algorithms']
@@ -39,7 +39,7 @@ const projects: IProject[] = [{
         {name: 'Angular', description: `Framework used for frontend.`, img: angularImg}, 
         {name: 'WebSocket', description: 'Used to send information in real-time from server to the browser.'}, 
         {name: 'Angular Material', description: 'UI library used for the project.', img: angularMaterialImg},
-        {name: 'AWS', description: 'Clould computing service used to deploy the app.', img: awsImg},
+        {name: 'AWS', description: 'Cloud computing service used to deploy the app.', img: awsImg},
         {name: 'Python', description: 'Used to scrape available locations.', img: pythonImg}
     ],
     buzzwords: ['Startup', 'Client/Server', 'Algorithms', 'Scraping']
@@ -57,7 +57,7 @@ const projects: IProject[] = [{
         {name: 'AngularJS', description: `Framework used for frontend.`, img: angularImg}, 
         {name: 'Angular Material', description: 'UI library used for an app used by insurance company handlers.', img: angularMaterialImg},
         {name: 'PrimeNG', description: 'UI library used for an app used by clients.', img: primengImg},
-        {name: 'Azure', description: 'Clould computing service used to deploy the app.', img: azureImg},
+        {name: 'Azure', description: 'Cloud computing service used to deploy the app.', img: azureImg},
         {name: 'Azure search', description: 'Quick text search used to find products by their characteristics.', img: azureSearchImg},
         {name: 'Octopus', description: 'Used to manage different SAAS tenants confiration and deployments.', img: octopusImg},
         {name: 'TeamCity', description: 'Used to create build versions used for deployments.', img: teamCityImg},
@@ -90,9 +90,9 @@ const projects: IProject[] = [{
         {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
         {name: 'Jenkins', description: 'Continuous integration and continuous delivery tool used.', img: jenkinsImg},
         {name: 'Docker', description: 'Used to ease building and deployment of the app.', img: dockerImg},
-        {name: 'DigitalOcean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
+        {name: 'DigitalOcean', description: 'Cloud computing service used to deploy the app.', img: digitalOceanImg}
     ],
-    buzzwords: ['Clould', 'AI', 'Startup']
+    buzzwords: ['Cloud', 'AI', 'Startup']
 }, {
     title: 'My Portofolio (this webiste)',
     paragraphs: [
@@ -104,7 +104,7 @@ const projects: IProject[] = [{
         {name: 'React', description: 'Used for frontend.', img: reactImg},
         {name: 'Ant Design', description: 'UI library used in the project.', img: antDesignImg},
         {name: 'Docker', description: 'Used to ease building and deployment of the app.', img: dockerImg},
-        {name: 'DigitalOcean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
+        {name: 'DigitalOcean', description: 'Cloud computing service used to deploy the app.', img: digitalOceanImg}
     ],
     buzzwords: []
 }, {
@@ -121,9 +121,9 @@ const projects: IProject[] = [{
         {name: 'RaspberryPi', description: 'Little compter that is sending current geo position and was attached to the tractors.', img: raspberryPiImg},
         {name: 'Python', description: 'Scripting lanague used sending geo positions to the server.', img: pythonImg},
         {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
-        {name: 'AWS', description: 'Clould computing service used to deploy the app.', img: awsImg},
+        {name: 'AWS', description: 'Cloud computing service used to deploy the app.', img: awsImg},
     ],
-    buzzwords: ['IOT', 'Clould']
+    buzzwords: ['IOT', 'Cloud']
 }, {
     title: 'Web app for log analysis for PosLovko - Supporko',
     paragraphs: [
@@ -135,9 +135,9 @@ const projects: IProject[] = [{
         {name: 'Angular', description: 'Used for frontend.', img: angularImg},
         {name: 'Angular Material', description: 'UI library used in the project.', img: angularMaterialImg},        
         {name: 'PostgreSQL', description: 'Database used for the project.', img: postgresImg},
-        {name: 'DigitalOcean', description: 'Clould computing service used to deploy the app.', img: digitalOceanImg}
+        {name: 'DigitalOcean', description: 'Cloud computing service used to deploy the app.', img: digitalOceanImg}
     ], 
-    buzzwords: ['Could', 'DevOps']
+    buzzwords: ['Cloud', 'DevOps']
 }, {
     title: 'Tuition centre management application',
     paragraphs: [

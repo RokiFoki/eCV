@@ -53,7 +53,7 @@ describe('Contact Component', () => {
     userEvent.click(SendButton);
 
     // then
-    await waitFor(() => screen.getByText('Sending Message Completed'), { timeout: 1000 });
+    await waitFor(() => screen.getByText('Sending Message Completed'), { timeout: 3000 });
 
     expect(submitMessageSpy.mock.calls.length).toBe(1);
     expect(submitMessageSpy.mock.calls[0][0]).toStrictEqual({ "email": email, "message": message, "name": name });

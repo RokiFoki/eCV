@@ -11,7 +11,6 @@
     "@svgr/webpack": "5.5.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^26.0.23",
     "@types/node": "^12.20.13",
     "@types/react": "^17.0.8",
@@ -45,7 +44,6 @@
     "html-webpack-plugin": "4.5.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.6.0",
-    "jest-circus": "26.6.0",
     "jest-resolve": "26.6.0",
     "jest-watch-typeahead": "0.6.1",
     "mini-css-extract-plugin": "0.11.3",
@@ -104,7 +102,11 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.1.7"
+    "@testing-library/dom": "^8.1.0",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/react-router-dom": "^5.1.7",
+    "jest-circus": "^26.6.0",
+    "msw": "^0.34.0"
   },
   "jest": {
     "roots": [
@@ -125,7 +127,7 @@
       "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
-    "testRunner": "C:\\Users\\rokok\\Desktop\\Roko\\Coding\\eCV\\reactjs\\node_modules\\jest-circus\\runner.js",
+    "testRunner": "<rootDir>\\node_modules\\jest-circus\\runner.js",
     "transform": {
       "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",

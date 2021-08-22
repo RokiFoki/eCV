@@ -29,17 +29,17 @@ const Projects = () => {
       newUrl += '?';
 
       if (tech.length) {
-        newUrl += `${separator}tech=${tech.join(',')}`;
+        newUrl += `${separator}tech=${tech.map(t => encodeURIComponent(t)).join(',')}`;
         separator = '&'
       }
 
       if (buzz.length) {
-        newUrl += `${separator}buzz=${buzz.join(',')}`;
+        newUrl += `${separator}buzz=${buzz.map(b => encodeURIComponent(b)).join(',')}`;
         separator = '&'
       }
 
       if (search.length) {
-        newUrl += `${separator}search=${search}`;
+        newUrl += `${separator}search=${encodeURIComponent(search)}`;
         separator = '&'
       }
     }

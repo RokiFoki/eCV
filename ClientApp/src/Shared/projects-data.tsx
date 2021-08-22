@@ -71,7 +71,8 @@ const projects: IProject[] = [{
         <>The system is split into many modules. I've worked on a warehouse module that was solving challenges with inventory (such as "putting", "picking", counting, reserving inventory, etc). Generating works for the warehouse workers when orders received and <a href="https://docs.microsoft.com/en-us/dynamics365/supply-chain/warehousing/warehouse-management-overview" target="_blank" rel="noopener noreferrer">plenty of other stuff</a>.</>,
     ],
     tech: [
-        {name: 'X++ (.NET)', description: 'Used for backend and frontend.', img: dotNetImg}, 
+        {name: 'X++', description: 'Used for backend and frontend.'}, 
+        {name: '.NET', description: 'Used for backend and frontend.', img: dotNetImg}, 
         {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
         {name: 'PowerShell', description: 'Useful scripts for used to speedup development', img: powerShellImg}
     ],
@@ -115,7 +116,7 @@ const projects: IProject[] = [{
     ],
     tech: [
         {name: '.NET', description: 'Used for backend.', img: dotNetImg}, 
-        {name: 'JavaScript/jQuery', description: 'Used for frontend.', imgs: [jqueryImg, javascriptImg]},
+        {name: 'React', description: 'Used for frontend.', imgs: [reactImg]},
         {name: 'Bootstrap', description: 'UI library used in the project.', img: bootstrapImg},
         {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.', img: signalRImg},
         {name: 'RaspberryPi', description: 'Little compter that is sending current geo position and was attached to the tractors.', img: raspberryPiImg},

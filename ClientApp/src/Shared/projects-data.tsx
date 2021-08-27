@@ -18,7 +18,8 @@ const projects: IProject[] = [{
         {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.', img: signalRImg},
         {name: 'WebGL', description: `Used to display drone's positon in relation to detected obstacles. `, img: wbGLImg}, 
         {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg}, 
-        {name: 'JavaScript/jQuery', description: 'Used to make the browser interactive.', imgs: [jqueryImg, javascriptImg]},
+        {name: 'jQuery', description: 'Used to make the browser interactive.', img: jqueryImg},
+        {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
         {name: 'Bootstrap', description: 'UI library used for the project.', img: bootstrapImg},
         {name: 'RaspberryPi', img: raspberryPiImg, description: 'Little compter that acted as the brain between sensors, movement logic and Android device.'},
         {name: 'Python', description: 'Scripting lanague used for movement AI.', img: pythonImg},
@@ -37,6 +38,7 @@ const projects: IProject[] = [{
         {name: 'Node.js', description: 'Used for server backend.', img: nodejsImg}, 
         {name: 'PostgreSQL', description: 'Database used for the project and for raising pub-sub events.', img: postgresImg},
         {name: 'Angular', description: `Framework used for frontend.`, img: angularImg}, 
+        {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
         {name: 'WebSocket', description: 'Used to send information in real-time from server to the browser.'}, 
         {name: 'Angular Material', description: 'UI library used for the project.', img: angularMaterialImg},
         {name: 'AWS', description: 'Cloud computing service used to deploy the app.', img: awsImg},
@@ -56,6 +58,7 @@ const projects: IProject[] = [{
         {name: 'Angular', description: `Framework used for frontend.`, img: angularImg},
         {name: 'AngularJS', description: `Framework used for frontend.`, img: angularImg}, 
         {name: 'Angular Material', description: 'UI library used for an app used by insurance company handlers.', img: angularMaterialImg},
+        {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
         {name: 'PrimeNG', description: 'UI library used for an app used by clients.', img: primengImg},
         {name: 'Azure', description: 'Cloud computing service used to deploy the app.', img: azureImg},
         {name: 'Azure search', description: 'Quick text search used to find products by their characteristics.', img: azureSearchImg},
@@ -88,6 +91,7 @@ const projects: IProject[] = [{
         {name: '.NET', description: 'Used for backend.', img: dotNetImg}, 
         {name: 'Angular', description: `Framework used for frontend.`, img: angularImg}, 
         {name: 'Angular Material', description: 'UI library used in the project.', img: angularMaterialImg},
+        {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
         {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
         {name: 'Jenkins', description: 'Continuous integration and continuous delivery tool used.', img: jenkinsImg},
         {name: 'Docker', description: 'Used to ease building and deployment of the app.', img: dockerImg},
@@ -103,6 +107,7 @@ const projects: IProject[] = [{
     tech: [
         {name: '.NET', description: 'Used for backend.', img: dotNetImg}, 
         {name: 'React', description: 'Used for frontend.', img: reactImg},
+        {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
         {name: 'Ant Design', description: 'UI library used in the project.', img: antDesignImg},
         {name: 'Docker', description: 'Used to ease building and deployment of the app.', img: dockerImg},
         {name: 'DigitalOcean', description: 'Cloud computing service used to deploy the app.', img: digitalOceanImg}
@@ -116,7 +121,8 @@ const projects: IProject[] = [{
     ],
     tech: [
         {name: '.NET', description: 'Used for backend.', img: dotNetImg}, 
-        {name: 'React', description: 'Used for frontend.', imgs: [reactImg]},
+        {name: 'React', description: 'Used for frontend.', img: reactImg},
+        {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
         {name: 'Bootstrap', description: 'UI library used in the project.', img: bootstrapImg},
         {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.', img: signalRImg},
         {name: 'RaspberryPi', description: 'Little compter that is sending current geo position and was attached to the tractors.', img: raspberryPiImg},
@@ -134,6 +140,7 @@ const projects: IProject[] = [{
     tech: [
         {name: 'Node.js', description: 'Used for backend.', img: nodejsImg},
         {name: 'Angular', description: 'Used for frontend.', img: angularImg},
+        {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
         {name: 'Angular Material', description: 'UI library used in the project.', img: angularMaterialImg},        
         {name: 'PostgreSQL', description: 'Database used for the project.', img: postgresImg},
         {name: 'DigitalOcean', description: 'Cloud computing service used to deploy the app.', img: digitalOceanImg}
@@ -146,7 +153,8 @@ const projects: IProject[] = [{
         <>I've developed the whole server myself.</>,
     ],
     tech: [
-        {name: 'JavaScript/jQuery', description: 'Used to make the browser interactive.', imgs: [jqueryImg, javascriptImg]},
+        {name: 'jQuery', description: 'Used to make the browser interactive.', img: jqueryImg},
+        {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
         { name: 'PHP', description: 'Used for backend', img: phpImg},
         { name: 'MySQL', description: 'Database used for the project.', img: mySqlImg}
     ],
@@ -211,6 +219,7 @@ const projects: IProject[] = [{
         {name: 'GraphQL', description: 'Data query language used to fetch data', img: graphqlImg},
         {name: 'Node.js', description: 'Used for backend.', img: nodejsImg},
         {name: 'React', description: 'Used for frontend.', img: reactImg},
+        {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
     ], 
     buzzwords: [],
     hideWithAll: true

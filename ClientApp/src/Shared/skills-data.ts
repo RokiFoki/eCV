@@ -1,4 +1,4 @@
-import { angularImg, awsImg, azureImg, bashImg, digitalOceanImg, dockerImg, dotNetImg, graphqlImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, postgresImg, powerShellImg, pythonImg, reactImg, scipyImg, sqlServerImg, teamCityImg, tensorflowImg } from './tech-images';
+import { angularImg, awsImg, azureImg, bashImg, cssImg, digitalOceanImg, dockerImg, dotNetImg, graphqlImg, htmlImg, javascriptImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, postgresImg, powerShellImg, pythonImg, reactImg, scipyImg, sqlServerImg, teamCityImg, tensorflowImg } from './tech-images';
 
 export interface ISkillNoLevel {
     level?: number,
@@ -179,6 +179,24 @@ const skills: ISkillNoLevel[] = [{
     experience: 55,
     hideInTree: true,
     url: graphqlImg
+}, {
+    name: 'JavaScript',
+    children: [],
+    experience: 100,
+    hideInTree: true,
+    url: javascriptImg
+}, {
+    name: 'HTML',
+    children: [],
+    experience: 100,
+    hideInTree: true,
+    url: htmlImg
+}, {
+    name: 'CSS',
+    children: [],
+    experience: 100,
+    hideInTree: true,
+    url: cssImg
 }]
 
 const updateNodes = (data: ISkillNoLevel, level=1) => {

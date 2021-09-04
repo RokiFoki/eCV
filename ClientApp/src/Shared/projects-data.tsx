@@ -1,7 +1,7 @@
 
 
 import { IProjectProps } from '../Projects/ProjectList/Project/Project';
-import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bashImg, bootstrapImg, digitalOceanImg, dockerImg, dotNetImg, dronekitImg, graphqlImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, pawnImg, phpImg, postgresImg, powerShellImg, primengImg, pythonImg, raspberryPiImg, reactImg, scipyImg, signalRImg, sqlServerImg, teamCityImg, tensorflowImg, wbGLImg } from './tech-images';
+import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bashImg, bootstrapImg, cssImg, digitalOceanImg, dockerImg, dotNetImg, dronekitImg, graphqlImg, htmlImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, pawnImg, phpImg, postgresImg, powerShellImg, primengImg, pythonImg, raspberryPiImg, reactImg, scipyImg, signalRImg, sqlServerImg, teamCityImg, tensorflowImg, wbGLImg } from './tech-images';
 import gtaImg from '../Content/gta.png';
 import droneImg from '../Content/drone-diagram.png';
 import poslovkoImg from '../Content/poslovko.png';
@@ -26,7 +26,9 @@ const projects: IProject[] = [{
         {name: 'DroneKit.', description: 'Python library to control drone.', img: dronekitImg},
         {name: 'Android/Java', description: 'Used to implement network measurement tests.', imgs: [androidImg, javaImg]},
         {name: 'Azure', description: 'Cloud computing service used to deploy the app.', img: azureImg},
-        {name: 'bash', description: 'For Linux configuration on RaspberryPi', img: bashImg} 
+        {name: 'bash', description: 'For Linux configuration on RaspberryPi', img: bashImg}, 
+        {name: 'HTML', description: 'For building frontend UI', img: htmlImg},
+        {name: 'CSS', description: 'For building frontend UI', img: cssImg},
     ],
     buzzwords: ['IOT', 'AI', 'ML', 'Algorithms']
 }, {
@@ -42,7 +44,9 @@ const projects: IProject[] = [{
         {name: 'WebSocket', description: 'Used to send information in real-time from server to the browser.'}, 
         {name: 'Angular Material', description: 'UI library used for the project.', img: angularMaterialImg},
         {name: 'AWS', description: 'Cloud computing service used to deploy the app.', img: awsImg},
-        {name: 'Python', description: 'Used to scrape available locations.', img: pythonImg}
+        {name: 'Python', description: 'Used to scrape available locations.', img: pythonImg}, 
+        {name: 'HTML', description: 'For building frontend UI', img: htmlImg},
+        {name: 'CSS', description: 'For building frontend UI', img: cssImg},
     ],
     buzzwords: ['Startup', 'Client/Server', 'Algorithms', 'Scraping']
 }, {
@@ -64,7 +68,9 @@ const projects: IProject[] = [{
         {name: 'Azure search', description: 'Quick text search used to find products by their characteristics.', img: azureSearchImg},
         {name: 'Octopus', description: 'Used to manage different SAAS tenants confiration and deployments.', img: octopusImg},
         {name: 'TeamCity', description: 'Used to create build versions used for deployments.', img: teamCityImg},
-        {name: 'PowerShell', description: 'Custom scripts used tp configure Octopus and TeamCity', img: powerShellImg}
+        {name: 'PowerShell', description: 'Custom scripts used tp configure Octopus and TeamCity', img: powerShellImg}, 
+        {name: 'HTML', description: 'For building frontend UI', img: htmlImg},
+        {name: 'CSS', description: 'For building frontend UI', img: cssImg},
     ],
     buzzwords: ['Microservices', 'Cloud', 'SAAS']
 }, {
@@ -95,7 +101,9 @@ const projects: IProject[] = [{
         {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
         {name: 'Jenkins', description: 'Continuous integration and continuous delivery tool used.', img: jenkinsImg},
         {name: 'Docker', description: 'Used to ease building and deployment of the app.', img: dockerImg},
-        {name: 'DigitalOcean', description: 'Cloud computing service used to deploy the app.', img: digitalOceanImg}
+        {name: 'DigitalOcean', description: 'Cloud computing service used to deploy the app.', img: digitalOceanImg}, 
+        {name: 'HTML', description: 'For building frontend UI', img: htmlImg},
+        {name: 'CSS', description: 'For building frontend UI', img: cssImg},
     ],
     buzzwords: ['Cloud', 'AI', 'Startup']
 }, {
@@ -110,7 +118,9 @@ const projects: IProject[] = [{
         {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
         {name: 'Ant Design', description: 'UI library used in the project.', img: antDesignImg},
         {name: 'Docker', description: 'Used to ease building and deployment of the app.', img: dockerImg},
-        {name: 'DigitalOcean', description: 'Cloud computing service used to deploy the app.', img: digitalOceanImg}
+        {name: 'DigitalOcean', description: 'Cloud computing service used to deploy the app.', img: digitalOceanImg}, 
+        {name: 'HTML', description: 'For building frontend UI', img: htmlImg},
+        {name: 'CSS', description: 'For building frontend UI', img: cssImg},
     ],
     buzzwords: []
 }, {
@@ -128,7 +138,9 @@ const projects: IProject[] = [{
         {name: 'RaspberryPi', description: 'Little compter that is sending current geo position and was attached to the tractors.', img: raspberryPiImg},
         {name: 'Python', description: 'Scripting lanague used sending geo positions to the server.', img: pythonImg},
         {name: 'SQL Server', description: 'Database used for the project.', img: sqlServerImg},
-        {name: 'AWS', description: 'Cloud computing service used to deploy the app.', img: awsImg},
+        {name: 'AWS', description: 'Cloud computing service used to deploy the app.', img: awsImg}, 
+        {name: 'HTML', description: 'For building frontend UI', img: htmlImg},
+        {name: 'CSS', description: 'For building frontend UI', img: cssImg},
     ],
     buzzwords: ['IOT', 'Cloud']
 }, {
@@ -143,7 +155,9 @@ const projects: IProject[] = [{
         {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
         {name: 'Angular Material', description: 'UI library used in the project.', img: angularMaterialImg},        
         {name: 'PostgreSQL', description: 'Database used for the project.', img: postgresImg},
-        {name: 'DigitalOcean', description: 'Cloud computing service used to deploy the app.', img: digitalOceanImg}
+        {name: 'DigitalOcean', description: 'Cloud computing service used to deploy the app.', img: digitalOceanImg}, 
+        {name: 'HTML', description: 'For building frontend UI', img: htmlImg},
+        {name: 'CSS', description: 'For building frontend UI', img: cssImg},
     ], 
     buzzwords: ['Cloud', 'DevOps']
 }, {
@@ -156,7 +170,9 @@ const projects: IProject[] = [{
         {name: 'jQuery', description: 'Used to make the browser interactive.', img: jqueryImg},
         {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
         { name: 'PHP', description: 'Used for backend', img: phpImg},
-        { name: 'MySQL', description: 'Database used for the project.', img: mySqlImg}
+        { name: 'MySQL', description: 'Database used for the project.', img: mySqlImg}, 
+        {name: 'HTML', description: 'For building frontend UI', img: htmlImg},
+        {name: 'CSS', description: 'For building frontend UI', img: cssImg},
     ],
     buzzwords: ['eLearning']
 }, {
@@ -219,7 +235,9 @@ const projects: IProject[] = [{
         {name: 'GraphQL', description: 'Data query language used to fetch data', img: graphqlImg},
         {name: 'Node.js', description: 'Used for backend.', img: nodejsImg},
         {name: 'React', description: 'Used for frontend.', img: reactImg},
-        {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg},
+        {name: 'JavaScript', description: 'Used to make the browser interactive.', img: javascriptImg}, 
+        {name: 'HTML', description: 'For building frontend UI', img: htmlImg},
+        {name: 'CSS', description: 'For building frontend UI', img: cssImg},
     ], 
     buzzwords: [],
     hideWithAll: true

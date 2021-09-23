@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,8 +30,15 @@ namespace eCv.Controllers
         [HttpPost("log")]
         public async Task Log(LogError error)
         {
+            HttpContext.Request.Headers.TryGetValue("user-agent", out StringValues agent);
             var httpContent = new StringContent(JsonSerializer.Serialize(new { 
-                text = $"Url: {error.Url}\n{error.Name}: {error.Message}\n{error.CallStack}\n{error.ComponentCallStack}" }), 
+                text = @$"Url: {error.Url}
+{error.Name}: {error.Message}
+{error.CallStack}
+{error.ComponentCallStack}
+IP:{HttpContext.Connection.RemoteIpAddress}
+User Agent: {string.Join(", ", agent)}
+" }), 
                 Encoding.UTF8, "application/json");
             var client = _clientFactory.CreateClient();
             var result = await client.PostAsync(_slackHook, httpContent);

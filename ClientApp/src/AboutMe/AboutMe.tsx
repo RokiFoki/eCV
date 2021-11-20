@@ -154,8 +154,9 @@ const AboutMe: React.FC = () => {
           parser={value => Number.parseFloat(value?.replace(/\$\s?|(,*)/g, '') || `${convertAmount(defaultSalary, currency, paymentType)}`)}
         />     
       </section>
-      <section>
-      Likelihood of me accepting the offer: { salaryMessage() }   
+      <section style={{ display: 'flex', gap: 5}}>
+        <span>Likelihood of me accepting the offer:</span> 
+        <span>{salaryMessage()}</span>   
       </section>
     </Typography>
   </div>

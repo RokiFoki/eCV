@@ -11,9 +11,9 @@ type Currency =  '$' | '€' | '£';
 type PaymentType = "Annually" | "Monthly" | "Daily" | "Hourly";
 
 // dollars
-const annualSalaryMin = 40000;
-const annualSalaryMax = 150000;
-const defaultSalary = 65000;
+const annualSalaryMin = 60000;
+const annualSalaryMax = 200000;
+const defaultSalary = 100000;
 const workingDays = 365 * 5 / 7;
 
 const AboutMe: React.FC = () => {
@@ -70,19 +70,19 @@ const AboutMe: React.FC = () => {
   }
 
   const salaryMessage = () => {
-    if (salary < convertAmount(65000, currency, paymentType))
+    if (salary < convertAmount(90000, currency, paymentType))
       return <Text type="danger">Highly unlikely <DislikeOutlined /></Text>
     
-    if (salary < convertAmount(68000, currency, paymentType)) 
+    if (salary < convertAmount(100000, currency, paymentType)) 
       return <Text type="warning">Unlikely</Text>
 
-    if (salary < convertAmount(72000, currency, paymentType)) 
+    if (salary < convertAmount(120000, currency, paymentType)) 
       return <Text>Possibly</Text>
 
-    if (salary < convertAmount(80000, currency, paymentType))
+    if (salary < convertAmount(135000, currency, paymentType))
       return <Text type="success">Likely</Text>
 
-    if (salary < convertAmount(90000, currency, paymentType))
+    if (salary < convertAmount(150000, currency, paymentType))
       return <Text type="success">Highly likely <SmileOutlined /></Text>    
 
     return <Text type="success">Certainly <LikeOutlined /></Text>    

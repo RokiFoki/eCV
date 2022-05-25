@@ -11,10 +11,15 @@ type Currency =  '$' | '€' | '£';
 type PaymentType = "Annually" | "Monthly" | "Daily" | "Hourly";
 
 // dollars
-const annualSalaryMin = 60000;
-const annualSalaryMax = 200000;
-const defaultSalary = 100000;
+const annualSalaryMin = 80000;
+const annualSalaryMax = 250000;
+const defaultSalary = 120000;
 const workingDays = 365 * 5 / 7;
+const highlyUnlikely = 120000;
+const unlikely = 130000;
+const possibly = 140000;
+const likely = 165000;
+const highlyLikely = 200000;
 
 const AboutMe: React.FC = () => {
   const [salary, updateSalary] = useState(defaultSalary);
@@ -70,19 +75,19 @@ const AboutMe: React.FC = () => {
   }
 
   const salaryMessage = () => {
-    if (salary < convertAmount(90000, currency, paymentType))
+    if (salary < convertAmount(highlyUnlikely, currency, paymentType))
       return <Text type="danger">Highly unlikely <DislikeOutlined /></Text>
     
-    if (salary < convertAmount(100000, currency, paymentType)) 
+    if (salary < convertAmount(unlikely, currency, paymentType)) 
       return <Text type="warning">Unlikely</Text>
 
-    if (salary < convertAmount(120000, currency, paymentType)) 
+    if (salary < convertAmount(possibly, currency, paymentType)) 
       return <Text>Possibly</Text>
 
-    if (salary < convertAmount(135000, currency, paymentType))
+    if (salary < convertAmount(likely, currency, paymentType))
       return <Text type="success">Likely</Text>
 
-    if (salary < convertAmount(150000, currency, paymentType))
+    if (salary < convertAmount(highlyLikely, currency, paymentType))
       return <Text type="success">Highly likely <SmileOutlined /></Text>    
 
     return <Text type="success">Certainly <LikeOutlined /></Text>    

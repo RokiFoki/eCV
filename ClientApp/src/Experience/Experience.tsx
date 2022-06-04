@@ -36,6 +36,7 @@ const Experience: React.FC = () => (
           <Paragraph style={{whiteSpace: 'pre-wrap'}}>
           {
 `Working remotely for various clients on optimizing and upgrading their software products such as:
+• `} <Text italic>Hidden (NDA)</Text> {`: Created UI components and displayed market information in real-time.
 • BeValued: Maintained microservice architected SaaS product.
 • PosLovko: Created Node.js/Angular single page application for connecting employers with professionals.
 • Azcal: Created a web application for live and history GPS tracking of vehicles using .Net/React.

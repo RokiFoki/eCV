@@ -1,7 +1,7 @@
 
 
 import { IProjectProps } from '../Projects/ProjectList/Project/Project';
-import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bashImg, bootstrapImg, cssImg, digitalOceanImg, dockerImg, dotNetImg, dronekitImg, graphqlImg, htmlImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, pawnImg, phpImg, postgresImg, powerShellImg, primengImg, pythonImg, raspberryPiImg, reactImg, scipyImg, signalRImg, sqlServerImg, teamCityImg, tensorflowImg, wbGLImg } from './tech-images';
+import { androidImg, angularImg, angularMaterialImg, antDesignImg, awsImg, azureImg, azureSearchImg, bashImg, bootstrapImg, cssImg, digitalOceanImg, dockerImg, dotNetImg, dronekitImg, graphqlImg, htmlImg, javaImg, javascriptImg, jenkinsImg, jqueryImg, mongoDbImg, mySqlImg, nextJsImg, nodejsImg, octopusImg, pawnImg, phpImg, postgresImg, powerShellImg, primengImg, pythonImg, raspberryPiImg, reactImg, scipyImg, signalRImg, sqlServerImg, teamCityImg, tensorflowImg, wbGLImg } from './tech-images';
 import gtaImg from '../Content/gta.png';
 import droneImg from '../Content/drone-diagram.png';
 import poslovkoImg from '../Content/poslovko.png';
@@ -73,6 +73,23 @@ const projects: IProject[] = [{
         {name: 'CSS', description: 'For building frontend UI', img: cssImg},
     ],
     buzzwords: ['Microservices', 'Cloud', 'SAAS']
+},{
+    title: 'Stock and Cryptocurrency market dashboard',
+    paragraphs: [
+        `Display different markets in real-time graphs.`,
+        `The platform allows users to directly run different technical analyses (TA) on the market graphs and compare them.`,
+        'Furthermore, the platform allows users to trigger different actions, such as alerting or order placing, when TA conditions are triggered.'
+    ],
+    tech: [
+        {name: 'React', description: 'Library for UI interactivity.', img: reactImg}, 
+        {name: 'Next.js', description: 'React framework.', img: nextJsImg},
+        {name: 'Docker', description: `Framework used for frontend.`, img: angularImg},
+        {name: 'WebSocket', description: 'Used to receive real-time market information.'}, 
+        {name: 'GraphQL', description: 'For fetching data from the server.', img: graphqlImg }, 
+        {name: 'HTML', description: 'For building frontend UI', img: htmlImg},
+        {name: 'CSS', description: 'For building frontend UI', img: cssImg},
+    ],
+    buzzwords: []
 }, {
     title: 'Microsoft Dynamics 365 for Finance and Operations',
     paragraphs: [

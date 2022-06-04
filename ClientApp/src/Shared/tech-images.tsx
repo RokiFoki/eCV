@@ -35,5 +35,6 @@ export { default as scipyImg } from '../Content/Tech/scipy.png';
 export { default as pawnImg } from '../Content/Tech/pawn.png';
 export { default as phpImg } from '../Content/Tech/php.png';
 export { default as graphqlImg } from '../Content/Tech/graphql.png';
+export { default as nextJsImg } from '../Content/Tech/next.js.png';
 export { default as htmlImg } from '../Content/Tech/html.png';
 export { default as cssImg } from '../Content/Tech/css.png';

@@ -89,13 +89,13 @@ const skills: ISkillNoLevel[] = [{
             }, {
                 name: 'AngularJS',
                 children: [],
-                experience: 90,
+                experience: 85,
                 url: angularImg
             }]
         }, {
             name: 'React',
             children: [],
-            experience: 75,
+            experience: 95,
             url: reactImg
         }]
     }]

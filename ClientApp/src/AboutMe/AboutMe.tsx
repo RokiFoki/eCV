@@ -107,17 +107,17 @@ const AboutMe: React.FC = () => {
           Let me tell you about me!
         </Paragraph>
         <Paragraph>
-          My name is Roko Krstulović and I am an experienced full-stack web developer with expertise in
+          My name is Roko Krstulović, an experienced full-stack web developer with expertise in
             <Link to="/skills/list?tech=.NET,Node.js,React,Angular"> .NET, Node.js, React and Angular </Link>
           for more than {years} years. 
-          I started my IT career at a very early age. On my 19th birthday, I won first place in a Regional Competition in Algorithms (Infokup). I graduated (with honors: magna cum laude) masters at the Faculty of Electrical Engineering and Computing.
+          I started my IT career at a very early age. On my 19th birthday, I won first place in a Regional Competition in Algorithms (Infokup). I graduated (with honors: magna cum laude) masters from the Faculty of Electrical Engineering and Computing.
         </Paragraph>
         <Paragraph>
-          I’ve worked on a large cloud base SAAS solution at Microsoft that is used by millions of users every day. I’ve developed obstacle detection and movement logic for an autonomous drone for measuring network benchmarks around high buildings at Ericsson. 
+          I’ve worked on a large cloud-based SAAS solution at Microsoft that millions of users use every day. I’ve developed obstacle detection and movement logic for an autonomous drone for measuring network benchmarks around high buildings at Ericsson. 
           There are other projects I am proud of that you can find under <Link to="/projects">Projects</Link>.
         </Paragraph>
         <Paragraph>
-          You can find the full list of my skills with related projects I've used them on under <Link to="/skills">Skills</Link>.
+          You can find the complete list of my skills with related projects I've used them on under <Link to="/skills">Skills</Link>.
         </Paragraph>
       </Typography>
     </section>
@@ -126,10 +126,10 @@ const AboutMe: React.FC = () => {
     <Typography className={`${styles.salaryExpectation}`}>
       <PageHeader title="Hire me?" className="page-title" />
       <Paragraph>
-        Are you considering to hire me but you are still not sure or maybe your company is offering referral bonus? <Link to="/contact"> Lets have a chat!</Link> 
+        Are you considering hiring me, but you are still unsure, or maybe your company is offering a referral bonus? <Link to="/contact"> Let us have a chat!</Link> 
       </Paragraph>      
       <Paragraph>
-        Check my expectaton using following slider.
+        Please check my expectation using the following slider.
       </Paragraph>
 
       Salary type: <Select value={paymentType} onChange={selectPaymentType} style={{minWidth: 100}}>

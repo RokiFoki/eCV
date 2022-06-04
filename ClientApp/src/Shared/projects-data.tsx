@@ -9,10 +9,10 @@ import poslovkoImg from '../Content/poslovko.png';
 export declare type IProject = IProjectProps;
 
 const projects: IProject[] = [{
-    title: 'Self flying drone for network performance measurements',
+    title: 'Self-flying drone for network performance measurements',
     img: {source: droneImg, alt: 'Project diagram',  width: 650},
-    paragraphs: ['The project involved a drone that is self-controlled, holding an Android device that measures network bandwidth. The position, status, and network bandwidth are displayed in real-time on a web application where users can send basic commands to the drone. The drone has sensors on it making it able to avoid obstacles on the given path.',
-        'I worked on the development of the AI for drone movement, real-time communication with the server, server with real-time information about the drone’s position and status. Assisted in developing measurement tests for the Android device that the drone was holding.'],
+    paragraphs: ['The project involved a self-controlled drone holding an Android device that measures network bandwidth. The Web application displays the position, status, and network bandwidth in real-time. Additionally, the users can send basic commands to the drone through the Web application. The drone has sensors on it, making it able to avoid obstacles on the given path.',
+        'I worked on developing the AI for drone movement, real-time communication with the server, and server with real-time information about the drone’s position and status. I assisted in developing measurement tests for the Android device that the drone was holding.'],
     tech: [
         {name: '.NET', description: 'Used for server backend.', img: dotNetImg}, 
         {name: 'SignalR', description: 'Used to send information in real-time from server to the browser.', img: signalRImg},
@@ -32,9 +32,9 @@ const projects: IProject[] = [{
     ],
     buzzwords: ['IOT', 'AI', 'ML', 'Algorithms']
 }, {
-    title: 'Work marketplace for finding workers for your shortterm projects - PosLovko',
+    title: 'Work marketplace for finding workers for your short-term projects - PosLovko',
     img: {source: poslovkoImg, alt: 'PosLovko UI',  width: 650},
-    paragraphs: ['The platform allows clients to post jobs (when looking for professional help). Professionals, with the advanced search, can find related jobs and apply to them. Similarly, professionals can post their services to allow customers to contact them directly. Platform eases communication between client and professional with its real-time chat functionality and notification system. After the professional finishes the task, the client gives a review to the professional, and the professional gives a review for the client that is used for future ranking.',
+    paragraphs: ['The platform allows clients to post jobs (when looking for professional help). With the advanced search, professionals can find related jobs and apply to them. Similarly, professionals can publish their services to allow customers to contact them directly. Platform eases communication between client and professional with its real-time chat functionality and notification system. After the professional finishes the task, the client gives a review to the professional, and the professional gives a review for the client that is used for future ranking.',
         `I've developed the whole platform myself.`],
     tech: [
         {name: 'Node.js', description: 'Used for server backend.', img: nodejsImg}, 
@@ -52,9 +52,9 @@ const projects: IProject[] = [{
 }, {
     title: 'SAAS for settling insurance claims',
     paragraphs: [
-        `The solution connects the insurance company, its policyholders with item suppliers and item repair companies allowing policyholders to create claims, which can be settled with a replacement or repair depending on the mutual agreement.`,
-        `For the solution, microservice architecture is used. Its logic is split into different services which work together and accomplish successful SAAS. There is a service for processing feed files from suppliers that populates/updates the database with available settlements, a service for serving UI for insurance company handlers, a service for finding products that would best replace the item in the claim, a service for serving UI for policyholders, service for processing and ordering settlements, service for booking collections/inspections/repairs, service for invoice generation and other internal services. Mentioned services communicate using message queue and REST HTTP requests.`,
-        `I've worked on most of the services, but mostly on the one for UI for insurance company handlers which I took ownership off.`
+        `The solution connects the insurance company and its policyholders with item suppliers and item repair companies allowing policyholders to create claims that will be settled with a replacement or repair depending on the mutual agreement.`,
+        `The project is implemented with a Microservice architecture. Application logic is split into different services which work together and accomplish a successful SAAS. There is a service for processing feed files from suppliers that populates/updates the database with available settlements, a service for serving UI for insurance company handlers, a service for finding products that would best replace the item of the claim, a service for serving UI for policyholders, service for processing and ordering settlements, service for booking collections/inspections/repairs, service for invoice generation and other internal services. Mentioned services communicate using message queue and REST HTTP requests.`,
+        `I've worked on most of the services, but mainly on the one for UI for insurance company handlers which I took ownership of.`
     ],
     tech: [
         {name: '.NET', description: 'Used for server backend.', img: dotNetImg}, 
@@ -94,7 +94,7 @@ const projects: IProject[] = [{
     title: 'Microsoft Dynamics 365 for Finance and Operations',
     paragraphs: [
         <>Enterprise resource planning system for medium to large organizations covering the full spectrum of accounting, financial management, production, advanced warehousing and transportation management (<a href="https://www.google.com/search?q=what+is+microsoft+dynamics+365+for+finance+and+operations" target="_blank" rel="noopener noreferrer">google for more</a>).</>,
-        <>The system is split into many modules. I've worked on a warehouse module that was solving challenges with inventory (such as "putting", "picking", counting, reserving inventory, etc). Generating works for the warehouse workers when orders received and <a href="https://docs.microsoft.com/en-us/dynamics365/supply-chain/warehousing/warehouse-management-overview" target="_blank" rel="noopener noreferrer">plenty of other stuff</a>.</>,
+        <>The system is split into many modules. I've worked on a warehouse module that was solving challenges with inventory (such as "putting", "picking", counting, reserving inventory, etc.). Generating works for the warehouse workers when orders are received and <a href="https://docs.microsoft.com/en-us/dynamics365/supply-chain/warehousing/warehouse-management-overview" target="_blank" rel="noopener noreferrer">plenty of other stuff</a>.</>,
     ],
     tech: [
         {name: 'X++', description: 'Used for backend and frontend.'}, 
@@ -106,9 +106,9 @@ const projects: IProject[] = [{
 } ,{
     title: 'Codeswifter - App for scaffolding applications from Database/Data models',
     paragraphs: [
-        <>Web application that allows you to import your database schema and scaffold apps using it with custom defined templates.</>,
-        <>Its arhitected in a way that the projects created can be shared within multiple users in he same team.</>,
-        <>I worked on part of the frontend of the app and I've done little bits on the backend.</>
+        <>A Web application that allows you to import your database schema and scaffold apps using custom-defined templates.</>,
+        <>It's architected so that multiple users can share the projects created by the same team.</>,
+        <>I worked on UI part of the App, and I've done little bits on the server-side.</>
     ],
     tech: [
         {name: '.NET', description: 'Used for backend.', img: dotNetImg}, 
@@ -143,7 +143,7 @@ const projects: IProject[] = [{
 }, {
     title: 'Tractor Plowing Tracking App',
     paragraphs: [
-        <>Web platform for tracking field plowing by tractors. It allows users to see the current position of tractors and their movement through the past.</>,
+        <>It is a Web platform for tracking field plowing by tractors. It allows users to see the current position of tractors and their movement through the past.</>,
         <>I've developed the whole app myself.</>,
     ],
     tech: [
@@ -163,7 +163,7 @@ const projects: IProject[] = [{
 }, {
     title: 'Web app for log analysis for PosLovko - Supporko',
     paragraphs: [
-        <>Web application that eases log analysis for PosLovko. It allows users to filter out the errors and display logs generated for a particular job/user which allows easier troubleshooting of production errors.</>,
+        <>It is a Web application that eases log analysis for PosLovko. It allows users to filter out the errors and display logs generated for a particular job/user, allowing easier troubleshooting of production errors.</>,
         <>I've developed the whole app myself.</>,
     ],
     tech: [
@@ -178,9 +178,9 @@ const projects: IProject[] = [{
     ], 
     buzzwords: ['Cloud', 'DevOps']
 }, {
-    title: 'Tuition centre management application',
+    title: 'Tuition center management application',
     paragraphs: [
-        <>The application allows teachers to maintain the time of their courses, their classes and their students.</>,
+        <>The application allows teachers to maintain the time of their courses, their classes, and their students.</>,
         <>I've developed the whole server myself.</>,
     ],
     tech: [
@@ -196,12 +196,7 @@ const projects: IProject[] = [{
     title: 'GTA San Andreas Multiplayer Roleplay Server - Towny RP',
     img: { source: gtaImg, alt: 'GTA San Andreas', width: 542 },
     paragraphs: [
-        <>Towny RP is a custom-made roleplay server for <a href="https://www.sa-mp.com/" target="_blank" rel="noopener noreferrer">San Andreas Multiplayer</a>. On top of what Grand Theft Auto: San Andreas offers, 
-        players can find a job and earn money, join gangs or mafias to fight over the drugs and weapon business. Alternatively, players can join factions. There are Police Departments in 
-        big cities and Sheriffs' Departments in villages that are supposed to fight crime. There are other factions such as ambulance, firefighters, FBI, government, hitman agency and others 
-        that make the roleplay very exciting. Custom casinos have been designed and implemented allowing users to play Holdem Texas Poker. Players distribute given skill points to their 
-        character skills. That makes them unique to other players. Available skills were: strength, health, speed, agility, shooting, reflexes, intelligence, poker, detective, and others. 
-        There are other features that the roleplay server offers.  
+        <>Towny RP is a custom-made roleplay server for <a href="https://www.sa-mp.com/" target="_blank" rel="noopener noreferrer">San Andreas Multiplayer</a>. On top of what Grand Theft Auto: San Andreas offers, players can find a job and, earn money, join gangs or mafias to fight over the drugs and weapon business. Alternatively, players can join factions. There are Police Departments in big cities and Sheriffs' Departments in villages that are supposed to fight crime. Other factions such as ambulance, firefighters, FBI, government, hitman agency, and others make the roleplay very exciting. Custom casinos have been designed and implemented, allowing users to play Holdem Texas Poker. Players distribute given skill points to their character skills. That makes them unique to other players. Available skills were: strength, health, speed, agility, shooting, reflexes, intelligence, poker, detective, and others. There are other features that the roleplay server offers.  
         </>,
         <>I've developed the whole server myself.</>,
     ],

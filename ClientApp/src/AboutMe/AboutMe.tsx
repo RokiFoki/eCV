@@ -128,41 +128,6 @@ const AboutMe: React.FC = () => {
       <Paragraph>
         Are you considering hiring me, but you are still unsure, or maybe your company is offering a referral bonus? <Link to="/contact"> Let us have a chat!</Link> 
       </Paragraph>      
-      <Paragraph>
-        Please check my expectation using the following slider.
-      </Paragraph>
-
-      Salary type: <Select value={paymentType} onChange={selectPaymentType} style={{minWidth: 100}}>
-        <Option value="Annually">Annually</Option>
-        <Option value="Monthly">Monthly</Option>
-        <Option value="Daily">Daily</Option>
-        <Option value="Hourly">Hourly</Option>
-      </Select>
-      <section className={styles.salarySection}>
-        <Slider min={convertAmount(annualSalaryMin, currency, paymentType)} max={convertAmount(annualSalaryMax, currency, paymentType)} 
-          style={{flexGrow: 1, marginRight: 10}}
-          onChange={(value: number) => updateSalary(value)}
-          value={salary} />
-        <Select value={currency} onChange={selectCurrency}>
-          <Option value="$">$</Option>
-          <Option value="€">€</Option>
-          <Option value="£">£</Option>
-        </Select>
-        <InputNumber
-          style={{ width: 100 }}
-          min={convertAmount(annualSalaryMin, currency, paymentType)}
-          max={convertAmount(annualSalaryMax, currency, paymentType)}
-          step={0.01}
-          value={salary}
-          onChange={(value) => updateSalary(value)}
-          formatter={value => `${Number.parseFloat((value || convertAmount(defaultSalary, currency, paymentType)).toString()).toFixed(2)}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-          parser={value => Number.parseFloat(value?.replace(/\$\s?|(,*)/g, '') || `${convertAmount(defaultSalary, currency, paymentType)}`)}
-        />     
-      </section>
-      <section style={{ display: 'flex', gap: 5}}>
-        <span>Likelihood of me accepting the offer:</span> 
-        <span>{salaryMessage()}</span>   
-      </section>
     </Typography>
   </div>
 )};

@@ -37,10 +37,43 @@ const Experience: React.FC = () => (
           {
 `Working remotely for various clients on optimizing and upgrading their software products such as:
 • `} <Text italic>Hidden (NDA)</Text> {`: Created UI components and displayed market information in real-time (charts, WebSockets, UI library).
-• BeValued: Maintained microservice architected SaaS product.
 • PosLovko: Created Node.js/Angular single page application for connecting employers with professionals.
 • Azcal: Created a web application for live and history GPS tracking of vehicles using .Net/React.
 • others`}
+          </Paragraph>
+        </Typography>
+      </Timeline.Item>
+      <Timeline.Item>
+        <Typography>            
+          <Row>
+            <Col span={12}>
+              <Text strong>
+                BeValued (via Alfatoon)
+              </Text>
+            </Col>
+            <Col span={12} style={{textAlign: 'right'}}>
+              <Text strong>
+                Remote
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={12}>
+              <Text italic>
+                Senior Software engineer
+              </Text>
+            </Col>
+            <Col span={12} style={{textAlign: 'right'}}>
+              <Text italic>
+                July 2019 - January 2022
+              </Text>
+            </Col>
+          </Row>
+          <Paragraph style={{whiteSpace: 'pre-wrap'}}>
+          {
+`• Improved microservice B2B SaaS solution for insurance companies.
+• Discussed new features with the product owner, architected them and coordinated their development.
+• Mentored two junior engineers that quickly became independent`}
           </Paragraph>
         </Typography>
       </Timeline.Item>
@@ -72,9 +105,10 @@ const Experience: React.FC = () => (
           </Row>
           <Paragraph style={{whiteSpace: 'pre-wrap'}}>
           {
-`Maintained Microsoft’s ERP SaaS solution, designing and implementing new features, fixing bugs,
-and preventing regression by implementing unit/component/scenario tests. Adding telemetry and creating PowerBI reports
-for error diagnostics. Leaded two vendor teams of four members.`}
+`• Maintained Microsoft’s ERP SaaS solution that consisted of designing and implementing new
+   features, bug fixing, and regression prevention by implementing unit, integration, and scenario tests.. 
+• Adding telemetry and creating PowerBI reports for error diagnostics. 
+• Leaded two vendor teams of four members.`}
           </Paragraph>
         </Typography>
       </Timeline.Item>

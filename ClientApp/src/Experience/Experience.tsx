@@ -116,39 +116,6 @@ with the server and Raspberry Pi.
           </Paragraph>
         </Typography>
       </Timeline.Item>
-      <Timeline.Item>
-        <Typography>            
-          <Row>
-            <Col span={12}>
-              <Text strong>
-                Trovicor
-              </Text>
-            </Col>
-            <Col span={12} style={{textAlign: 'right'}}>
-              <Text strong>
-                Split, Croatia
-              </Text>
-            </Col>
-          </Row>
-          <Row>
-            <Col span={12}>
-              <Text italic>
-                Software developer
-              </Text>
-            </Col>
-            <Col span={12} style={{textAlign: 'right'}}>
-              <Text italic>
-                October 2016 - October 2016
-              </Text>
-            </Col>
-          </Row>
-          <Paragraph style={{whiteSpace: 'pre-wrap'}}>
-          {
-`Upgraded and added new functionality to software for automatic tests and created stress test tooling.`}
-          </Paragraph>
-        </Typography>
-      </Timeline.Item>
-      
     </Timeline>
   </div>
 );

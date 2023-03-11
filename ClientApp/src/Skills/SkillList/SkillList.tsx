@@ -4,7 +4,7 @@ import styles from './SkillList.module.scss';
 import { skillsList } from '../../Shared/skills-data';
 
 
-const data = skillsList.filter(d => !d.children?.length);
+const data = skillsList.filter(d => !d.children?.length).sort((a, b) => b.experience - a.experience);
 
 const orange = 'rgb(255, 153, 51)';
 const yellow = 'hsl(60, 100%, 50%)';

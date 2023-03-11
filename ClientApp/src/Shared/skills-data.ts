@@ -1,4 +1,4 @@
-import { angularImg, awsImg, azureImg, bashImg, cssImg, digitalOceanImg, dockerImg, dotNetImg, graphqlImg, htmlImg, javascriptImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, postgresImg, powerShellImg, pythonImg, reactImg, scipyImg, sqlServerImg, teamCityImg, tensorflowImg } from './tech-images';
+import { angularImg, awsImg, azureImg, bashImg, cssImg, digitalOceanImg, dockerImg, dotNetImg, graphqlImg, htmlImg, javascriptImg, mongoDbImg, mySqlImg, nodejsImg, octopusImg, postgresImg, powerShellImg, pythonImg, reactImg, scipyImg, sqlServerImg, teamCityImg, tensorflowImg, typescriptImg, gitImg } from './tech-images';
 
 export interface ISkillNoLevel {
     level?: number,
@@ -31,15 +31,15 @@ const skills: ISkillNoLevel[] = [{
         name: 'Backend',
         experience: 'max',
         children: [{
+            name: 'Node.js',
+            children: [],
+            experience: 92,
+            url: nodejsImg
+        }, {
             name: '.NET',
             children: [],
             experience: 90,
             url: dotNetImg
-        }, {
-            name: 'Node.js',
-            children: [],
-            experience: 90,
-            url: nodejsImg
         }, {
             name: 'Database',
             experience: 'max',
@@ -59,7 +59,7 @@ const skills: ISkillNoLevel[] = [{
                 }, {
                     name: 'MySQL',
                     children: [],
-                    experience: 50,
+                    experience: 70,
                     url: mySqlImg
                 }]
             }, {
@@ -68,7 +68,7 @@ const skills: ISkillNoLevel[] = [{
                 children: [{
                     name: 'mongoDB',
                     children: [],
-                    experience: 40,
+                    experience: 75,
                     url: mongoDbImg
                 }]
             }]
@@ -77,26 +77,16 @@ const skills: ISkillNoLevel[] = [{
         name: 'Frontend',
         experience: 'max',
         children: [{
-            name: 'Angular',
-            key: 'All Angulars',
-            experience: 'max',
-            children: [{
-                name: 'Angular2+',
-                key: 'Angular',
-                children: [],
-                experience: 90,
-                url: angularImg
-            }, {
-                name: 'AngularJS',
-                children: [],
-                experience: 85,
-                url: angularImg
-            }]
-        }, {
             name: 'React',
             children: [],
             experience: 95,
             url: reactImg
+        }, {
+            name: 'Angular2+',
+            key: 'Angular',
+            children: [],
+            experience: 50,
+            url: angularImg
         }]
     }]
 }, {
@@ -176,25 +166,37 @@ const skills: ISkillNoLevel[] = [{
 }, {
     name: 'GraphQL',
     children: [],
-    experience: 55,
+    experience: 85,
     hideInTree: true,
     url: graphqlImg
 }, {
     name: 'JavaScript',
     children: [],
-    experience: 100,
+    experience: 95,
     hideInTree: true,
     url: javascriptImg
 }, {
+    name: 'TypeScript',
+    children: [],
+    experience: 96,
+    hideInTree: true,
+    url: typescriptImg
+},{
+    name: 'Git',
+    children: [],
+    experience: 93,
+    hideInTree: true,
+    url: gitImg
+}, {
     name: 'HTML',
     children: [],
-    experience: 100,
+    experience: 95,
     hideInTree: true,
     url: htmlImg
 }, {
     name: 'CSS',
     children: [],
-    experience: 100,
+    experience: 95,
     hideInTree: true,
     url: cssImg
 }]

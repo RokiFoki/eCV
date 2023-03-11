@@ -38,3 +38,5 @@ export { default as graphqlImg } from '../Content/Tech/graphql.png';
 export { default as nextJsImg } from '../Content/Tech/next.js.png';
 export { default as htmlImg } from '../Content/Tech/html.png';
 export { default as cssImg } from '../Content/Tech/css.png';
+export { default as typescriptImg } from '../Content/Tech/typescript.png';
+export { default as gitImg } from '../Content/Tech/git.png';

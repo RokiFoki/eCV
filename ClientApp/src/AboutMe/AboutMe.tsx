@@ -107,17 +107,20 @@ const AboutMe: React.FC = () => {
           Let me tell you about me!
         </Paragraph>
         <Paragraph>
-          My name is Roko Krstulović, an experienced full-stack web developer with expertise in
-            <Link to="/skills/list?tech=.NET,Node.js,React,Angular"> .NET, Node.js, React and Angular </Link>
-          for more than {years} years. 
-          I started my IT career at a very early age. On my 19th birthday, I won first place in a Regional Competition in Algorithms (Infokup). I graduated (with honors: magna cum laude) masters from the Faculty of Electrical Engineering and Computing.
+          As a seasoned full-stack web developer with over {years} years of experience, I specialize in leveraging{' '} 
+          <Link to="/skills/list?tech=.NET,Node.js,React,Angular">.NET, Node.js, React, and Angular</Link>{' '} 
+          to create scalable, high-performance web applications. I got an early start in my IT career, winning first place in the Regional Competition in Algorithms (Infokup) on my 19th birthday. Later, I earned a masters degree with honors (magna cum laude) from the Faculty of Electrical Engineering and Computing.
         </Paragraph>
         <Paragraph>
-          I’ve worked on a large cloud-based SAAS solution at Microsoft that millions of users use every day. I’ve developed obstacle detection and movement logic for an autonomous drone for measuring network benchmarks around high buildings at Ericsson. 
-          There are other projects I am proud of that you can find under <Link to="/projects">Projects</Link>.
+        <Link to="/projects?search=Microsoft">At Microsoft</Link>, I played a key role in developing a cloud-based SaaS solution that's used by millions of users worldwide. 
+        I also contributed to the development of <Link to="projects?search=drone">obstacle detection and movement logic for an autonomous drone designed to measure network benchmarks around high buildings</Link> at Ericsson.
         </Paragraph>
         <Paragraph>
-          You can find the complete list of my skills with related projects I've used them on under <Link to="/skills">Skills</Link>.
+        In addition, I worked on a cutting-edge platform that <Link to="/projects?search=market%20dashboard">collects market data and presents it in an intuitive, easy-to-use format</Link>. My focus was on optimizing frontend performance, and I gained extensive experience working with WebSockets.
+        </Paragraph>
+
+        <Paragraph>
+        I am passionate about leveraging my skills and expertise to help businesses achieve their goals and drive growth. Whether you need a full-stack web developer or a specialist in .NET, node.js, React, or Angular, I have the skills and experience necessary to deliver results. Let's connect and see how I can help take your business to the next level!
         </Paragraph>
       </Typography>
     </section>
